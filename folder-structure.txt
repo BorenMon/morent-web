@@ -1,0 +1,40 @@
+/project-root
+│
+├── /assets                 # Assets folder for media, images, fonts, icons, etc.
+│   ├── /images             # Images folder (PNG, JPEG, SVG, etc.)
+│   ├── /fonts              # Fonts (e.g., web fonts)
+│   └── /icons              # Icons (SVG, ICO)
+│
+├── /css                    # CSS folder for styles
+│   ├── main.css            # Main global stylesheet
+│   └── /partials           # Optional: Partial stylesheets (modular CSS files)
+│       ├── header.css
+│       ├── footer.css
+│       └── layout.css
+│
+├── /js                     # JavaScript folder
+│   ├── main.js             # Main JavaScript file
+│   ├── /modules            # Optional: Modular JavaScript files
+│   |   ├── slider.js
+│   |   ├── formValidation.js
+│   |   └── utils.js
+│   └── /services           # Service files for API calls and utilities.
+|       └── strapiAPI.js    # Handles fetching data from Strapi API.
+|
+├── /vendor                 # Optional: Third-party libraries or frameworks (e.g., Bootstrap, jQuery)
+│   ├── /css                # Vendor CSS (e.g., Bootstrap)
+│   ├── /js                 # Vendor JavaScript (e.g., jQuery, Swiper)
+│   └── /fonts              # Vendor fonts (e.g., FontAwesome)
+│
+├── /pages                  # HTML files (or templates) for multi-page websites
+│   ├── index.html          # Main homepage file
+│   ├── about.html          # About page
+│   └── contact.html        # Contact page
+│
+├── /partials               # Optional: Partial HTML templates
+│   ├── header.html
+│   ├── footer.html
+│   └── nav.html
+|
+└── /api                    # API documentation or helper files.
+    └── strapiConfig.js     # Configuration for Strapi API access.
