@@ -6,11 +6,7 @@
 │   └── /icons              # Icons (SVG, ICO)
 │
 ├── /css                    # CSS folder for styles
-│   ├── main.css            # Main global stylesheet
-│   └── /partials           # Optional: Partial stylesheets (modular CSS files)
-│       ├── header.css
-│       ├── footer.css
-│       └── layout.css
+│   └── main.css            # Main global stylesheet
 │
 ├── /js                     # JavaScript folder
 │   ├── main.js             # Main JavaScript file
