@@ -1,5 +1,7 @@
 # Jamstack Website Project with HTML, CSS, JavaScript, and Strapi
 
+![JAMstack](./assets/images/JAMstack.png)
+
 ## Project Overview
 This project is a **Jamstack** website built with **HTML**, **CSS**, **JavaScript**, and powered by **Strapi**, a headless CMS. Jamstack architecture provides faster performance, better security, and improved scalability by decoupling the frontend from the backend. With Strapi, we manage content dynamically, making it easy to update and deploy without rebuilding the entire site.
 
