@@ -12,11 +12,11 @@
 │   ├── main.js             # Main JavaScript file
 │   ├── /modules            # Modular JavaScript files  
 │   └── /services           # Service files for API calls and utilities.
-|       └── directusAPI.js    # Handles fetching data from Strapi API.
+|       └── directusAPI.js  # Handles fetching data from Directus API.
 │
 ├── /pages                  # HTML files for multi-page
 │   ├── /admin              # Pages for Admin
 │   └── /public             # Pages for Consumer
 |
 └── /api                    # API documentation or helper files.
-    └── directusConfig.js     # Configuration for Strapi API access.
+    └── directusConfig.js   # Configuration for Directus API access.
