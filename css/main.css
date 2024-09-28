@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F6F7F9;
+}
+
+header {
+  background: white;
+}
+
+header nav {
+  display: flex;
+  margin: auto;
+  max-width: 80rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+header nav div:nth-child(1) {
+  display: flex;
+}
+
+#logo-link {
+  margin: -0.375rem;
+  padding: 0.375rem;
+}
+
+#logo-img {
+  height: 44;
+  width: auto;
+}
