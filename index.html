@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/pages/home.css">
     <!-- JS -->
     <script src="./js/modules/tailwind.js"></script>
-    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="./js/pages/home.js"></script>
   </head>
   <body>
     <header>
       <nav>
         <div class="lg:flex" id="logo">
           <a href="#" id="logo-link">
-            <img id="logo-img" src="./assets/images/logo/morent-logo.svg" alt="Logo Image">
+            <img class="logo-img" src="./assets/images/logo/morent-logo.svg" alt="Logo Image">
           </a>
         </div>
         <div class="flex lg:hidden">
@@ -108,12 +108,66 @@
 
     <div id="body-wrapper">
       <div id="body">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem sint, ipsa dolore, quod quibusdam inventore quos temporibus incidunt voluptate doloribus rem cum blanditiis dolor dolorem, praesentium enim laudantium excepturi deleniti!
+        <section class="splide">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide">Slide 01</li>
+              <li class="splide__slide">Slide 02</li>
+              <li class="splide__slide">Slide 03</li>
+            </ul>
+          </div>
+        </section>
       </div>
     </div>
     
     <footer>
-
+      <div id="footer">
+        <div>
+          <div class="space-y-[16px]">
+            <img src="./assets/images/logo/morent-logo.svg" alt="Logo" class="logo-img">
+            <p>
+              Our vision is to provide convenience and help increase your sales business.
+            </p>
+          </div>
+          <div class="space-x-[60px]">
+            <div>
+              <h6>About</h6>
+              <ul class="space-y-[20px]">
+                <li><a href="#">How it works</a></li>
+                <li><a href="#">Featured</a></li>
+                <li><a href="#">Partnership</a></li>
+                <li><a href="#">Bussiness Relation</a></li>
+              </ul>
+            </div>
+            <div>
+              <h6>Community</h6>
+              <ul class="space-y-[20px]">
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Podcast</a></li>
+                <li><a href="#">Invite a friend</a></li>
+              </ul>
+            </div>
+            <div>
+              <h6>Socials</h6>
+              <ul class="space-y-[20px]">
+                <li><a href="#">Discord</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Facebook</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <hr/>
+        <div>
+          <h6>©2022 MORENT. All rights reserved</h6>
+          <div class="space-x-[28px]">
+            <a href="#">Privacy & Policy</a>
+            <a href="#">Terms & Condition</a>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

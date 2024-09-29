@@ -8,7 +8,7 @@
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-header {
+header, footer {
   background: white;
 }
 
@@ -18,7 +18,7 @@ header nav {
   max-width: 1440px;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 64px;
+  padding: 1.5rem 56px;
 }
 
 #logo {
@@ -31,7 +31,7 @@ header nav {
   padding: 0.375rem;
 }
 
-#logo-img {
+.logo-img {
   width: 148px;
   height: 44px;
   object-fit: contain;
@@ -89,5 +89,59 @@ header nav {
 #body {
   margin: auto;
   max-width: 1440px;
-  padding: 1.5rem 64px;
+  padding: 1.5rem 56px;
+}
+
+#footer {
+  margin: auto;
+  max-width: 1440px;
+  padding: 60px 56px;
+}
+
+#footer * {
+  font-size: 16px;
+}
+
+#footer > div:nth-of-type(1) {
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: start;
+}
+
+#footer hr {
+  margin: 36px 0;
+}
+
+#footer > div:nth-of-type(1) > div:nth-of-type(1) > p {
+  max-width: 292px;
+}
+
+#footer > div:nth-of-type(1) > div:nth-of-type(2) {
+  display: flex;
+  align-items: start;
+}
+
+#footer > div:nth-of-type(1) > div:nth-of-type(2) div {
+  width: 152px;
+}
+
+#footer > div:nth-of-type(1) > div:nth-of-type(2) div h6 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+#footer > div:nth-of-type(2) {
+  display: flex;
+  justify-content: space-between;
+}
+
+#footer > div:nth-of-type(2) h6, #footer > div:nth-of-type(2) a {
+  font-weight: 600;
+}
+
+#footer > div:nth-of-type(2) div {
+  display: flex;
 }
