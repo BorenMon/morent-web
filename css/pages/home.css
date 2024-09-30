@@ -3,7 +3,12 @@
 @import url('../modules/splide/splide.min.css');
 
 #slide-wrapper li {
+  width: 640px;
   height: 360px;
   background-color: white;
   border-radius: 10px;
+  background-size: cover;
+  padding: 24px;
+  overflow: hidden;
+  position: relative;
 }
