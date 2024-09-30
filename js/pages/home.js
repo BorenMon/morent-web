@@ -14,17 +14,17 @@ async function displaySlides() {
   slides.forEach(slide => {
     const li = document.createElement('li');
     li.className = 'splide__slide';
-    const {background_image} = slide;
+    const {background_image, title, description, text_color, button_text, button_color, button_text_color, popup_image} = slide;
 
-    li.style.backgroundImage = `url('https://boren-do-v1.online/morent-cms/assets/5cce4a7e-fd00-4f46-bfff-f03db2c144a8')`;
+    li.style.backgroundImage = `url(${getAssetUrl(background_image)})`;
     
     li.innerHTML = `
-      <div class="text-white w-[284px] space-y-[16px]">
-        <h2 class="text-[32px] font-[600]">The Best Platform for Car Rental</h2>
-        <p>Ease of doing a car rental safely and reliably. Of course at a low price.</p>
-        <button class="h-[44px] px-[20px] bg-[#3563E9] rounded-[4px]"><a href="#">Rental Car</a></button>
+      <div class="text-[${text_color}] w-[284px] space-y-[16px]">
+        <h2 class="text-[32px] font-[600]">${title}</h2>
+        <p>${description}</p>
+        <button class="h-[44px] px-[20px] bg-[${button_color}] rounded-[4px]" text-[${button_text_color}]><a href="#">${button_text}</a></button>
       </div>
-      <img src="./image 7.png" alt="" class="w-[406px] h-[116px] absolute right-[8%] object-contain">
+      <img src="${getAssetUrl(popup_image)}" alt="" class="w-full h-[116px] absolute right-[8%] object-contain object-right">
     `
 
     slideWrapper.appendChild(li);
