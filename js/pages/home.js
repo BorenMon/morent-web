@@ -14,17 +14,17 @@ async function displaySlides() {
   slides.forEach(slide => {
     const li = document.createElement('li');
     li.className = 'splide__slide';
-    const {background_image, title, description, text_color, button_text, button_color, button_text_color, popup_image} = slide;
+    const {background_image, title, description, text_color, button_text, button_color, button_text_color, popup_image, link_url} = slide;
 
     li.style.backgroundImage = `url(${getAssetUrl(background_image)})`;
     
     li.innerHTML = `
-      <div class="text-[${text_color}] w-[284px] space-y-[16px]">
-        <h2 class="text-[32px] font-[600]">${title}</h2>
+      <div class="text-[${text_color}] space-y-[16px]">
+        <h2>${title}</h2>
         <p>${description}</p>
-        <button class="h-[44px] px-[20px] bg-[${button_color}] rounded-[4px]" text-[${button_text_color}]><a href="#">${button_text}</a></button>
+        <button class="bg-[${button_color}]" text-[${button_text_color}]><a href="${link_url}">${button_text}</a></button>
       </div>
-      <img src="${getAssetUrl(popup_image)}" alt="" class="w-full h-[116px] absolute right-[8%] object-contain object-right">
+      <img src="${getAssetUrl(popup_image)}" alt="">
     `
 
     slideWrapper.appendChild(li);

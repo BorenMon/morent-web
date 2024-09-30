@@ -12,3 +12,37 @@
   overflow: hidden;
   position: relative;
 }
+
+#slide-wrapper li div:nth-of-type(1) {
+  width: 284px;
+}
+
+#slide-wrapper li div:nth-of-type(1) h2 {
+  width: 284px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+#slide-wrapper li div:nth-of-type(1) p {
+  font-size: 16px;
+}
+
+#slide-wrapper li div:nth-of-type(1) button {
+  border-radius: 4px;
+  height: 44px; 
+  padding: 0 20px;
+}
+
+#slide-wrapper li div:nth-of-type(1) a {
+  font-size: 16px;
+}
+
+#slide-wrapper li img {
+  height: 116px; 
+  position: absolute;
+  right: 8%; 
+  object-fit: contain;
+  object-position: right center;
+  bottom: 24px;
+  padding-left: 24px;
+}
