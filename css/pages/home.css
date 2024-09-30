@@ -1,2 +1,9 @@
 @import url('../main.css');
+@import url('../modules/splide/splide-core.min.css');
+@import url('../modules/splide/splide.min.css');
 
+#slide-wrapper li {
+  height: 360px;
+  background-color: white;
+  border-radius: 10px;
+}

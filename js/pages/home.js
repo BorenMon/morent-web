@@ -1,7 +1,10 @@
 import '../main.js'
-
 import '../modules/splide.min.js'
 
-new Splide( '.splide', {
+new Splide('.splide', {
   rewind: true,
-} ).mount();
+  perPage: 2,
+  arrows: false,
+  pagination: false,
+  gap: '32px'
+}).mount();
