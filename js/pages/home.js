@@ -24,7 +24,7 @@ async function displaySlides() {
       <div class="text-[${text_color}] space-y-[16px]">
         <h2>${title}</h2>
         <p>${description}</p>
-        <button class="bg-[${button_color}]" text-[${button_text_color}]><a href="${link_url}">${button_text}</a></button>
+        <button class="bg-[${button_color}] slide-button" text-[${button_text_color}]><a href="${link_url}">${button_text}</a></button>
       </div>
       <img src="${getAssetUrl(popup_image)}" alt="" class="pl-[${index == 0 ? '24px' : '56px'}]">
     `
