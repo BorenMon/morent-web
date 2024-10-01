@@ -6,11 +6,14 @@
 │   └── /icons              # Icons (SVG, ICO)
 │
 ├── /css                    # CSS folder for styles
-│   └── main.css            # Main global stylesheet
+│   ├── main.css            # Main global stylesheet
+│   ├── /modules            # Modular CSS files 
+|   └── /pages              # External CSS for each page
 │
 ├── /js                     # JavaScript folder
 │   ├── main.js             # Main JavaScript file
 │   ├── /modules            # Modular JavaScript files  
+|   ├── /pages              # JavaScript for each page
 │   └── /services           # Service files for API calls and utilities.
 |       └── directusAPI.js  # Handles fetching data from Directus API.
 │
@@ -18,5 +21,5 @@
 │   ├── /admin              # Pages for Admin
 │   └── /public             # Pages for Consumer
 |
-└── /api                    # API documentation or helper files.
+└── /config                    # Config files.
     └── directusConfig.js   # Configuration for Directus API access.

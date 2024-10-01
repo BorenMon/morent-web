@@ -1,5 +1,5 @@
 import '../modules/axios.min.js';
-import directusConfig from '../../api/directusConfig.js';
+import directusConfig from '../../config/directusConfig.js';
 
 // Create an axios instance with the base URL from the config
 const api = axios.create({
