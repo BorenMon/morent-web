@@ -21,5 +21,5 @@
 │   ├── /admin              # Pages for Admin
 │   └── /public             # Pages for Consumer
 |
-└── /config                    # Config files.
+└── /config                 # Config files.
     └── directusConfig.js   # Configuration for Directus API access.

@@ -1,6 +1,7 @@
 @import url('../main.css');
 @import url('../modules/splide/splide-core.min.css');
 @import url('../modules/splide/splide.min.css');
+@import url('../modules/select2.min.css');
 
 #slide-wrapper li {
   width: 640px;
@@ -44,5 +45,239 @@
   object-fit: contain;
   object-position: right center;
   bottom: 24px;
+}
+
+/* Change the border of the Select2 container */
+.select .select2-container .select2-selection--single {
+  border: none; /* Change border color */
+  border-radius: 0; /* Round the corners */
+  height: 40px; /* Set height */
+  outline: none; /* Remove outline */
+}
+
+/* Change the color of the selected item text */
+.select .select2-container .select2-selection--single .select2-selection__rendered {
+  color: #90A3BF; /* Text color */
+  line-height: 38px; /* Center text vertically */
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Change the placeholder color */
+.select .select2-container .select2-selection--single .select2-selection__placeholder {
+  color: #90A3BF; /* Placeholder text color */
+}
+
+/* Change the style of dropdown items */
+.select .select2-container .select2-results__option {
+  color: #212529; /* Item text color */
+  padding: 8px 12px; /* Padding for items */
+}
+
+/* Change the hover effect for dropdown items */
+.select .select2-container .select2-results__option--highlighted[aria-selected] {
+  background-color: #3563E9; /* Background color when highlighted */
+  color: white; /* Text color when highlighted */
+}
+
+/* Optional: Add focus styles */
+.select .select2-container .select2-selection--single:focus {
+  border: none; /* Border color when focused */
+  outline: none; /* Remove default outline */
+}
+
+/* Optional: Add transition effects */
+.select .select2-container .select2-selection--single {
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field:focus {
+  outline: none;
+}
+
+.select .select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 8px;
+}
+
+#booking {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+}
+
+#swap-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #3563E9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-container {
+  flex-grow: 1;
+  padding: 24px 48px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.booking-container > div:nth-of-type(1) {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px
+}
+
+.booking-container > div:nth-of-type(1) img {
+  width: 16px;
+  height: 16px;
+}
+
+.booking-container > div:nth-of-type(1) h3 {
+  margin-left: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.booking-container > div:nth-of-type(2) {
+  display: flex;
+}
+
+.booking-container > div:nth-of-type(2) > div {
+  flex-grow: 1;
+  padding-top: 4px;
+}
+
+.booking-container > div:nth-of-type(2) > div > input {
+  width: 100%;
+  color: #90A3BF;
+  height: 38px;
+}
+
+.booking-container > div:nth-of-type(2) > div > input:focus {
+  outline: none;
+}
+
+.booking-container > div:nth-of-type(2) > div > h4 {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.booking-container > div:nth-of-type(2) > div:nth-of-type(1) {
+  padding-right: 24px;
+}
+
+.booking-container > div:nth-of-type(2) > div:nth-of-type(2) {
+  padding-right: 24px;
   padding-left: 24px;
+  border-left: #C3D4E9 1px solid;
+  border-right: #C3D4E9 1px solid;
+}
+
+.booking-container > div:nth-of-type(2) > div:nth-of-type(3) {
+  padding-left: 24px;
+}
+
+@media (max-width: 1420px) {
+  #booking {
+    flex-direction: column;
+  }
+
+  #booking > div:nth-of-type(2), #booking > div:nth-of-type(3) {
+    margin: 0;
+  }
+
+  #booking > div:nth-of-type(2) {
+    margin-top: -12px;
+    margin-bottom: -12px;
+    z-index: 8;
+  }
+
+  #booking > div:nth-of-type(1), #booking > div:nth-of-type(3) {
+    width: 100%;
+    overflow-x: auto
+  }
+}
+
+.car-card {
+  width: 304px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 388px;
+}
+
+.car-card > div:nth-of-type(1) {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.car-card > img {
+  width: 232px;
+  object-fit: contain;
+}
+
+.car-card > div:nth-of-type(2) {
+  width: 100%;
+}
+
+.car-card > div:nth-of-type(2) > div:nth-of-type(1) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.car-card > div:nth-of-type(2) > div:nth-of-type(1) > div {
+  display: flex;
+  align-items: center;
+}
+
+.car-card > div:nth-of-type(2) > div:nth-of-type(1) > div > img {
+  margin-right: 6px;
+}
+
+.car-card > div:nth-of-type(2) > div:nth-of-type(1) > div > span {
+  font-weight: 500;
+  font-size: 14px;
+  color: #90A3BF;
+}
+
+.car-card > div:nth-of-type(2) > div:nth-of-type(2) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#recommendation {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+}
+
+#recommendation .car-card {
+  width: 100%;
+}
+
+@media (max-width: 1440px) {
+  #recommendation {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  #recommendation {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 770px) {
+  #recommendation {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }

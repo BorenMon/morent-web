@@ -90,13 +90,526 @@
 
     <div id="body-wrapper">
       <div id="body" class="container-fluid">
-        <section class="splide">
+        <section id="slider" class="splide">
           <div class="splide__track">
             <ul class="splide__list" id="slide-wrapper">
               <!-- Generate by JavaScript -->
             </ul>
           </div>
         </section>
+        <div id="booking" class="space-x-[44px]">
+          <div class="booking-container">
+            <div>
+              <img src="./assets/icons/mark.svg" alt="">
+              <h3>Pick - Up</h3>
+            </div>
+            <div>
+              <div>
+                <h4>Location</h4>
+                <div class="select">
+                  <select name="pickup-city" class="city"></select>
+                </div>
+              </div>
+              <div>
+                <h4>Date</h4>
+                <input type="date">
+              </div>
+              <div>
+                <h4>Time</h4>
+                <input type="time">
+              </div>
+            </div>
+          </div>
+          <div id="swap-icon">
+            <img src="./assets/icons/swap.svg" alt="" class="icon">
+          </div>
+          <div class="booking-container">
+            <div>
+              <img src="./assets/icons/mark.svg" alt="">
+              <h3>Drop - Off</h3>
+            </div>
+            <div>
+              <div>
+                <h4>Location</h4>
+                <div class="select">
+                  <select name="pickup-city" class="city"></select>
+                </div>
+              </div>
+              <div>
+                <h4>Date</h4>
+                <input type="date">
+              </div>
+              <div>
+                <h4>Time</h4>
+                <input type="time">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mb-[20px] mt-[36px] h-[44px] px-[20px]">
+          <h5 class="font-semibold text-[#90A3BF]">Popular Car</h5>
+          <a href="/pages/public/category.html" class="text-[#3563E9] font-semibold">View All</a>
+        </div>
+        <section id="popular" class="splide">
+          <div class="splide__track">
+            <ul class="splide__list" id="popular-wrapper">
+              <!-- Generate by JavaScript -->
+              <li class="splide__slide car-card">
+                <div>
+                  <div class="-mt-[5px]">
+                    <div class="text-[20px] font-bold text-[#1A202C]">Koenigsegg</div>
+                    <div class="text-[14px] font-bold text-[#90A3BF]">Sport</div>
+                  </div>
+                  <img src="./assets/icons/heart-outline.svg" alt="" class="icon">
+                </div>
+                <img src="./car.png" alt="">
+                <div class="space-y-[24px]">
+                  <div>
+                    <div>
+                      <img src="./assets/icons/gas-station.svg" alt="" class="icon">
+                      <span>90L</span>
+                    </div>
+                    <div>
+                      <img src="./assets/icons/car.svg" alt="" class="icon">
+                      <span>Manual</span>
+                    </div>
+                    <div>
+                      <img src="./assets/icons/profile-2user.svg" alt="" class="icon">
+                      <span>2 People</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="font-bold">
+                      <div>
+                        <span class="text-[20px] text-[#1A202C]">$80.00/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
+                      </div>
+                      <s class="text-[14px] text-[#90A3BF]">$100</s>
+                    </div>
+                    <button>
+                      Rent Now
+                    </button>
+                  </div>
+                </div>
+              </li>
+              <li class="splide__slide car-card">
+                <div>
+                  <div class="-mt-[5px]">
+                    <div class="text-[20px] font-bold text-[#1A202C]">Koenigsegg</div>
+                    <div class="text-[14px] font-bold text-[#90A3BF]">Sport</div>
+                  </div>
+                  <img src="./assets/icons/heart-outline.svg" alt="" class="icon">
+                </div>
+                <img src="./car.png" alt="">
+                <div class="space-y-[24px]">
+                  <div>
+                    <div>
+                      <img src="./assets/icons/gas-station.svg" alt="" class="icon">
+                      <span>90L</span>
+                    </div>
+                    <div>
+                      <img src="./assets/icons/car.svg" alt="" class="icon">
+                      <span>Manual</span>
+                    </div>
+                    <div>
+                      <img src="./assets/icons/profile-2user.svg" alt="" class="icon">
+                      <span>2 People</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="font-bold">
+                      <div>
+                        <span class="text-[20px] text-[#1A202C]">$80.00/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
+                      </div>
+                      <s class="text-[14px] text-[#90A3BF]">$100</s>
+                    </div>
+                    <button>
+                      Rent Now
+                    </button>
+                  </div>
+                </div>
+              </li>
+              <li class="splide__slide car-card">
+                <div>
+                  <div class="-mt-[5px]">
+                    <div class="text-[20px] font-bold text-[#1A202C]">Koenigsegg</div>
+                    <div class="text-[14px] font-bold text-[#90A3BF]">Sport</div>
+                  </div>
+                  <img src="./assets/icons/heart-outline.svg" alt="" class="icon">
+                </div>
+                <img src="./car.png" alt="">
+                <div class="space-y-[24px]">
+                  <div>
+                    <div>
+                      <img src="./assets/icons/gas-station.svg" alt="" class="icon">
+                      <span>90L</span>
+                    </div>
+                    <div>
+                      <img src="./assets/icons/car.svg" alt="" class="icon">
+                      <span>Manual</span>
+                    </div>
+                    <div>
+                      <img src="./assets/icons/profile-2user.svg" alt="" class="icon">
+                      <span>2 People</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="font-bold">
+                      <div>
+                        <span class="text-[20px] text-[#1A202C]">$80.00/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
+                      </div>
+                      <s class="text-[14px] text-[#90A3BF]">$100</s>
+                    </div>
+                    <button>
+                      Rent Now
+                    </button>
+                  </div>
+                </div>
+              </li>
+              <li class="splide__slide car-card">
+                <div>
+                  <div class="-mt-[5px]">
+                    <div class="text-[20px] font-bold text-[#1A202C]">Koenigsegg</div>
+                    <div class="text-[14px] font-bold text-[#90A3BF]">Sport</div>
+                  </div>
+                  <img src="./assets/icons/heart-outline.svg" alt="" class="icon">
+                </div>
+                <img src="./car.png" alt="">
+                <div class="space-y-[24px]">
+                  <div>
+                    <div>
+                      <img src="./assets/icons/gas-station.svg" alt="" class="icon">
+                      <span>90L</span>
+                    </div>
+                    <div>
+                      <img src="./assets/icons/car.svg" alt="" class="icon">
+                      <span>Manual</span>
+                    </div>
+                    <div>
+                      <img src="./assets/icons/profile-2user.svg" alt="" class="icon">
+                      <span>2 People</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="font-bold">
+                      <div>
+                        <span class="text-[20px] text-[#1A202C]">$80.00/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
+                      </div>
+                      <s class="text-[14px] text-[#90A3BF]">$100</s>
+                    </div>
+                    <button>
+                      Rent Now
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <div class="flex items-center justify-between mb-[20px] mt-[36px] h-[44px] px-[20px]">
+          <h5 class="font-semibold text-[#90A3BF]">Recommendation Car</h5>
+        </div>
+        <div id="recommendation">
+          <div class="car-card">
+            <div>
+              <div class="-mt-[5px]">
+                <div class="text-[20px] font-bold text-[#1A202C]">Koenigsegg</div>
+                <div class="text-[14px] font-bold text-[#90A3BF]">Sport</div>
+              </div>
+              <img src="./assets/icons/heart-outline.svg" alt="" class="icon">
+            </div>
+            <img src="./car.png" alt="">
+            <div class="space-y-[24px]">
+              <div>
+                <div>
+                  <img src="./assets/icons/gas-station.svg" alt="" class="icon">
+                  <span>90L</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/car.svg" alt="" class="icon">
+                  <span>Manual</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/profile-2user.svg" alt="" class="icon">
+                  <span>2 People</span>
+                </div>
+              </div>
+              <div>
+                <div class="font-bold">
+                  <div>
+                    <span class="text-[20px] text-[#1A202C]">$80.00/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
+                  </div>
+                  <s class="text-[14px] text-[#90A3BF]">$100</s>
+                </div>
+                <button>
+                  Rent Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <li class="car-card">
+            <div>
+              <div class="-mt-[5px]">
+                <div class="text-[20px] font-bold text-[#1A202C]">Koenigsegg</div>
+                <div class="text-[14px] font-bold text-[#90A3BF]">Sport</div>
+              </div>
+              <img src="./assets/icons/heart-outline.svg" alt="" class="icon">
+            </div>
+            <img src="./car.png" alt="">
+            <div class="space-y-[24px]">
+              <div>
+                <div>
+                  <img src="./assets/icons/gas-station.svg" alt="" class="icon">
+                  <span>90L</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/car.svg" alt="" class="icon">
+                  <span>Manual</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/profile-2user.svg" alt="" class="icon">
+                  <span>2 People</span>
+                </div>
+              </div>
+              <div>
+                <div class="font-bold">
+                  <div>
+                    <span class="text-[20px] text-[#1A202C]">$80.00/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
+                  </div>
+                  <s class="text-[14px] text-[#90A3BF]">$100</s>
+                </div>
+                <button>
+                  Rent Now
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="car-card">
+            <div>
+              <div class="-mt-[5px]">
+                <div class="text-[20px] font-bold text-[#1A202C]">Koenigsegg</div>
+                <div class="text-[14px] font-bold text-[#90A3BF]">Sport</div>
+              </div>
+              <img src="./assets/icons/heart-outline.svg" alt="" class="icon">
+            </div>
+            <img src="./car.png" alt="">
+            <div class="space-y-[24px]">
+              <div>
+                <div>
+                  <img src="./assets/icons/gas-station.svg" alt="" class="icon">
+                  <span>90L</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/car.svg" alt="" class="icon">
+                  <span>Manual</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/profile-2user.svg" alt="" class="icon">
+                  <span>2 People</span>
+                </div>
+              </div>
+              <div>
+                <div class="font-bold">
+                  <div>
+                    <span class="text-[20px] text-[#1A202C]">$80.00/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
+                  </div>
+                  <s class="text-[14px] text-[#90A3BF]">$100</s>
+                </div>
+                <button>
+                  Rent Now
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="car-card">
+            <div>
+              <div class="-mt-[5px]">
+                <div class="text-[20px] font-bold text-[#1A202C]">Koenigsegg</div>
+                <div class="text-[14px] font-bold text-[#90A3BF]">Sport</div>
+              </div>
+              <img src="./assets/icons/heart-outline.svg" alt="" class="icon">
+            </div>
+            <img src="./car.png" alt="">
+            <div class="space-y-[24px]">
+              <div>
+                <div>
+                  <img src="./assets/icons/gas-station.svg" alt="" class="icon">
+                  <span>90L</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/car.svg" alt="" class="icon">
+                  <span>Manual</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/profile-2user.svg" alt="" class="icon">
+                  <span>2 People</span>
+                </div>
+              </div>
+              <div>
+                <div class="font-bold">
+                  <div>
+                    <span class="text-[20px] text-[#1A202C]">$80.00/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
+                  </div>
+                  <s class="text-[14px] text-[#90A3BF]">$100</s>
+                </div>
+                <button>
+                  Rent Now
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="car-card">
+            <div>
+              <div class="-mt-[5px]">
+                <div class="text-[20px] font-bold text-[#1A202C]">Koenigsegg</div>
+                <div class="text-[14px] font-bold text-[#90A3BF]">Sport</div>
+              </div>
+              <img src="./assets/icons/heart-outline.svg" alt="" class="icon">
+            </div>
+            <img src="./car.png" alt="">
+            <div class="space-y-[24px]">
+              <div>
+                <div>
+                  <img src="./assets/icons/gas-station.svg" alt="" class="icon">
+                  <span>90L</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/car.svg" alt="" class="icon">
+                  <span>Manual</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/profile-2user.svg" alt="" class="icon">
+                  <span>2 People</span>
+                </div>
+              </div>
+              <div>
+                <div class="font-bold">
+                  <div>
+                    <span class="text-[20px] text-[#1A202C]">$80.00/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
+                  </div>
+                  <s class="text-[14px] text-[#90A3BF]">$100</s>
+                </div>
+                <button>
+                  Rent Now
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="car-card">
+            <div>
+              <div class="-mt-[5px]">
+                <div class="text-[20px] font-bold text-[#1A202C]">Koenigsegg</div>
+                <div class="text-[14px] font-bold text-[#90A3BF]">Sport</div>
+              </div>
+              <img src="./assets/icons/heart-outline.svg" alt="" class="icon">
+            </div>
+            <img src="./car.png" alt="">
+            <div class="space-y-[24px]">
+              <div>
+                <div>
+                  <img src="./assets/icons/gas-station.svg" alt="" class="icon">
+                  <span>90L</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/car.svg" alt="" class="icon">
+                  <span>Manual</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/profile-2user.svg" alt="" class="icon">
+                  <span>2 People</span>
+                </div>
+              </div>
+              <div>
+                <div class="font-bold">
+                  <div>
+                    <span class="text-[20px] text-[#1A202C]">$80.00/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
+                  </div>
+                  <s class="text-[14px] text-[#90A3BF]">$100</s>
+                </div>
+                <button>
+                  Rent Now
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="car-card">
+            <div>
+              <div class="-mt-[5px]">
+                <div class="text-[20px] font-bold text-[#1A202C]">Koenigsegg</div>
+                <div class="text-[14px] font-bold text-[#90A3BF]">Sport</div>
+              </div>
+              <img src="./assets/icons/heart-outline.svg" alt="" class="icon">
+            </div>
+            <img src="./car.png" alt="">
+            <div class="space-y-[24px]">
+              <div>
+                <div>
+                  <img src="./assets/icons/gas-station.svg" alt="" class="icon">
+                  <span>90L</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/car.svg" alt="" class="icon">
+                  <span>Manual</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/profile-2user.svg" alt="" class="icon">
+                  <span>2 People</span>
+                </div>
+              </div>
+              <div>
+                <div class="font-bold">
+                  <div>
+                    <span class="text-[20px] text-[#1A202C]">$80.00/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
+                  </div>
+                  <s class="text-[14px] text-[#90A3BF]">$100</s>
+                </div>
+                <button>
+                  Rent Now
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="car-card">
+            <div>
+              <div class="-mt-[5px]">
+                <div class="text-[20px] font-bold text-[#1A202C]">Koenigsegg</div>
+                <div class="text-[14px] font-bold text-[#90A3BF]">Sport</div>
+              </div>
+              <img src="./assets/icons/heart-outline.svg" alt="" class="icon">
+            </div>
+            <img src="./car.png" alt="">
+            <div class="space-y-[24px]">
+              <div>
+                <div>
+                  <img src="./assets/icons/gas-station.svg" alt="" class="icon">
+                  <span>90L</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/car.svg" alt="" class="icon">
+                  <span>Manual</span>
+                </div>
+                <div>
+                  <img src="./assets/icons/profile-2user.svg" alt="" class="icon">
+                  <span>2 People</span>
+                </div>
+              </div>
+              <div>
+                <div class="font-bold">
+                  <div>
+                    <span class="text-[20px] text-[#1A202C]">$80.00/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
+                  </div>
+                  <s class="text-[14px] text-[#90A3BF]">$100</s>
+                </div>
+                <button>
+                  Rent Now
+                </button>
+              </div>
+            </div>
+          </li>
+        </div>
+        <div class="my-[64px] flex ml-auto w-1/2 justify-between items-center">
+          <button class="-translate-x-1/2"><a href="/pages/public/category.html">Show more car</a></button>
+          <div>120 Car</div>
+        </div>
       </div>
     </div>
     
