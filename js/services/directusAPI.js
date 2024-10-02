@@ -18,7 +18,7 @@ export const getAssetUrl = (fileId) => {
 export const fetchCollection = async (collectionName) => {
   try {
     const response = await api.get(`/${collectionName}`);
-    return response.data.data; // Directus response typically has a 'data' object
+    return response.data; // Directus response typically has a 'data' object
   } catch (error) {
     console.error(`Error fetching ${collectionName}:`, error);
     throw error;
