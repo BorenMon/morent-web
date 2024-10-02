@@ -116,6 +116,8 @@ nav:nth-of-type(2) {
 
 #nav {
   display: flex;
+  margin: auto;
+  max-width: 1440px;
 }
 
 #nav li {
