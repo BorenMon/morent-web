@@ -281,3 +281,11 @@
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
+
+.favorite {
+  cursor: pointer;
+}
+
+.favorite:active {
+  transform: scale(0.8);
+}

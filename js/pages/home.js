@@ -3,6 +3,7 @@ import '../modules/splide.min.js'
 import '../modules/select2.min.js'
 import { getAssetUrl, fetchCollection } from '../services/directusAPI.js';
 import { cities } from '../../config/locationMasterData.js'
+import { formatToTwoDecimals, refreshFavoriteEvent, checkIsFavorite } from '../../config/utils.js';
 
 const displaySlides = async () => {
   const slides = (await fetchCollection('slides?filter[status][_eq]=published')).data;
@@ -58,11 +59,14 @@ const displayPopulalar = async () => {
   const cars = (await fetchCollection('cars?filter[status][_eq]=published&filter[rent_times][_gte]=50&limit=8')).data;
 
   const popularWrapper = document.getElementById('popular-wrapper');
+  popularWrapper.innerHTML = ''; // Clear previous content
 
   cars.forEach((car) => {
     const li = document.createElement('li');
     li.className = 'splide__slide car-card';
-    const { model, category, card_image, gasoline, type, capacity, price, has_promotion, promotion_price } = car;
+    const { id, model, category, card_image, gasoline, type, capacity, price, has_promotion, promotion_price } = car;
+    li.setAttribute('data-id', id);
+    const { iconPath } = checkIsFavorite(id);
     
     li.innerHTML = `
       <div>
@@ -70,7 +74,7 @@ const displayPopulalar = async () => {
           <div class="text-[20px] font-bold text-[#1A202C]">${model}</div>
           <div class="text-[14px] font-bold text-[#90A3BF]">${category}</div>
         </div>
-        <img src="./assets/icons/heart-outline.svg" alt="" class="icon">
+        <img src="${iconPath}" alt="" class="icon favorite">
       </div>
       <img src="${getAssetUrl(card_image)}" alt="">
       <div class="space-y-[24px]">
@@ -91,9 +95,9 @@ const displayPopulalar = async () => {
         <div>
           <div class="font-bold">
             <div>
-              <span class="text-[20px] text-[#1A202C]">$${has_promotion ? promotion_price : price}/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
+              <span class="text-[20px] text-[#1A202C]">$${formatToTwoDecimals(has_promotion ? promotion_price : price)}/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
             </div>
-            ${has_promotion ? '<s class="text-[14px] text-[#90A3BF]">$' + price + '</s>' : ''}
+            ${has_promotion ? '<s class="text-[14px] text-[#90A3BF]">$' + formatToTwoDecimals(price) + '</s>' : ''}
           </div>
           <button>
             Rent Now
@@ -113,17 +117,23 @@ displayPopulalar().then(() => {
     gap: '32px',
     autoWidth: true
   }).mount();
-})
+}).then(() => {
+  // Refresh favorite events only after Splide has mounted
+  refreshFavoriteEvent();
+});
 
 const displayRecommendation = async () => {
   const cars = (await fetchCollection('cars?filter[status][_eq]=published&filter[rating][_gte]=4&limit=8')).data;
 
   const recommendation = document.getElementById('recommendation');
+  recommendation.innerHTML = ''; // Clear previous content
 
   cars.forEach((car) => {
     const div = document.createElement('div');
     div.className = 'car-card';
-    const { model, category, card_image, gasoline, type, capacity, price, has_promotion, promotion_price } = car;
+    const { id, model, category, card_image, gasoline, type, capacity, price, has_promotion, promotion_price } = car;
+    div.setAttribute('data-id', id);
+    const { iconPath } = checkIsFavorite(id);
     
     div.innerHTML = `
       <div>
@@ -131,7 +141,7 @@ const displayRecommendation = async () => {
           <div class="text-[20px] font-bold text-[#1A202C]">${model}</div>
           <div class="text-[14px] font-bold text-[#90A3BF]">${category}</div>
         </div>
-        <img src="./assets/icons/heart-outline.svg" alt="" class="icon">
+        <img src="${iconPath}" alt="" class="icon favorite">
       </div>
       <img src="${getAssetUrl(card_image)}" alt="">
       <div class="space-y-[24px]">
@@ -152,9 +162,9 @@ const displayRecommendation = async () => {
         <div>
           <div class="font-bold">
             <div>
-              <span class="text-[20px] text-[#1A202C]">$${has_promotion ? promotion_price : price}/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
+              <span class="text-[20px] text-[#1A202C]">$${formatToTwoDecimals(has_promotion ? promotion_price : price)}/</span> <span class="text-[#90A3BF] text-[14px]">day</span>
             </div>
-            ${has_promotion ? '<s class="text-[14px] text-[#90A3BF]">$' + price + '</s>' : ''}
+            ${has_promotion ? '<s class="text-[14px] text-[#90A3BF]">$' + formatToTwoDecimals(price) + '</s>' : ''}
           </div>
           <button>
             Rent Now
@@ -162,12 +172,12 @@ const displayRecommendation = async () => {
         </div>
       </div>
     `
-
+    
     recommendation.appendChild(div);
   });
 }
 
-displayRecommendation();
+displayRecommendation().then(refreshFavoriteEvent);
 
 const getCarsCount = async () => {
   const carsCount = await fetchCollection('cars?filter[status][_eq]=published&meta=total_count&limit=0');

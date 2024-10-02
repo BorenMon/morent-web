@@ -1,7 +1,7 @@
 import './modules/jquery-3.7.1.slim.min.js'
 
 // Function to open mobile menu
-$('#menu-icon').click(() => {
+$('#menu-icon').on('click', () => {
   $('#mobile-menu').css('transform', 'translateX(0)');
   $('#backdrop').css('display', 'block');
 })
@@ -13,8 +13,8 @@ const closeMobileMenu = () => {
 }
 
 // Close mobile menu on backdrop click or close icon click
-$('#backdrop').click(closeMobileMenu);
-$('#close-icon').click(closeMobileMenu);
+$('#backdrop').on('click', closeMobileMenu);
+$('#close-icon').on('click', closeMobileMenu);
 
 // Media query function to auto-close menu at specific screen width
 const handleResize = (e) => {
