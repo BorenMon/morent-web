@@ -122,7 +122,7 @@ nav:nth-of-type(2) {
 
 #nav li {
   padding: 16px 0;
-  border-bottom: 2px solid transparent;
+  border-bottom: 4px solid transparent;
 }
 
 #nav li a {
@@ -229,6 +229,12 @@ nav:nth-of-type(2) {
   display: flex;
   flex: 1 1 0%; 
   justify-content: flex-end;
+  align-items: center;
+}
+
+#icons-wrapper a:last-of-type {
+  font-weight: 600;
+  display: flex;
 }
 
 @media (max-width: 1100px) {
@@ -267,7 +273,7 @@ nav:nth-of-type(2) {
 #footer {
   margin: auto;
   max-width: 1440px;
-  padding-top: 60px;
+  padding-top: 48px;
   padding-bottom: 60px;
 }
 
