@@ -3,7 +3,7 @@ import '../modules/splide.min.js'
 import '../modules/select2.min.js'
 import { getAssetUrl, fetchCollection } from '../services/directusAPI.js';
 import { cities } from '../../config/locationMasterData.js'
-import { formatToTwoDecimals, refreshFavoriteEvent, checkIsFavorite } from '../../config/utils.js';
+import { formatToTwoDecimals, refreshFavoriteEvent, checkIsFavorite } from '../services/utils.js';
 
 const displaySlides = async () => {
   const slides = (await fetchCollection('slides?filter[status][_eq]=published')).data;
@@ -76,7 +76,7 @@ const displayPopulalar = async () => {
         </div>
         <img src="${iconPath}" alt="" class="icon favorite">
       </div>
-      <img src="${getAssetUrl(card_image)}" alt="">
+      <a href="#"><img src="${getAssetUrl(card_image)}" alt=""></a>
       <div class="space-y-[24px]">
         <div>
           <div>
@@ -143,7 +143,7 @@ const displayRecommendation = async () => {
         </div>
         <img src="${iconPath}" alt="" class="icon favorite">
       </div>
-      <img src="${getAssetUrl(card_image)}" alt="">
+      <a href="#"><img src="${getAssetUrl(card_image)}" alt=""></a>
       <div class="space-y-[24px]">
         <div>
           <div>
