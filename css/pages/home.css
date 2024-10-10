@@ -219,7 +219,7 @@
   width: 100%;
 }
 
-.car-card > img {
+.car-card > a > img {
   width: 232px;
   object-fit: contain;
 }

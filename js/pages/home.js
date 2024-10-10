@@ -76,7 +76,7 @@ const displayPopulalar = async () => {
         </div>
         <img src="${iconPath}" alt="" class="icon favorite">
       </div>
-      <img src="${getAssetUrl(card_image)}" alt="">
+      <a href="#"><img src="${getAssetUrl(card_image)}" alt=""></a>
       <div class="space-y-[24px]">
         <div>
           <div>
@@ -143,7 +143,7 @@ const displayRecommendation = async () => {
         </div>
         <img src="${iconPath}" alt="" class="icon favorite">
       </div>
-      <img src="${getAssetUrl(card_image)}" alt="">
+      <a href="#"><img src="${getAssetUrl(card_image)}" alt=""></a>
       <div class="space-y-[24px]">
         <div>
           <div>
