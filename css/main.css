@@ -46,6 +46,10 @@ button * {
   }
 }
 
+header {
+  border: #c3d4e921 solid 2px;
+}
+
 header, footer {
   background: white;
 }

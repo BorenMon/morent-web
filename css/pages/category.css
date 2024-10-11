@@ -1,0 +1,22 @@
+@import url('../main.css');
+
+#body-wrapper {
+  background: linear-gradient(to right, #FFFFFF 50%, #F6F7F9 50%);
+}
+
+#body {
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+}
+
+#filter {
+  background-color: white;
+  width: 360px;
+  padding: 32px 32px 32px 0;
+}
+
+#category {
+  background-color: #F6F7F9;
+  flex-grow: 1;
+}
