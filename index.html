@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <link rel="shortcut icon" href="./assets/icons/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/icons/favicon.svg" type="image/x-icon">
 
     <title>Home</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/pages/home.css">
+    <link rel="stylesheet" href="/css/pages/home.css">
     <!-- JS -->
-    <script src="./js/modules/tailwind.js"></script>
-    <script type="module" src="./js/pages/home.js"></script>
+    <script src="/js/modules/tailwind.js"></script>
+    <script type="module" src="/js/pages/home.js"></script>
   </head>
   <body>
     <header>
       <nav class="container-fluid">
         <div class="lg:flex" id="logo">
           <a href="/" id="logo-link">
-            <img class="logo-img" src="./assets/images/logo/morent-logo.svg" alt="Logo Image">
+            <img class="logo-img" src="/assets/images/logo/morent-logo.svg" alt="Logo Image">
           </a>
         </div>
         <div id="menu-icon-wrapper">
@@ -28,22 +28,22 @@
           </button>
         </div>
         <div id="search-box-1" class="rounded-full">
-          <img src="./assets/icons/search-normal.svg" alt="" class="icon ml-[18px]">
+          <img src="/assets/icons/search-normal.svg" alt="" class="icon ml-[18px]">
           <input type="text" class="placeholder:text-gray-400 search-input" placeholder="Search something here">
         </div>
         <div id="icons-wrapper" class="space-x-[20px]">
           <a href="#" class="nav-icon">
-            <img src="./assets/icons/heart.svg" alt="" class="icon">
+            <img src="/assets/icons/heart.svg" alt="" class="icon">
           </a>
           <a href="#">
-            <img src="./assets/images/sample-profile.png" alt="Profile" id="nav-profile" class="shadow-md">
+            <img src="/assets/images/sample-profile.png" alt="Profile" id="nav-profile" class="shadow-md">
           </a>
         </div>
       </nav>
       <nav class="container-fluid">
         <div class="space-x-[16px] w-[492px] flex">
           <div id="search-box-2">
-            <img src="./assets/icons/search-normal.svg" alt="" class="icon ml-[18px]">
+            <img src="/assets/icons/search-normal.svg" alt="" class="icon ml-[18px]">
             <input type="text" class="placeholder:text-gray-400 search-input" placeholder="Search something here">
           </div>
         </div>
@@ -54,7 +54,7 @@
       <div id="mobile-menu" class="w-full bg-white px-6 py-6 sm:max-w-sm">
         <div class="flex items-center justify-between">
           <a href="/" id="logo-link">
-            <img class="logo-img" src="./assets/images/logo/morent-logo.svg" alt="Logo Image">
+            <img class="logo-img" src="/assets/images/logo/morent-logo.svg" alt="Logo Image">
           </a>
           <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" id="close-icon">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -69,11 +69,10 @@
               <a href="/pages/public/category.html">Category</a>
               <a href="/pages/public/blogs.html">Blogs</a>
               <a href="/pages/public/contact.html">Contact Us</a>
+              <a href="/pages/public/about.html">About Us</a>
             </div>
             <div class="space-y-2 py-6">
               <a href="#">Favorites</a>
-              <a href="#">Notifications</a>
-              <a href="#">Setting</a>
             </div>
             <div class="py-6">
               <a href="#">Log in</a>
@@ -81,13 +80,14 @@
           </div>
         </div>
       </div>
+      <ul id="nav" class="container-fluid space-x-[32px]">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/pages/public/category.html">Category</a></li>
+        <li><a href="/pages/public/blogs.html">Blogs</a></li>
+        <li><a href="/pages/public/contact.html">Contact Us</a></li>
+        <li><a href="/pages/public/about.html">About Us</a></li>
+      </ul>
     </header>
-    <ul id="nav" class="container-fluid space-x-[32px]">
-      <li class="active"><a href="/">Home</a></li>
-      <li><a href="/pages/public/category.html">Category</a></li>
-      <li><a href="/pages/public/blogs.html">Blogs</a></li>
-      <li><a href="/pages/public/contact.html">Contact Us</a></li>
-    </ul>
 
     <div id="body-wrapper">
       <div id="body" class="container-fluid">
@@ -101,7 +101,7 @@
         <div id="booking" class="space-x-[44px]">
           <div class="booking-container">
             <div>
-              <img src="./assets/icons/mark.svg" alt="">
+              <img src="/assets/icons/mark.svg" alt="">
               <h3>Pick - Up</h3>
             </div>
             <div>
@@ -122,11 +122,11 @@
             </div>
           </div>
           <div id="swap-icon">
-            <img src="./assets/icons/swap.svg" alt="" class="icon">
+            <img src="/assets/icons/swap.svg" alt="" class="icon">
           </div>
           <div class="booking-container">
             <div>
-              <img src="./assets/icons/mark.svg" alt="">
+              <img src="/assets/icons/mark.svg" alt="">
               <h3>Drop - Off</h3>
             </div>
             <div>
@@ -175,7 +175,7 @@
       <div id="footer" class="container-fluid">
         <div>
           <div class="space-y-[16px] mr-[48px] mt-[20px]">
-            <img src="./assets/images/logo/morent-logo.svg" alt="Logo" class="logo-img">
+            <img src="/assets/images/logo/morent-logo.svg" alt="Logo" class="logo-img">
             <p>
               Our vision is to provide convenience and help increase your sales business.
             </p>
