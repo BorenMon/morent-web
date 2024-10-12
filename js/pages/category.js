@@ -13,7 +13,7 @@ $('.city').select2({
 });
 
 const displayRecommendation = async () => {
-  const cars = (await fetchCollection('cars?filter[status][_eq]=published&filter[rating][_gte]=4&limit=9')).data;
+  const cars = (await fetchCollection('cars?filter[status][_eq]=published&limit=9')).data;
 
   const recommendation = document.getElementById('recommendation');
   recommendation.innerHTML = ''; // Clear previous content
@@ -21,7 +21,7 @@ const displayRecommendation = async () => {
   cars.forEach((car) => {
     const div = document.createElement('div');
     div.className = 'car-card';
-    const { id, model, category, card_image, gasoline, type, capacity, price, has_promotion, promotion_price } = car;
+    const { id, model, type, card_image, gasoline, steering, capacity, price, has_promotion, promotion_price } = car;
     div.setAttribute('data-id', id);
     const { iconPath } = checkIsFavorite(id);
     
@@ -29,7 +29,7 @@ const displayRecommendation = async () => {
       <div>
         <div class="-mt-[5px]">
           <div class="text-[20px] font-bold text-[#1A202C]">${model}</div>
-          <div class="text-[14px] font-bold text-[#90A3BF]">${category}</div>
+          <div class="text-[14px] font-bold text-[#90A3BF]">${type}</div>
         </div>
         <img src="${iconPath}" alt="" class="icon favorite">
       </div>
@@ -42,7 +42,7 @@ const displayRecommendation = async () => {
           </div>
           <div>
             <img src="/assets/icons/car.svg" alt="" class="icon">
-            <span>${type}</span>
+            <span>${steering}</span>
           </div>
           <div>
             <img src="/assets/icons/profile-2user.svg" alt="" class="icon">
