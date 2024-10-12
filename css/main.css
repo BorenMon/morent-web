@@ -84,6 +84,14 @@ header nav {
   height: 24px;
 }
 
+.search-icon {
+  cursor: pointer;
+}
+
+.search-icon:active {
+  transform: scale(0.8);
+}
+
 #search-box-1 {
   display: flex;
   border-width: 1px;

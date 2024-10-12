@@ -118,10 +118,15 @@ input[type="range"] {
   margin-right: 8px;
 }
 
-#category {
+#favorites {
   background-color: #F6F7F9;
   width: calc(100% - 328px);
   padding: 32px 0 32px 32px;
+}
+
+#favorites > div {
+  max-height: 2000px;
+  overflow-y: auto;
 }
 
 /* Change the border of the Select2 container */
@@ -276,7 +281,7 @@ input[type="range"] {
 }
 
 .car-card {
-  width: 304px;
+  width: 100%;
   background-color: white;
   border-radius: 10px;
   padding: 24px;
@@ -284,7 +289,7 @@ input[type="range"] {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 388px;
+  overflow-x: auto;
 }
 
 .car-card > div:nth-of-type(1) {
@@ -294,55 +299,71 @@ input[type="range"] {
   width: 100%;
 }
 
-.car-card > a > img {
-  width: 232px;
+.car-card .info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.car-card .info > a {
+  flex-grow: 1;
+  max-width: 450px;
+  display: block;
+  margin: 0 32px;
+  min-width: 330px;
+}
+
+.car-card .info > a > img {
+  width: 100%;
   object-fit: contain;
 }
 
-.car-card > div:nth-of-type(2) {
-  width: 100%;
+.car-card .details {
+  width: 350px;
 }
 
-.car-card > div:nth-of-type(2) > div:nth-of-type(1) {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.car-card .details > div > div > span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #596780;
 }
 
-.car-card > div:nth-of-type(2) > div:nth-of-type(1) > div {
-  display: flex;
-  align-items: center;
-}
-
-.car-card > div:nth-of-type(2) > div:nth-of-type(1) > div > img {
-  margin-right: 6px;
-}
-
-.car-card > div:nth-of-type(2) > div:nth-of-type(1) > div > span {
-  font-weight: 500;
-  font-size: 14px;
+.car-card .details > div > div > span.name {
   color: #90A3BF;
+  width: 121px;
 }
 
-.car-card > div:nth-of-type(2) > div:nth-of-type(2) {
+.car-card .details > div:nth-of-type(1) {
+  display: flex;
+  flex-direction: column;
+}
+
+.car-card .details > div:nth-of-type(2) {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.car-card .details > div:nth-of-type(1) > div {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
-#recommendation {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
-}
+@media (max-width: 850px) {
+  .car-card .info {
+    flex-direction: column;
+  }
 
-#recommendation .car-card {
-  width: 100%;
-}
+  .car-card .info > a {
+    max-width: 100%;
+    margin-top: 40px;
+  }
 
-@media (max-width: 1400px) {
-  #recommendation {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .car-card .details {
+    margin-top: 32px;
+    max-width: 100%;
+    min-width: 300px;
   }
 }
 
@@ -352,12 +373,6 @@ input[type="range"] {
 
 .favorite:active {
   transform: scale(0.8);
-}
-
-@media (max-width: 730px) {
-  #recommendation {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
 }
 
 #filter-button {
@@ -378,7 +393,7 @@ input[type="range"] {
   display: none;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   #filter-button {
     display: inline-block;
   }
@@ -411,7 +426,7 @@ input[type="range"] {
     background: linear-gradient(to right, #F6F7F9 50%, #F6F7F9 50%);
   }
 
-  #category {
+  #favorites {
     padding-left: 0;
     width: 100%;
   }
