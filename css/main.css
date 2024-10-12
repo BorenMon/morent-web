@@ -202,7 +202,7 @@ nav:nth-of-type(2) {
   background-color: #F9FAFB;
 }
 
-#backdrop {
+.backdrop {
   display: none;
   position: fixed;
   background-color: #000000c5;
@@ -255,16 +255,6 @@ nav:nth-of-type(2) {
 
   #icons-wrapper {
     display: none;
-  }
-
-  #body::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 127px;
-    top: 0;
-    left: 0;
-    background-color: white;
   }
 }
 
@@ -335,4 +325,59 @@ nav:nth-of-type(2) {
     justify-content: space-between;
     margin-bottom: 24px;
   }
+}
+
+/* Components */
+/* Hide the default checkbox */
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Create the unchecked state */
+input[type="checkbox"]:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 4px;
+  background-color: #3563E9;
+  display: none;
+}
+
+/* Create the checkmark (use a tick symbol or custom design) */
+input[type="checkbox"]:after {
+  content: '✔';
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 40px;
+}
+
+/* Show the checkmark when checked */
+input[type="checkbox"]:checked:before {
+  display: block;
+}
+
+input[type="checkbox"]:checked:after {
+  display: flex;
 }

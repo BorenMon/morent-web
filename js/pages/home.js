@@ -55,7 +55,7 @@ $('.city').select2({
   ],
 });
 
-const displayPopulalar = async () => {
+const displayPopular = async () => {
   const cars = (await fetchCollection('cars?filter[status][_eq]=published&filter[rent_times][_gte]=50&limit=8')).data;
 
   const popularWrapper = document.getElementById('popular-wrapper');
@@ -110,7 +110,7 @@ const displayPopulalar = async () => {
   });
 }
 
-displayPopulalar().then(() => {
+displayPopular().then(() => {
   new Splide('#popular', {
     arrows: false,
     pagination: false,
