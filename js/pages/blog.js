@@ -29,6 +29,11 @@ if (id) {
       shadowRoot.innerHTML = item.content;
     })
    .catch(error => {
+      $('#body-wrapper').html(`
+        <div id="body" class="container-fluid text-center">
+          <h2 class="text-2xl font-bold text-[#333333] my-[128px]">${error.message}</h2>
+        </div>
+      `);
       console.error('Error fetching blog:', error);
     });
 } else {
