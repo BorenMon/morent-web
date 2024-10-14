@@ -1,25 +1,34 @@
-/project-root
+/project-root                   # Root directory of the project
 │
-├── /assets                 # Assets folder for media, images, fonts, icons, etc.
-│   ├── /images             # Images folder (PNG, JPEG, SVG, etc.)
-│   ├── /fonts              # Fonts (e.g., web fonts)
-│   └── /icons              # Icons (SVG, ICO)
+├── /assets                     # Assets folder for media, images, fonts, icons, etc.
+│   ├── /images                 # Folder to store images (PNG, JPEG, SVG, etc.).
+│   ├── /fonts                  # Folder for custom or web fonts (e.g., Google Fonts).
+│   └── /icons                  # Folder for icon files (SVG, ICO), commonly used for favicons or UI elements.
 │
-├── /css                    # CSS folder for styles
-│   ├── main.css            # Main global stylesheet
-│   ├── /modules            # Modular CSS files 
-|   └── /pages              # External CSS for each page
+├── /css                        # Folder for all CSS (Cascading Style Sheets) files.
+│   ├── main.css                # Main global stylesheet for the entire application, containing base styles.
+│   ├── /components             # Folder for CSS specific to reusable components (e.g., buttons, navigation bars).
+│   ├── /modules                # Modular CSS files for various parts of the application (could be feature-specific).
+│   └── /pages                  # CSS for individual pages, making it easier to manage page-specific styles.
 │
-├── /js                     # JavaScript folder
-│   ├── main.js             # Main JavaScript file
-│   ├── /modules            # Modular JavaScript files  
-|   ├── /pages              # JavaScript for each page
-│   └── /services           # Service files for API calls and utilities.
-|       └── directusAPI.js  # Handles fetching data from Directus API.
+├── /js                         # Folder for all JavaScript (JS) files.
+│   ├── main.js                 # Main JavaScript file for global logic and initialization of the application.
+│   ├── /components             # JavaScript files related to reusable UI components (e.g., modals, carousels).
+│   ├── /modules                # Modular JavaScript files for specific application features (e.g., user authentication).
+│   └── /pages                  # JavaScript specific to individual pages, ensuring logic is organized per page.
+│       ├── utils.js            # Utility functions or helpers, reusable across different parts of the application.
+│       └── directusAPI.js      # JavaScript to handle API calls and data fetching from Directus (headless CMS).
 │
-├── /pages                  # HTML files for multi-page
-│   ├── /admin              # Pages for Admin
-│   └── /public             # Pages for Consumer
-|
-└── /config                 # Config files.
-    └── directusConfig.js   # Configuration for Directus API access.
+├── /components                 # Folder for HTML components that are reused across pages.
+│   ├── header.html             # HTML markup for the header, reused across multiple pages.
+│   └── footer.html             # HTML markup for the footer, reused across multiple pages.
+│
+├── /pages                      # Folder for multi-page HTML files (the actual web pages).
+│   ├── /admin                  # Folder containing pages for the admin panel or dashboard.
+│   └── /public                 # Folder for publicly accessible pages for consumers (e.g., home, about, contact).
+│
+├── /config                     # Folder for configuration files.
+│   ├── directusConfig.js       # Configuration settings for connecting to the Directus API.
+│   └── locationMasterData.js   # Master data related to locations, possibly used for dropdowns or search functionality.
+│
+└── index.html                  # The main entry point for the web application, usually the homepage or default landing page.
