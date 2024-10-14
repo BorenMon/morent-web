@@ -1,0 +1,103 @@
+@import url('/css/main.css');
+
+body * {
+  color: #333333;
+  font-size: 16px;
+}
+
+#body {
+  padding-top: 52px;
+  padding-bottom: 52px;
+}
+
+#upper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#about h1 {
+  font-size: 52px;
+  font-weight: 700;
+}
+
+#about p {
+  margin-top: 12px;
+  text-align: justify;
+}
+
+#upper img {
+  width: 300px;
+  margin-left: 120px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  #upper {
+    flex-direction: column-reverse;
+  }
+
+  #upper img {
+    margin-left: 0;
+  }
+
+  #about h1 {
+    display: none;
+  }
+
+  #about p {
+    margin-top: 32px;
+    text-align: center;
+  }
+}
+
+#middle {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#middle * {
+  text-align: center;
+}
+
+#middle h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+#lower {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+@media (max-width: 1000px) {
+  #lower {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #lower {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.feature {
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #DFDFDF;
+  padding: 32px;
+}
+
+.feature .title {
+  display: flex;
+  align-items: center;
+}
+
+.feature .title h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
