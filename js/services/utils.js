@@ -2,6 +2,12 @@ export const formatToTwoDecimals = (value) => {
   return parseFloat(value).toFixed(2);
 }
 
+export const formatISODate = (isoDate) => {
+  const date = new Date(isoDate);
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
+}
+
 export const checkIsFavorite = (carID, savedFavorites) => {
   savedFavorites = savedFavorites || JSON.parse(localStorage.getItem('savedFavorites') || '[]');
 
