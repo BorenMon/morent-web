@@ -12,7 +12,6 @@ if (id) {
   // Fetch the item by ID
   fetchItemById('blogs', id)
    .then(item => {
-      console.log(item);
       $('#published-date').text(formatISODate(item.date_created));
       $('#title').text(item.title);
       $('#description').text(item.description);

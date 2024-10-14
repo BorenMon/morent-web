@@ -33,6 +33,7 @@
 #tags {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .tag {
@@ -43,4 +44,13 @@
   color: #211922;
   font-size: 12px;
   font-weight: 600;
+}
+
+#related-posts {
+  position: relative;
+  margin: auto;
+  max-width: 1440px;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  background-color: #F6F7F9;
 }
