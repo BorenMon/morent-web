@@ -22,6 +22,7 @@
 .contact-header p {
     color: #6f6f6f;
     margin-top: 10px;
+    font-size: 16px;
 }
 
 .contact-container {
@@ -46,9 +47,10 @@
     margin-bottom: 20px;
     margin-right: 20px;
 }
+
 .contact-info p {
     margin-bottom: 20px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
 }
 
@@ -76,7 +78,7 @@
     width: 100%;
     padding: 15px;
     margin-bottom: 20px;
-    font-size: 14px;
+    font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 8px;
 }
@@ -89,7 +91,7 @@
 
 .form-container label {
     display: block;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 5px;
     color: #6f6f6f;
 }
