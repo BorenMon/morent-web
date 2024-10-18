@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../assets/icons/favicon.svg"
+      type="image/x-icon"
+    />
+
+    <title>contactus</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/pages/contact.css" />
+
+    <!-- JS -->
+    <script src="/js/modules/tailwind.js"></script>
+    <script type="module" src="/js/pages/contact.js"></script>
+  </head>
+  <body>
+    <!-- Placeholder for the header -->
+    <div id="header-placeholder"></div>
+
+    <!-- container Contact Us -->
+    <div id="body-wrapper">
+      <div id="body" class="container-fluid space-y-[64px]">
+        <div class="contact-header">
+          <h1 class="font-bold">Contact Us</h1>
+          <p>Any question or remarks? Just write us a message!</p>
+        </div>
+
+        <div class="contact-container">
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p>Say something to start a live chat!</p>
+
+            <div>
+              <img
+                class="icon1"
+                width="25"
+                height="25"
+                src="https://img.icons8.com/?size=100&id=9730&format=png&color=FFFFFF"
+                alt="phone"
+              />
+
+              <p>+1012 3456 789</p>
+            </div>
+
+            <div>
+              <img
+                class="icon1"
+                width="25"
+                height="25"
+                src="https://img.icons8.com/ios-filled/50/FFFFFF/mail.png"
+                alt="mail"
+              />
+              <p>demo@gmail.com</p>
+            </div>
+
+            <div>
+              <img
+                class="icon1"
+                width="25"
+                height="25"
+                src="https://img.icons8.com/ios-filled/50/FFFFFF/map.png"
+                alt="map"
+              />
+              <p>
+                132 Dartmouth Street Boston, Massachusetts 02156 United States
+              </p>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="form-container">
+            <form id="contactForm">
+              <div>
+                <label for="firstName">First Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="John"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="lastName">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Doe"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="johndoe@example.com"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+1012 3456 789"
+                />
+              </div>
+              <div>
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Write your message.."
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Placeholder for the footer -->
+    <div id="footer-placeholder"></div>
+  </body>
+</html>

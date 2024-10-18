@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="/assets/icons/favicon.svg" type="image/x-icon">
+
+    <title>Blog</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/pages/blog.css">
+    <!-- JS -->
+    <script src="/js/modules/tailwind.js"></script>
+    <script type="module" src="/js/pages/blog.js"></script>
+  </head>
+  <body>
+    <!-- Placeholder for the header -->
+    <div id="header-placeholder"></div>
+
+    <div id="body-wrapper">
+      <div id="body" class="container-fluid">
+        <div class="space-y-[12px]" id="blog">
+          <p>Published <span id="published-date"></span></p>
+          <h1 id="title"></h1>
+          <p id="description"></p>
+          <ul id="tags"></ul>
+          <img alt="thumbnail" width="100%" id="thumbnail">
+          <div id="blog-content"></div>
+        </div>
+      </div>
+      <div class="bg-[#F6F7F9]">
+        <div class="container-fluid" id="related-posts">
+          <h5 class="font-semibold text-[#90A3BF]">Related Posts</h5>
+          <ul>
+            <!-- Generate by JavaScript -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Placeholder for the footer -->
+    <div id="footer-placeholder"></div>
+  </body>
+</html>
