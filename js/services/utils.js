@@ -46,3 +46,7 @@ export const refreshFavoriteEvent = () => {
     localStorage.setItem('savedFavorites', JSON.stringify(savedFavorites));
   });
 }
+
+export const redirectSearch = (keyword) => {
+  window.location.href = `/pages/public/category.html?keyword=${keyword}`
+}

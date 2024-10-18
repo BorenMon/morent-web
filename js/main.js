@@ -1,4 +1,5 @@
 import './modules/jquery-3.7.1.slim.min.js'
+import { redirectSearch } from './services/utils.js'
 
 // Function to set the active class on the nav link that matches the current URL
 function setActiveNavLink() {
@@ -64,6 +65,38 @@ fetch('/components/header.html')
 
     // Call the function to set the active nav link after the header is loaded
     setActiveNavLink()
+
+    // Search Implementation
+    const inputs = document.querySelectorAll('.search-input')
+    const searchButtons = document.querySelectorAll('.search-icon')
+
+    inputs.forEach((input) => {
+      input.addEventListener('keypress', function (event) {
+        // Check if the pressed key is Enter
+        if (event.key === 'Enter') {
+          // Prevent the default action (if necessary)
+          event.preventDefault()
+
+          redirectSearch(input.value)
+        }
+      })
+
+      input.addEventListener('input', function () {
+        const currentValue = input.value
+        inputs.forEach((otherInput) => {
+          // Update all other inputs except the current one
+          if (otherInput !== input) {
+            otherInput.value = currentValue
+          }
+        })
+      })
+    })
+
+    searchButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        redirectSearch(inputs[0].value)
+      })
+    })
   })
 
 // Load footer component
