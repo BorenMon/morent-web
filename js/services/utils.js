@@ -77,7 +77,11 @@ export const toggleFavorite = (e) => {
 }
 
 export const redirectSearch = (keyword) => {
-  window.location.href = `/pages/public/category.html?keyword=${keyword}`
+  const isLocalhost = window.location.hostname === '127.0.0.1';
+  
+  // If on localhost, include `.html`, otherwise omit it for Netlify's pretty URLs
+  const extension = isLocalhost ? '.html' : '';
+  window.location.href = `/pages/public/category${extension}?keyword=${keyword}`;
 }
 
 export function debounce(func, delay) {
