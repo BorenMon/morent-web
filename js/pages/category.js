@@ -18,15 +18,15 @@ let filter_count
 let total_page
 
 const displayCars = async (queryString) => {
-  const result = await fetchCollection(`cars?${queryString}`);
+  const result = await fetchCollection(`cars?${queryString}`)
 
-  const carData = result.data;
-  filter_count = result.meta.filter_count;
-  total_page = Math.ceil(filter_count / 9);
-  changePagination();
+  const carData = result.data
+  filter_count = result.meta.filter_count
+  total_page = Math.ceil(filter_count / 9)
+  changePagination()
 
-  const $cars = $('#cars'); // Select the container
-  $cars.empty(); // Clear previous content
+  const $cars = $('#cars') // Select the container
+  $cars.empty() // Clear previous content
 
   carData.forEach((car) => {
     const {
@@ -40,14 +40,12 @@ const displayCars = async (queryString) => {
       price,
       has_promotion,
       promotion_price,
-    } = car;
+    } = car
 
-    const { iconPath } = checkIsFavorite(id);
+    const { iconPath } = checkIsFavorite(id)
 
     // Create car card using jQuery
-    const $div = $('<div></div>')
-      .addClass('car-card')
-      .attr('data-id', id)
+    const $div = $('<div></div>').addClass('car-card').attr('data-id', id)
       .html(`
         <div>
           <div class="-mt-[5px]">
@@ -90,13 +88,12 @@ const displayCars = async (queryString) => {
             <button>Rent Now</button>
           </div>
         </div>
-      `);
+      `)
 
     // Append each car card to the container
-    $cars.append($div);
-  });
-};
-
+    $cars.append($div)
+  })
+}
 
 const prefixCarsQueryString =
   'filter[status][_eq]=published&meta=filter_count&limit=9'
@@ -135,93 +132,115 @@ let maxPrice = 100
 
 // Function to generate pagination dynamically
 function generatePagination(currentPage, totalPages) {
-  const paginationContainer = $('#pagination'); // Select the container
+  const paginationContainer = $('#pagination') // Select the container
 
   // Clear existing pagination (if any)
-  paginationContainer.empty();
+  paginationContainer.empty()
 
   // Previous button
-  const prevButton = $('<a href="#" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"><span class="sr-only">Previous</span><img src="/assets/icons/backward-arrow.svg" alt=""></a>');
+  const prevButton = $(
+    '<div class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"><span class="sr-only">Previous</span><img src="/assets/icons/backward-arrow.svg" alt=""></div>'
+  )
 
   // Disable when on first page
   if (currentPage === 1) {
-    prevButton.addClass('disabled').css('pointer-events', 'none');
+    prevButton.addClass('disabled').css('pointer-events', 'none')
   }
 
-  paginationContainer.append(prevButton);
+  paginationContainer.append(prevButton)
 
   // Number of pages to display before and after the current page
-  const maxPagesToShow = 5;
-  const halfMaxPages = Math.floor(maxPagesToShow / 2);
+  const maxPagesToShow = 5
+  const halfMaxPages = Math.floor(maxPagesToShow / 2)
 
   // Calculate start and end page numbers to display
-  let startPage = Math.max(1, currentPage - halfMaxPages);
-  let endPage = Math.min(totalPages, currentPage + halfMaxPages);
+  let startPage = Math.max(1, currentPage - halfMaxPages)
+  let endPage = Math.min(totalPages, currentPage + halfMaxPages)
 
   // Adjust if we're near the start or end
   if (currentPage - halfMaxPages <= 0) {
-    endPage = Math.min(totalPages, endPage + (halfMaxPages - currentPage + 1));
+    endPage = Math.min(totalPages, endPage + (halfMaxPages - currentPage + 1))
   }
   if (currentPage + halfMaxPages >= totalPages) {
-    startPage = Math.max(1, startPage - (currentPage + halfMaxPages - totalPages));
+    startPage = Math.max(
+      1,
+      startPage - (currentPage + halfMaxPages - totalPages)
+    )
   }
 
   // Page links
   for (let i = startPage; i <= endPage; i++) {
-    const pageLink = $('<div class="cursor-pointer relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"></div>');
-    pageLink.text(i);
+    const pageLink = $(
+      '<div class="cursor-pointer relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"></div>'
+    )
+    pageLink.text(i)
 
     // Highlight the current page
     if (i === currentPage) {
-      pageLink.addClass('z-10 bg-[#3563E9] text-white');
+      pageLink.addClass('z-10 bg-[#3563E9] text-white')
     }
 
-    paginationContainer.append(pageLink);
+    paginationContainer.append(pageLink)
 
     // Add event listener to each page link
     pageLink.on('click', function (e) {
-      e.preventDefault();
-      generatePagination(i, totalPages); // Regenerate pagination for selected page
-      page = i;
-      defaultRefreshCars(undefined, false);
-    });
+      e.preventDefault()
+      generatePagination(i, totalPages) // Regenerate pagination for selected page
+      page = i
+      defaultRefreshCars(undefined, false)
+    })
   }
 
   // If there are pages not displayed, add ellipsis
   if (endPage < totalPages) {
-    const ellipsis = $('<span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>');
-    paginationContainer.append(ellipsis);
+    const ellipsis = $(
+      '<span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>'
+    )
+    paginationContainer.append(ellipsis)
   }
 
   // Next button
-  const nextButton = $('<a href="#" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"><span class="sr-only">Next</span><img src="/assets/icons/forward-arrow.svg" alt=""></a>');
+  const nextButton = $(
+    '<div class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"><span class="sr-only">Next</span><img src="/assets/icons/forward-arrow.svg" alt=""></div>'
+  )
 
   // Disable when on last page
   if (currentPage === totalPages) {
-    nextButton.addClass('disabled').css('pointer-events', 'none');
+    nextButton.addClass('disabled').css('pointer-events', 'none')
   }
 
-  paginationContainer.append(nextButton);
+  paginationContainer.append(nextButton)
 
   // Add event listeners for previous and next buttons
   prevButton.on('click', function (e) {
-    e.preventDefault();
-    if (currentPage > 1) {
-      generatePagination(currentPage - 1, totalPages); // Go to previous page
-      --page;
-      defaultRefreshCars(undefined, false);
-    }
-  });
+    prevAction(e, totalPages)
+  })
 
   nextButton.on('click', function (e) {
-    e.preventDefault();
-    if (currentPage < totalPages) {
-      generatePagination(currentPage + 1, totalPages); // Go to next page
-      ++page;
-      defaultRefreshCars(undefined, false);
-    }
-  });
+    nextAction(e, totalPages)
+  })
 }
+
+const prevAction = (e, totalPages) => {
+  e.preventDefault()
+  if (page > 1) {
+    generatePagination(page - 1, totalPages) // Go to previous page
+    --page
+    defaultRefreshCars(undefined, false)
+  }
+}
+
+const nextAction = (e, totalPages) => {
+  e.preventDefault()
+  if (page < totalPages) {
+    generatePagination(page + 1, totalPages) // Go to next page
+    ++page
+    defaultRefreshCars(undefined, false)
+  }
+}
+
+$('#prev-button').on('click', e => prevAction(e, total_page))
+$('#next-button').on('click', e => nextAction(e, total_page))
 
 const changePagination = () => {
   if (filter_count > 0) {
@@ -278,8 +297,8 @@ function queryParamsBuilder(page, keyword, types, capacities, maxPrice) {
 
   // Add max price filter (if defined)
   if (maxPrice !== undefined && maxPrice !== null) {
-    queryParams.append('filter[_or][0][price][_lte]', maxPrice);
-    queryParams.append('filter[_or][1][promotion_price][_lte]', maxPrice);
+    queryParams.append('filter[_or][0][price][_lte]', maxPrice)
+    queryParams.append('filter[_or][1][promotion_price][_lte]', maxPrice)
   }
 
   // Return the complete query string
@@ -287,7 +306,7 @@ function queryParamsBuilder(page, keyword, types, capacities, maxPrice) {
 }
 
 export const defaultRefreshCars = (otherKeyword, restartPage) => {
-  if (restartPage) page = 1;
+  if (restartPage) page = 1
   if (otherKeyword !== undefined) {
     keyword = otherKeyword
   }
@@ -301,7 +320,10 @@ export const defaultRefreshCars = (otherKeyword, restartPage) => {
 async function getCount(queryParams) {
   return (
     await fetchCollection(
-      ('cars?' + prefixCarsQueryString + '&' + queryParams).replace('limit=9', 'limit=0')
+      ('cars?' + prefixCarsQueryString + '&' + queryParams).replace(
+        'limit=9',
+        'limit=0'
+      )
     )
   ).meta.filter_count
 }
@@ -335,18 +357,17 @@ $('label[for="8 or More"] span').text(
 
 // Event listener for input changes
 $('#max-price').on('input', (e) => {
-  maxPrice = $(e.target).val();
+  maxPrice = $(e.target).val()
 
   // Update the max price value display immediately
-  $('#max-price-value').text(formatToTwoDecimals(maxPrice));
+  $('#max-price-value').text(formatToTwoDecimals(maxPrice))
 
   // Debounced API call
-  debounceRefreshCars();
-});
-
+  debounceRefreshCars()
+})
 
 const debounceRefreshCars = debounce(function () {
-  defaultRefreshCars(undefined, true);
+  defaultRefreshCars(undefined, true)
 }, 300)
 
 const typeChecks = [
