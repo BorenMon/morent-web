@@ -50,3 +50,11 @@ export const refreshFavoriteEvent = () => {
 export const redirectSearch = (keyword) => {
   window.location.href = `/pages/public/category.html?keyword=${keyword}`
 }
+
+export function debounce(func, delay) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), delay);
+  };
+}

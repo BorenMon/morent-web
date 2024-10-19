@@ -41,23 +41,23 @@
             <ul class="space-y-[32px]">
               <li class="checkbox-item">
                 <input type="checkbox" id="Sport" name="type" value="Sport" />
-                <label for="Sport">Sport <span>(10)</span></label>
+                <label for="Sport">Sport <span></span></label>
               </li>
               <li class="checkbox-item">
                 <input type="checkbox" id="SUV" name="type" value="SUV" />
-                <label for="SUV">SUV <span>(10)</span></label>
+                <label for="SUV">SUV <span></span></label>
               </li>
               <li class="checkbox-item">
                 <input type="checkbox" id="MPV" name="type" value="MPV" />
-                <label for="MPV">MPV <span>(10)</span></label>
+                <label for="MPV">MPV <span></span></label>
               </li>
               <li class="checkbox-item">
                 <input type="checkbox" id="Sedan" name="type" value="Sedan" />
-                <label for="Sedan">Sedan <span>(10)</span></label>
+                <label for="Sedan">Sedan <span></span></label>
               </li>
               <li class="checkbox-item">
                 <input type="checkbox" id="Coupe" name="type" value="Coupe" />
-                <label for="Coupe">Coupe <span>(10)</span></label>
+                <label for="Coupe">Coupe <span></span></label>
               </li>
               <li class="checkbox-item">
                 <input
@@ -66,7 +66,7 @@
                   name="type"
                   value="Hatchback"
                 />
-                <label for="Hatchback">Hatchback <span>(10)</span></label>
+                <label for="Hatchback">Hatchback <span></span></label>
               </li>
             </ul>
           </div>
@@ -78,44 +78,44 @@
                   type="checkbox"
                   id="2 Person"
                   name="type"
-                  value="2 Person"
+                  value="2"
                 />
-                <label for="2 Person">2 Person <span>(10)</span></label>
+                <label for="2 Person">2 Person <span></span></label>
               </li>
               <li class="checkbox-item">
                 <input
                   type="checkbox"
                   id="4 Person"
                   name="type"
-                  value="4 Person"
+                  value="4"
                 />
-                <label for="4 Person">4 Person <span>(10)</span></label>
+                <label for="4 Person">4 Person <span></span></label>
               </li>
               <li class="checkbox-item">
                 <input
                   type="checkbox"
                   id="6 Person"
                   name="type"
-                  value="6 Person"
+                  value="6"
                 />
-                <label for="6 Person">6 Person <span>(10)</span></label>
+                <label for="6 Person">6 Person <span></span></label>
               </li>
               <li class="checkbox-item">
                 <input
                   type="checkbox"
                   id="8 or More"
                   name="type"
-                  value="8 or More"
+                  value="8"
                 />
-                <label for="8 or More">8 or More <span>(10)</span></label>
+                <label for="8 or More">8 or More <span></span></label>
               </li>
             </ul>
           </div>
           <div>
             <h4>PRICE</h4>
-            <input type="range" name="price" min="1" max="300" value="100" />
+            <input type="range" name="price" min="1" max="300" value="100" id="max-price" step="0.01" />
             <div class="text-[20px] font-semibold text-[#596780] mt-[12px]">
-              Max. $<span class="text-[20px]">100.00</span>
+              Max. $<span class="text-[20px]" id="max-price-value">100.00</span>
             </div>
           </div>
         </div>
@@ -190,6 +190,7 @@
             </div>
             <div
               class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between"
+              id="pagination-container"
             >
               <div>
                 <p class="text-sm text-gray-700">
@@ -258,6 +259,7 @@
                   </a>
                 </nav>
               </div>
+              <p>No matched car.</p>
             </div>
           </div>
         </div>

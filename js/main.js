@@ -1,5 +1,7 @@
 import './modules/jquery-3.7.1.slim.min.js'
 import { redirectSearch } from './services/utils.js'
+import { defaultRefreshCars } from './pages/category.js'
+import { debounce } from './services/utils.js'
 
 // Function to set the active class on the nav link that matches the current URL
 function setActiveNavLink() {
@@ -70,34 +72,74 @@ fetch('/components/header.html')
     const inputs = document.querySelectorAll('.search-input')
     const searchButtons = document.querySelectorAll('.search-icon')
 
-    inputs.forEach((input) => {
-      input.addEventListener('keypress', function (event) {
-        // Check if the pressed key is Enter
-        if (event.key === 'Enter') {
-          // Prevent the default action (if necessary)
-          event.preventDefault()
+    if (window.location.pathname != '/pages/public/category.html') {
+      inputs.forEach((input) => {
+        input.addEventListener('keypress', function (event) {
+          // Check if the pressed key is Enter
+          if (event.key === 'Enter') {
+            // Prevent the default action (if necessary)
+            event.preventDefault()
 
-          redirectSearch(input.value)
-        }
-      })
-
-      input.addEventListener('input', function () {
-        const currentValue = input.value
-        inputs.forEach((otherInput) => {
-          // Update all other inputs except the current one
-          if (otherInput !== input) {
-            otherInput.value = currentValue
+            redirectSearch(input.value)
           }
         })
-      })
-    })
 
-    searchButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        redirectSearch(inputs[0].value)
+        input.addEventListener('input', function () {
+          const currentValue = input.value
+          inputs.forEach((otherInput) => {
+            // Update all other inputs except the current one
+            if (otherInput !== input) {
+              otherInput.value = currentValue
+            }
+          })
+        })
       })
-    })
+
+      searchButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          redirectSearch(inputs[0].value)
+        })
+      })
+    } else {
+      const urlParams = new URLSearchParams(window.location.search)
+
+      let keyword = urlParams.get('keyword')
+
+      if (keyword) {
+        inputs.forEach((input) => {
+          console.log(input)
+          input.value = keyword
+        })
+      }
+
+      // Get the current URL
+      const url = new URL(window.location.href)
+
+      // Clear the query parameters
+      url.search = ''
+
+      // Update the URL without reloading the page
+      window.history.replaceState({}, document.title, url.toString())
+
+      inputs.forEach((input) => {
+        input.addEventListener('input', function () {
+          const currentValue = input.value
+          inputs.forEach((otherInput) => {
+            // Update all other inputs except the current one
+            if (otherInput !== input) {
+              otherInput.value = currentValue
+            }
+          })
+
+          debouncedRefreshCars(currentValue);
+        })
+      })
+    }
   })
+
+const debouncedRefreshCars = debounce(function (value) {
+  defaultRefreshCars(value)
+}, 300)
 
 // Load footer component
 fetch('/components/footer.html')
