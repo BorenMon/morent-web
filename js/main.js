@@ -1,4 +1,7 @@
 import './modules/jquery-3.7.1.slim.min.js'
+import { redirectSearch } from './services/utils.js'
+import { defaultRefreshCars } from './pages/category.js'
+import { debounce } from './services/utils.js'
 
 // Function to set the active class on the nav link that matches the current URL
 function setActiveNavLink() {
@@ -64,7 +67,80 @@ fetch('/components/header.html')
 
     // Call the function to set the active nav link after the header is loaded
     setActiveNavLink()
+
+    // Search Implementation
+    const inputs = document.querySelectorAll('.search-input')
+    const searchButtons = document.querySelectorAll('.search-icon')
+
+    if (window.location.pathname != '/pages/public/category.html') {
+      inputs.forEach((input) => {
+        input.addEventListener('keypress', function (event) {
+          // Check if the pressed key is Enter
+          if (event.key === 'Enter') {
+            // Prevent the default action (if necessary)
+            event.preventDefault()
+
+            redirectSearch(input.value)
+          }
+        })
+
+        input.addEventListener('input', function () {
+          const currentValue = input.value
+          inputs.forEach((otherInput) => {
+            // Update all other inputs except the current one
+            if (otherInput !== input) {
+              otherInput.value = currentValue
+            }
+          })
+        })
+      })
+
+      searchButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          redirectSearch(inputs[0].value)
+        })
+      })
+    } else {
+      const urlParams = new URLSearchParams(window.location.search)
+
+      let keyword = urlParams.get('keyword')
+
+      if (keyword) {
+        inputs.forEach((input) => {
+          input.value = keyword
+        })
+
+        defaultRefreshCars(keyword, false)
+      } else  defaultRefreshCars(undefined, false)
+
+      // Get the current URL
+      const url = new URL(window.location.href)
+
+      // Clear the query parameters
+      url.search = ''
+
+      // Update the URL without reloading the page
+      window.history.replaceState({}, document.title, url.toString())
+
+      inputs.forEach((input) => {
+        input.addEventListener('input', function () {
+          const currentValue = input.value
+          inputs.forEach((otherInput) => {
+            // Update all other inputs except the current one
+            if (otherInput !== input) {
+              otherInput.value = currentValue
+            }
+          })
+
+          debouncedRefreshCars(currentValue);
+        })
+      })
+    }
   })
+
+const debouncedRefreshCars = debounce(function (value) {
+  defaultRefreshCars(value, true)
+}, 300)
 
 // Load footer component
 fetch('/components/footer.html')
