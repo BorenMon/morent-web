@@ -72,7 +72,7 @@ fetch('/components/header.html')
     const inputs = document.querySelectorAll('.search-input')
     const searchButtons = document.querySelectorAll('.search-icon')
 
-    if (window.location.pathname != '/pages/public/category.html') {
+    if (!window.location.pathname.includes('/pages/public/category')) {
       inputs.forEach((input) => {
         input.addEventListener('keypress', function (event) {
           // Check if the pressed key is Enter
