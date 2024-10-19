@@ -23,7 +23,7 @@ button {
   font-size: 16px !important;
 }
 
-button:not(.slide-button) {
+button:not(.slide-button, .swal2-styled) {
   background-color: #3563E9 !important;
   color: white !important;
 }

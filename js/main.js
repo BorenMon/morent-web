@@ -107,10 +107,11 @@ fetch('/components/header.html')
 
       if (keyword) {
         inputs.forEach((input) => {
-          console.log(input)
           input.value = keyword
         })
-      }
+
+        defaultRefreshCars(keyword, false)
+      } else  defaultRefreshCars(undefined, false)
 
       // Get the current URL
       const url = new URL(window.location.href)
@@ -138,7 +139,7 @@ fetch('/components/header.html')
   })
 
 const debouncedRefreshCars = debounce(function (value) {
-  defaultRefreshCars(value)
+  defaultRefreshCars(value, true)
 }, 300)
 
 // Load footer component
