@@ -330,18 +330,18 @@ input[type="range"] {
   justify-content: space-between;
 }
 
-#recommendation {
+#cars {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 32px;
 }
 
-#recommendation .car-card {
+#cars .car-card {
   width: 100%;
 }
 
 @media (max-width: 1400px) {
-  #recommendation {
+  #cars {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -355,7 +355,7 @@ input[type="range"] {
 }
 
 @media (max-width: 730px) {
-  #recommendation {
+  #cars {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
