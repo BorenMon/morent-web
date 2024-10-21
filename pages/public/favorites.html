@@ -20,8 +20,7 @@
     <script type="module" src="/js/pages/favorites.js"></script>
   </head>
   <body>
-    <!-- Placeholder for the header -->
-    <div id="header-placeholder"></div>
+    <header-component></header-component>
 
     <div class="backdrop" id="filter-backdrop"></div>
     <div id="body-wrapper">
@@ -35,7 +34,7 @@
                 class="-m-2.5 rounded-md p-2.5 text-gray-700"
                 id="close-filter"
               >
-                <img src="/assets/icons/close.svg" alt="">
+                <img src="/assets/icons/close.svg" alt="" />
               </button>
             </h4>
             <ul class="space-y-[32px]">
@@ -74,46 +73,34 @@
             <h4>CAPACITY</h4>
             <ul class="space-y-[32px]">
               <li class="checkbox-item">
-                <input
-                  type="checkbox"
-                  id="2 Person"
-                  name="type"
-                  value="2"
-                />
+                <input type="checkbox" id="2 Person" name="type" value="2" />
                 <label for="2 Person">2 Person <span></span></label>
               </li>
               <li class="checkbox-item">
-                <input
-                  type="checkbox"
-                  id="4 Person"
-                  name="type"
-                  value="4"
-                />
+                <input type="checkbox" id="4 Person" name="type" value="4" />
                 <label for="4 Person">4 Person <span></span></label>
               </li>
               <li class="checkbox-item">
-                <input
-                  type="checkbox"
-                  id="6 Person"
-                  name="type"
-                  value="6"
-                />
+                <input type="checkbox" id="6 Person" name="type" value="6" />
                 <label for="6 Person">6 Person <span></span></label>
               </li>
               <li class="checkbox-item">
-                <input
-                  type="checkbox"
-                  id="8 or More"
-                  name="type"
-                  value="8"
-                />
+                <input type="checkbox" id="8 or More" name="type" value="8" />
                 <label for="8 or More">8 or More <span></span></label>
               </li>
             </ul>
           </div>
           <div>
             <h4>PRICE</h4>
-            <input type="range" name="price" min="1" max="300" value="100" id="max-price" step="0.01" />
+            <input
+              type="range"
+              name="price"
+              min="1"
+              max="300"
+              value="100"
+              id="max-price"
+              step="0.01"
+            />
             <div class="text-[20px] font-semibold text-[#596780] mt-[12px]">
               Max. $<span class="text-[20px]" id="max-price-value">100.00</span>
             </div>

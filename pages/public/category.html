@@ -20,8 +20,7 @@
     <script type="module" src="/js/pages/category.js"></script>
   </head>
   <body>
-    <!-- Placeholder for the header -->
-    <div id="header-placeholder"></div>
+    <header-component></header-component>
 
     <div class="backdrop" id="filter-backdrop"></div>
     <div id="body-wrapper">
@@ -35,7 +34,7 @@
                 class="-m-2.5 rounded-md p-2.5 text-gray-700"
                 id="close-filter"
               >
-                <img src="/assets/icons/close.svg" alt="">
+                <img src="/assets/icons/close.svg" alt="" />
               </button>
             </h4>
             <ul class="space-y-[32px]">
@@ -74,46 +73,34 @@
             <h4>CAPACITY</h4>
             <ul class="space-y-[32px]">
               <li class="checkbox-item">
-                <input
-                  type="checkbox"
-                  id="2 Person"
-                  name="type"
-                  value="2"
-                />
+                <input type="checkbox" id="2 Person" name="type" value="2" />
                 <label for="2 Person">2 Person <span></span></label>
               </li>
               <li class="checkbox-item">
-                <input
-                  type="checkbox"
-                  id="4 Person"
-                  name="type"
-                  value="4"
-                />
+                <input type="checkbox" id="4 Person" name="type" value="4" />
                 <label for="4 Person">4 Person <span></span></label>
               </li>
               <li class="checkbox-item">
-                <input
-                  type="checkbox"
-                  id="6 Person"
-                  name="type"
-                  value="6"
-                />
+                <input type="checkbox" id="6 Person" name="type" value="6" />
                 <label for="6 Person">6 Person <span></span></label>
               </li>
               <li class="checkbox-item">
-                <input
-                  type="checkbox"
-                  id="8 or More"
-                  name="type"
-                  value="8"
-                />
+                <input type="checkbox" id="8 or More" name="type" value="8" />
                 <label for="8 or More">8 or More <span></span></label>
               </li>
             </ul>
           </div>
           <div>
             <h4>PRICE</h4>
-            <input type="range" name="price" min="1" max="300" value="100" id="max-price" step="0.01" />
+            <input
+              type="range"
+              name="price"
+              min="1"
+              max="300"
+              value="100"
+              id="max-price"
+              step="0.01"
+            />
             <div class="text-[20px] font-semibold text-[#596780] mt-[12px]">
               Max. $<span class="text-[20px]" id="max-price-value">100.00</span>
             </div>
@@ -177,14 +164,18 @@
           </div>
           <div class="flex items-center justify-between">
             <div class="flex flex-1 justify-between sm:hidden">
-              <div id="prev-button"
+              <div
+                id="prev-button"
                 class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                >Previous</div
               >
-              <div id="next-button"
+                Previous
+              </div>
+              <div
+                id="next-button"
                 class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                >Next</div
               >
+                Next
+              </div>
             </div>
             <div
               class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between"
@@ -204,14 +195,15 @@
               <div>
                 <nav
                   class="isolate inline-flex -space-x-px rounded-md shadow-sm"
-                  aria-label="Pagination" id="pagination"
+                  aria-label="Pagination"
+                  id="pagination"
                 >
                   <a
                     href="#"
                     class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
                   >
                     <span class="sr-only">Previous</span>
-                    <img src="/assets/icons/backward-arrow.svg" alt="">
+                    <img src="/assets/icons/backward-arrow.svg" alt="" />
                   </a>
                   <a
                     href="#"
@@ -253,7 +245,7 @@
                     class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
                   >
                     <span class="sr-only">Next</span>
-                    <img src="/assets/icons/forward-arrow.svg" alt="">
+                    <img src="/assets/icons/forward-arrow.svg" alt="" />
                   </a>
                 </nav>
               </div>
