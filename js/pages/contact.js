@@ -1,5 +1,5 @@
 import '/js/main.js'
-import directusConfig from '../../config/directusConfig.js'
+import serviceConfig from '../../config/serviceConfig.js'
 import { toast } from '../services/sweetalert2.js'
 
 $('#contactForm').on('submit', (e) => {
@@ -24,7 +24,7 @@ $('#contactForm').on('submit', (e) => {
     message,
   }
 
-  fetch(`${directusConfig.baseURL}/items/contacts`, {
+  fetch(`${serviceConfig.baseURL}/contact/send`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
