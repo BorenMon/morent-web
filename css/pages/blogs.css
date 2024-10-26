@@ -1,5 +1,15 @@
 @import url('/css/main.css');
 
+#top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#search-box {
+  width: 400px;
+}
+
 #blog-posts {
   max-width: 1200px;
   margin: 0 auto;
@@ -54,36 +64,7 @@ p {
   font-size: 16px;
 }
 
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-}
-
-.pagination .prev, .pagination .next {
-  color: #1D4ED8;
-  font-weight: bold;
-  margin: 0 20px;
-  text-decoration: none;
-}
-
-.pagination .page-numbers a {
-  margin: 0 5px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  background-color: #F3F4F6;
-  color: #111827;
-  text-decoration: none;
-}
-
-.pagination .page-numbers a.active {
-  background-color: #1D4ED8;
-  color: #fff;
-}
-
 /* Media Queries for Responsive Design */
-
 @media (max-width: 1200px) {
   /* For tablets and smaller screens */
   #posts-grid {
@@ -135,5 +116,16 @@ p {
 
   .pagination .prev, .pagination .next {
     margin: 10px 0; /* Adjust spacing for pagination on mobile */
+  }
+}
+
+@media (max-width: 800px) {
+  #top-bar {
+    flex-direction: column;
+  }
+
+  #search-box {
+    margin-top: 24px;
+    width: 100%;
   }
 }
