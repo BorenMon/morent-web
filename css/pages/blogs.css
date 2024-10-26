@@ -1,0 +1,139 @@
+@import url('/css/main.css');
+
+#blog-posts {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+#posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Default 3-column grid */
+  gap: 32px;
+}
+
+.post-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.post-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.post-content {
+  padding: 16px;
+}
+
+.author {
+  font-size: 14px;
+  color: #6b7280;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.post-title {
+  font-size: 18px; /* Same font size as <h1> and <a> */
+  color: #111827;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.post-title:hover {
+  color: #1D4ED8;
+}
+
+p {
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.pagination .prev, .pagination .next {
+  color: #1D4ED8;
+  font-weight: bold;
+  margin: 0 20px;
+  text-decoration: none;
+}
+
+.pagination .page-numbers a {
+  margin: 0 5px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #F3F4F6;
+  color: #111827;
+  text-decoration: none;
+}
+
+.pagination .page-numbers a.active {
+  background-color: #1D4ED8;
+  color: #fff;
+}
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 1200px) {
+  /* For tablets and smaller screens */
+  #posts-grid {
+    grid-template-columns: repeat(2, 1fr); /* Switch to 2-column layout */
+  }
+
+  #blog-posts {
+    padding: 20px; /* Reduce padding */
+  }
+
+  h1, h2 {
+    font-size: 16px; /* Smaller font size for headings */
+  }
+
+  .post-title {
+    font-size: 16px; /* Smaller font size for post titles */
+  }
+
+  p {
+    font-size: 14px; /* Adjust paragraph font size */
+  }
+}
+
+@media (max-width: 800px) {
+  /* For mobile phones */
+  #posts-grid {
+    grid-template-columns: 1fr; /* Switch to 1-column layout */
+  }
+
+  #blog-posts {
+    padding: 10px; /* Further reduce padding */
+  }
+
+  h1, h2 {
+    font-size: 14px; /* Even smaller font size for headings */
+  }
+
+  .post-title {
+    font-size: 14px; /* Adjust post titles for mobile */
+  }
+
+  p {
+    font-size: 13px; /* Adjust paragraph font size for mobile */
+  }
+
+  .pagination {
+    flex-direction: column;
+  }
+
+  .pagination .prev, .pagination .next {
+    margin: 10px 0; /* Adjust spacing for pagination on mobile */
+  }
+}
