@@ -9,6 +9,10 @@ import {
   debounce,
 } from '../services/utils.js'
 
+const debouncedRefreshCars = debounce(function (value) {
+  defaultRefreshCars(value, true)
+}, 300)
+
 $('.city').select2({
   width: '100%',
   data: [{ id: '', text: 'Select your city', value: '' }, ...cities],
@@ -239,8 +243,8 @@ const nextAction = (e, totalPages) => {
   }
 }
 
-$('#prev-button').on('click', e => prevAction(e, total_page))
-$('#next-button').on('click', e => nextAction(e, total_page))
+$('#prev-button').on('click', (e) => prevAction(e, total_page))
+$('#next-button').on('click', (e) => nextAction(e, total_page))
 
 const changePagination = () => {
   if (filter_count > 0) {
@@ -305,7 +309,7 @@ function queryParamsBuilder(page, keyword, types, capacities, maxPrice) {
   return decodeURIComponent(queryParams.toString())
 }
 
-export const defaultRefreshCars = (otherKeyword, restartPage) => {
+const defaultRefreshCars = (otherKeyword, restartPage) => {
   if (restartPage) page = 1
   if (otherKeyword !== undefined) {
     keyword = otherKeyword
@@ -405,5 +409,40 @@ capacityChecks.forEach((capacity) => {
       capacities = capacities.filter((capacity) => capacity !== e.target.value)
     }
     defaultRefreshCars(undefined, true)
+  })
+})
+
+keyword = urlParams.get('keyword')
+
+const inputs = document.querySelectorAll('.search-input');
+
+if (keyword) {
+  inputs.forEach((input) => {
+    input.value = keyword
+  })
+
+  defaultRefreshCars(keyword, false)
+} else defaultRefreshCars(undefined, false)
+
+// Get the current URL
+const url = new URL(window.location.href)
+
+// Clear the query parameters
+url.search = ''
+
+// Update the URL without reloading the page
+window.history.replaceState({}, document.title, url.toString())
+
+inputs.forEach((input) => {
+  input.addEventListener('input', function () {
+    const currentValue = input.value
+    inputs.forEach((otherInput) => {
+      // Update all other inputs except the current one
+      if (otherInput !== input) {
+        otherInput.value = currentValue
+      }
+    })
+
+    debouncedRefreshCars(currentValue)
   })
 })

@@ -173,11 +173,23 @@ nav:nth-of-type(2) {
   position: relative;
 }
 
+#login {
+  border-radius: 1000px;
+  border: #C3D4E9 solid 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  padding: 0 16px;
+}
+
 #nav-profile {
   width: 44px;
   height: 44px;
   border-radius: 50%;
   object-fit: cover;
+  cursor: pointer;
 }
 
 #mobile-menu {
