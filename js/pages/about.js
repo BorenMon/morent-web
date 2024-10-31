@@ -1,5 +1,5 @@
 import '/js/main.js'
-import { getAssetUrl, fetchCollection } from '../services/directusAPI.js'
+import { getAssetUrl, fetchCollection } from '../services/publicAPI.js'
 
 const features = (
   await fetchCollection('features?filter[status][_eq]=published')

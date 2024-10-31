@@ -1,5 +1,9 @@
-import '/js/modules/jquery-3.7.1.slim.min.js';
+import '/js/modules/jquery-3.7.1.slim.min.js'
 import { redirectSearch } from '/js/services/utils.js'
+import { fetchProfile } from './services/client.js'
+import { getAssetUrl } from './services/publicAPI.js'
+import { toast } from './services/sweetalert2.js'
+import { logout } from './services/auth.js'
 
 // Function to open mobile menu
 $('#menu-icon').on('click', () => {
@@ -63,19 +67,49 @@ if (!window.location.pathname.includes('/pages/public/category')) {
       redirectSearch(inputs[0].value)
     })
   })
-} 
+}
 
-const profileImage = document.getElementById("nav-profile");
-const dropdownMenu = profileImage.nextElementSibling; // Selects the dropdown div next to the image
+const profileImage = document.getElementById('nav-profile')
+const dropdownMenu = profileImage.nextElementSibling // Selects the dropdown div next to the image
 
-  profileImage.addEventListener("click", function (event) {
-    event.stopPropagation(); // Prevents the click from bubbling up
-    dropdownMenu.classList.toggle("hidden"); // Toggles the visibility
-  });
+profileImage.addEventListener('click', function (event) {
+  event.stopPropagation() // Prevents the click from bubbling up
+  dropdownMenu.classList.toggle('hidden') // Toggles the visibility
+})
 
-  document.addEventListener("click", function (event) {
-    // Hide dropdown if clicked outside
-    if (!dropdownMenu.contains(event.target) && !profileImage.contains(event.target)) {
-      dropdownMenu.classList.add("hidden");
-    }
-  });
+document.addEventListener('click', function (event) {
+  // Hide dropdown if clicked outside
+  if (
+    !dropdownMenu.contains(event.target) &&
+    !profileImage.contains(event.target)
+  ) {
+    dropdownMenu.classList.add('hidden')
+  }
+})
+
+const profile = await fetchProfile();
+
+const toggleProfile = (isHidden) => {
+  if (!isHidden) {
+    $('#login').addClass('!hidden');
+    $('#profile').removeClass('!hidden');
+  } else {
+    $('#login').removeClass('!hidden');
+    $('#profile').addClass('!hidden');
+  }
+}
+
+if (profile) {
+  toggleProfile(false);
+  $('#nav-profile').attr('src', profile.avatar ? getAssetUrl(profile.avatar) : '/assets/images/sample-profile.png');
+} else {
+  toggleProfile(true);
+}
+
+$('#logout').on('click', () => {
+  logout();
+  toast('Logged out.', 'success', 'top');
+  setTimeout(() => {
+    window.location.reload();
+  }, 1000);
+});

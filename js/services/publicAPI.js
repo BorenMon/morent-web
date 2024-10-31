@@ -1,12 +1,9 @@
-import '../modules/axios.min.js';
+import axios from '../modules/axios.min.js';
 import directusConfig from '../../config/directusConfig.js';
 
 // Create an axios instance with the base URL from the config
 const api = axios.create({
-  baseURL: `${directusConfig.baseURL}/items`,  // Base URL for the Directus items endpoint
-  // headers: {
-  //   Authorization: `Bearer ${directusConfig.authToken}`,  // Pass the auth token, if available
-  // }
+  baseURL: `${directusConfig.baseURL}/items`,
 });
 
 // Function to get the full URL of an asset file

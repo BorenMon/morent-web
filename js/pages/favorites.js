@@ -1,5 +1,5 @@
 import '../main.js'
-import { getAssetUrl, fetchCollection } from '../services/directusAPI.js'
+import { getAssetUrl, fetchCollection } from '../services/publicAPI.js'
 import {
   formatToTwoDecimals,
   toggleFavorite,

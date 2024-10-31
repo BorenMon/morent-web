@@ -1,5 +1,5 @@
 import { toast } from '../services/sweetalert2.js';
-import { register } from '../services/auth.js';
+import { register, login } from '../services/auth.js';
 
 const container = document.querySelector('.container');
 const registerBtn = document.querySelector('.register-btn');
@@ -13,11 +13,23 @@ loginBtn.addEventListener('click', () => {
   container.classList.remove('active');
 });
 
-document.getElementById('login').addEventListener('submit', e => {
+document.getElementById('login').addEventListener('submit', async e => {
   e.preventDefault();
+
+  const email = document.querySelector('#login input[name="email"]').value;
+  const password = document.querySelector('#login input[name="password"]').value;
+
+  if (!email || !password) {
+    toast('Please fill out all required fields.', 'error');
+    return;
+  }
+  
+  if (await login(email, password)) {
+    window.location.href = '/';
+  }
 });
 
-document.getElementById('register').addEventListener('submit', e => {
+document.getElementById('register').addEventListener('submit', async e => {
   e.preventDefault();
 
   const email = document.querySelector('#register input[name="email"]').value;
@@ -34,8 +46,8 @@ document.getElementById('register').addEventListener('submit', e => {
     return;
   }
   
-  register({
-    email,
-    password
-  })
+  if (await register(email, password)) {
+    e.target.reset();
+    container.classList.remove('active');
+  }
 });

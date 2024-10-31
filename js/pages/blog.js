@@ -1,7 +1,6 @@
 import '/js/main.js'
 import '/js/modules/splide.min.js'
-import { fetchCollection } from '../services/directusAPI.js';
-import { fetchItemById, getAssetUrl  } from '../services/directusAPI.js'
+import { fetchCollection, fetchItemById, getAssetUrl  } from '../services/publicAPI.js'
 import { formatISODate } from '../services/utils.js';
 
 // Get the current URL
