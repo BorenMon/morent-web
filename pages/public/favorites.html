@@ -54,16 +54,45 @@
         </div>
         <div id="icons-wrapper" class="space-x-[20px]">
           <a href="/pages/public/favorites.html" class="nav-icon">
-            <img src="/assets/icons/like.svg" alt="" class="icon" />
+            <img src="/assets/icons/heart.svg" alt="" class="icon" />
           </a>
-          <a href="/pages/public/profile.html">
+          <a href="/pages/public/auth.html" id="login" class="font-semibold !hidden">
+            Login&nbsp;<img src="/assets/icons/login.svg" alt="" class="icon" />
+          </a>
+          <div class="relative inline-block text-left !hidden" id="profile">
             <img
-              src="/assets/images/sample-profile.png"
+              src=""
               alt="Profile"
               id="nav-profile"
               class="shadow-md"
             />
-          </a>
+            <div
+              class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="menu-button"
+              tabindex="-1"
+            >
+              <div class="py-1" role="none">
+                <a
+                  href="/pages/public/profile.html"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  role="menuitem"
+                  tabindex="-1"
+                  id="menu-item-0"
+                  >Profile settings</a
+                >
+                <div
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                  role="menuitem"
+                  tabindex="-1"
+                  id="logout"
+                >
+                  Logout
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
       <nav class="container-fluid">

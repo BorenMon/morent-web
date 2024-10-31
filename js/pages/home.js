@@ -1,7 +1,7 @@
 import '../main.js'
 import '../modules/splide.min.js'
 import '../modules/select2.min.js'
-import { getAssetUrl, fetchCollection } from '../services/directusAPI.js';
+import { getAssetUrl, fetchCollection } from '../services/publicAPI.js';
 import { cities } from '../../config/locationMasterData.js'
 import { formatToTwoDecimals, refreshFavoriteEvent, checkIsFavorite } from '../services/utils.js';
 
