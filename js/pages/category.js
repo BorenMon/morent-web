@@ -4,10 +4,12 @@ import { cities } from '../../config/locationMasterData.js'
 import { getAssetUrl, fetchCollection } from '../services/publicAPI.js'
 import {
   formatToTwoDecimals,
-  refreshFavoriteEvent,
-  checkIsFavorite,
   debounce,
 } from '../services/utils.js'
+import {
+  refreshFavoriteEvent,
+  checkIsFavorite,
+} from '../services/favorites.js'
 
 const debouncedRefreshCars = debounce(function (value) {
   defaultRefreshCars(value, true)
