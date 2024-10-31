@@ -12,7 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(90deg, #e2e2e2, #c9d5ff);
+  background-color: #F6F7F9;
 }
 .container {
   position: relative;
@@ -232,5 +232,11 @@ form {
 
   .toggle-panel {
     font-size: 30px;
+  }
+}
+
+@media (max-width: 650px) {
+  .hide {
+    display: none;
   }
 }
