@@ -2,10 +2,12 @@ import '../main.js'
 import { getAssetUrl, fetchCollection } from '../services/publicAPI.js'
 import {
   formatToTwoDecimals,
-  toggleFavorite,
-  checkIsFavorite,
   debounce,
 } from '../services/utils.js'
+import {
+  toggleFavorite,
+  checkIsFavorite,
+} from '../services/favorites.js'
 import sweetalert2 from '/js/modules/sweetalert2.all.min.js'
 
 $('#filter-button').on('click', () => {

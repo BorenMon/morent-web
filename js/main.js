@@ -4,6 +4,7 @@ import { fetchProfile } from './services/client.js'
 import { getAssetUrl } from './services/publicAPI.js'
 import { toast } from './services/sweetalert2.js'
 import { logout } from './services/auth.js'
+import { fetchFavorites, syncFavorites } from './services/favorites.js';
 
 // Function to open mobile menu
 $('#menu-icon').on('click', () => {
