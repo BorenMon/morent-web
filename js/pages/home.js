@@ -6,6 +6,14 @@ import { cities } from '../../config/locationMasterData.js'
 import { formatToTwoDecimals } from '../services/utils.js';
 import { refreshFavoriteEvent, checkIsFavorite } from '../services/favorites.js';
 
+$('.city').select2({
+  width: '100%',
+  data: [
+    { id: '', text: 'Select your city', value: '' },
+    ...cities
+  ],
+});
+
 const displaySlides = async () => {
   const slides = (await fetchCollection('slides?filter[status][_eq]=published')).data;
 
@@ -30,31 +38,6 @@ const displaySlides = async () => {
     slideWrapper.appendChild(li);
   });
 }
-
-displaySlides().then(() => {
-  new Splide('#slider', {
-    type: 'loop',
-    autoplay: true,
-    interval: 5000,
-    perPage: 2,
-    arrows: false,
-    pagination: false,
-    gap: '32px',
-    breakpoints: {
-      1000: {
-        perPage: 1
-      }
-    }
-  }).mount();
-});
-
-$('.city').select2({
-  width: '100%',
-  data: [
-    { id: '', text: 'Select your city', value: '' },
-    ...cities
-  ],
-});
 
 const displayPopular = async () => {
   const cars = (await fetchCollection('cars?filter[status][_eq]=published&filter[rent_times][_gte]=50&limit=8')).data;
@@ -111,18 +94,6 @@ const displayPopular = async () => {
   });
 }
 
-displayPopular().then(() => {
-  new Splide('#popular', {
-    arrows: false,
-    pagination: false,
-    gap: '32px',
-    autoWidth: true
-  }).mount();
-}).then(() => {
-  // Refresh favorite events only after Splide has mounted
-  refreshFavoriteEvent();
-});
-
 const displayRecommendation = async () => {
   const cars = (await fetchCollection('cars?filter[status][_eq]=published&filter[rating][_gte]=4&limit=8')).data;
 
@@ -178,12 +149,48 @@ const displayRecommendation = async () => {
   });
 }
 
-displayRecommendation().then(refreshFavoriteEvent);
-
 const getCarsCount = async () => {
   const carsCount = await fetchCollection('cars?filter[status][_eq]=published&meta=total_count&limit=0');
 
   $('#cars-count').text(carsCount.meta.total_count);
 }
 
-getCarsCount();
+Promise.all([
+  displaySlides().then(() => {
+    new Splide('#slider', {
+      type: 'loop',
+      autoplay: true,
+      interval: 5000,
+      perPage: 2,
+      arrows: false,
+      pagination: false,
+      gap: '32px',
+      breakpoints: {
+        1000: {
+          perPage: 1
+        }
+      }
+    }).mount();
+  }), 
+  displayPopular().then(() => {
+    new Splide('#popular', {
+      arrows: false,
+      pagination: false,
+      gap: '32px',
+      autoWidth: true
+    }).mount();
+  }).then(() => {
+    // Refresh favorite events only after Splide has mounted
+    refreshFavoriteEvent();
+  }),
+  displayRecommendation().then(refreshFavoriteEvent),
+  getCarsCount()
+]).then(() => {
+  $('#skeleton-loading').addClass('hidden');
+  $('#loaded').removeClass('hidden');
+});
+
+
+
+
+

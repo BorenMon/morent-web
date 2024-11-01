@@ -56,16 +56,15 @@
           <a href="/pages/public/favorites.html" class="nav-icon">
             <img src="/assets/icons/heart.svg" alt="" class="icon" />
           </a>
-          <a href="/pages/public/auth.html" id="login" class="font-semibold !hidden">
+          <a
+            href="/pages/public/auth.html"
+            id="login"
+            class="font-semibold !hidden"
+          >
             Login&nbsp;<img src="/assets/icons/login.svg" alt="" class="icon" />
           </a>
           <div class="relative inline-block text-left !hidden" id="profile">
-            <img
-              src=""
-              alt="Profile"
-              id="nav-profile"
-              class="shadow-md"
-            />
+            <img src="" alt="Profile" id="nav-profile" class="shadow-md" />
             <div
               class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
               role="menu"
@@ -111,7 +110,7 @@
           </div>
         </div>
       </nav>
-    
+
       <div class="backdrop" id="nav-backdrop"></div>
       <!-- Mobile menu, show/hide based on menu open state. -->
       <div id="mobile-menu" class="w-full bg-white px-6 py-6 sm:max-w-sm">
@@ -160,7 +159,115 @@
 
     <div id="body-wrapper">
       <div id="body" class="container-fluid">
-        <div class="space-y-[12px]" id="blog">
+        <div class="skeleton-loading space-y-8">
+          <div class="animate-pulse">
+            <div
+              class="h-2.5 bg-gray-300 rounded-full max-w-[640px] mb-2.5 mx-auto"
+            ></div>
+            <div
+              class="h-2.5 mx-auto bg-gray-300 rounded-full max-w-[540px]"
+            ></div>
+            <div class="flex items-center justify-center mt-4">
+              <svg
+                class="w-8 h-8 text-gray-200 me-4"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"
+                />
+              </svg>
+              <div class="w-20 h-2.5 bg-gray-200 rounded-full me-3"></div>
+              <div class="w-24 h-2 bg-gray-200 rounded-full"></div>
+            </div>
+          </div>
+          <div
+            class="items-center justify-center w-full h-[750px] bg-gray-300 rounded flex"
+          >
+            <svg
+              class="w-10 h-10 text-gray-200"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 18"
+            >
+              <path
+                d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"
+              />
+            </svg>
+          </div>
+          <div class="space-y-2.5 animate-pulse max-w-lg">
+            <div class="flex items-center w-full">
+              <div
+                class="h-2.5 bg-gray-200 rounded-full w-32"
+              ></div>
+              <div
+                class="h-2.5 ms-2 bg-gray-300 rounded-full w-24"
+              ></div>
+              <div
+                class="h-2.5 ms-2 bg-gray-300 rounded-full w-full"
+              ></div>
+            </div>
+            <div class="flex items-center w-full max-w-[480px]">
+              <div
+                class="h-2.5 bg-gray-200 rounded-full w-full"
+              ></div>
+              <div
+                class="h-2.5 ms-2 bg-gray-300 rounded-full w-full"
+              ></div>
+              <div
+                class="h-2.5 ms-2 bg-gray-300 rounded-full w-24"
+              ></div>
+            </div>
+            <div class="flex items-center w-full max-w-[400px]">
+              <div
+                class="h-2.5 bg-gray-300 rounded-full w-full"
+              ></div>
+              <div
+                class="h-2.5 ms-2 bg-gray-200 rounded-full w-80"
+              ></div>
+              <div
+                class="h-2.5 ms-2 bg-gray-300 rounded-full w-full"
+              ></div>
+            </div>
+            <div class="flex items-center w-full max-w-[480px]">
+              <div
+                class="h-2.5 ms-2 bg-gray-200 rounded-full w-full"
+              ></div>
+              <div
+                class="h-2.5 ms-2 bg-gray-300 rounded-full w-full"
+              ></div>
+              <div
+                class="h-2.5 ms-2 bg-gray-300 rounded-full w-24"
+              ></div>
+            </div>
+            <div class="flex items-center w-full max-w-[440px]">
+              <div
+                class="h-2.5 ms-2 bg-gray-300 rounded-full w-32"
+              ></div>
+              <div
+                class="h-2.5 ms-2 bg-gray-300 rounded-full w-24"
+              ></div>
+              <div
+                class="h-2.5 ms-2 bg-gray-200 rounded-full w-full"
+              ></div>
+            </div>
+            <div class="flex items-center w-full max-w-[360px]">
+              <div
+                class="h-2.5 ms-2 bg-gray-300 rounded-full w-full"
+              ></div>
+              <div
+                class="h-2.5 ms-2 bg-gray-200 rounded-full w-80"
+              ></div>
+              <div
+                class="h-2.5 ms-2 bg-gray-300 rounded-full w-full"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-[12px] loaded !hidden" id="blog">
           <p>Published <span id="published-date"></span></p>
           <h1 id="title"></h1>
           <p id="description"></p>
@@ -169,7 +276,7 @@
           <div id="blog-content"></div>
         </div>
       </div>
-      <div class="bg-[#F6F7F9]" id="related-container">
+      <div class="bg-[#F6F7F9] loaded !hidden" id="related-container">
         <div class="container-fluid space-y-[32px]" id="related-posts">
           <h5 class="font-semibold text-[#90A3BF]">Related Posts</h5>
           <section id="related" class="splide">
@@ -178,10 +285,7 @@
                 <!-- Generate by JavaScript -->
                 <li class="splide__slide post-card">
                   <a href="/pages/public/blog.html?id=${id}">
-                    <img
-                      src="/assets/images/JAMstack.png"
-                      alt="thumbnail"
-                    />
+                    <img src="/assets/images/JAMstack.png" alt="thumbnail" />
                   </a>
                   <div class="post-content">
                     <a class="author">${formatISODate(date_created)}</a>
@@ -200,9 +304,14 @@
       <div id="footer" class="container-fluid">
         <div>
           <div class="space-y-[16px] mr-[48px] mt-[20px]">
-            <img src="/assets/images/logo/morent-logo.svg" alt="Logo" class="logo-img">
+            <img
+              src="/assets/images/logo/morent-logo.svg"
+              alt="Logo"
+              class="logo-img"
+            />
             <p>
-              Whether it's for business or leisure, we're dedicated to making your ride comfortable, convenient, and affordable.
+              Whether it's for business or leisure, we're dedicated to making
+              your ride comfortable, convenient, and affordable.
             </p>
           </div>
           <div>
@@ -232,7 +341,7 @@
             </div>
           </div>
         </div>
-        <hr/>
+        <hr />
         <div>
           <h6>©2024 MORENT. All rights reserved</h6>
           <div class="space-x-[28px]">

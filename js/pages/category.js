@@ -24,6 +24,9 @@ let filter_count
 let total_page
 
 const displayCars = async (queryString) => {
+  $('#skeleton-loading').removeClass('hidden');
+  $('#loaded').addClass('hidden');
+
   const result = await fetchCollection(`cars?${queryString}`)
 
   const carData = result.data
@@ -99,6 +102,9 @@ const displayCars = async (queryString) => {
     // Append each car card to the container
     $cars.append($div)
   })
+
+  $('#skeleton-loading').addClass('hidden');
+  $('#loaded').removeClass('hidden');
 }
 
 const prefixCarsQueryString =
@@ -368,6 +374,9 @@ $('#max-price').on('input', (e) => {
   // Update the max price value display immediately
   $('#max-price-value').text(formatToTwoDecimals(maxPrice))
 
+  $('#skeleton-loading').removeClass('hidden');
+  $('#loaded').addClass('hidden');
+
   // Debounced API call
   debounceRefreshCars()
 })
@@ -444,6 +453,9 @@ inputs.forEach((input) => {
         otherInput.value = currentValue
       }
     })
+
+    $('#skeleton-loading').removeClass('hidden');
+    $('#loaded').addClass('hidden');
 
     debouncedRefreshCars(currentValue)
   })

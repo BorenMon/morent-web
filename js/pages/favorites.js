@@ -34,6 +34,9 @@ const filterMediaQuery = window.matchMedia('(min-width: 1100px)')
 filterMediaQuery.addEventListener('change', filterHandleResize)
 
 const displayFavorites = async (addOnQuery) => {
+  $('#skeleton-loading').removeClass('hidden');
+  $('#loaded').addClass('hidden');
+
   const favoriteIds = JSON.parse(localStorage.getItem('savedFavorites') || '[]')
 
   const cars = (
@@ -44,7 +47,7 @@ const displayFavorites = async (addOnQuery) => {
     )
   ).data
 
-  const $favorites = $('#favorites > div')
+  const $favorites = $('#favorites #loaded')
   $favorites.empty() // Clear previous content
 
   if (cars.length > 0) {
@@ -129,6 +132,9 @@ const displayFavorites = async (addOnQuery) => {
       '<div class="text-center text-[24px] text-[#90A3BF]">No matched favorited car found.</div>'
     )
   }
+
+  $('#skeleton-loading').addClass('hidden');
+  $('#loaded').removeClass('hidden');
 }
 
 const defaultDisplayFavorites = (addOnQuery = '') => {
@@ -214,6 +220,9 @@ $('#max-price').on('input', (e) => {
 
   // Update the max price value display immediately
   $('#max-price-value').text(formatToTwoDecimals(maxPrice))
+
+  $('#skeleton-loading').removeClass('hidden');
+  $('#loaded').addClass('hidden');
 
   // Debounced API call
   debounceRefreshCars()
