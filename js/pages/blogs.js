@@ -6,6 +6,9 @@ let filter_count
 let total_page
 
 const displayBlogs = async (queryString) => {
+  $('#skeleton-loading').removeClass('hidden');
+  $('#loaded').addClass('hidden');
+
   const result = await fetchCollection(`blogs?${queryString}`)
 
   const blogsData = result.data
@@ -41,6 +44,9 @@ const displayBlogs = async (queryString) => {
 
     $blogs.append($div)
   })
+
+  $('#skeleton-loading').addClass('hidden');
+  $('#loaded').removeClass('hidden');
 }
 
 const prefixBlogsQueryString =
@@ -213,6 +219,9 @@ const debounceRefreshBlogs = debounce(function () {
 const searchBlogsInput = document.getElementById('search-blogs')
 searchBlogsInput.addEventListener('input', () => {
   keyword = searchBlogsInput.value;
+
+  $('#skeleton-loading').removeClass('hidden');
+  $('#loaded').addClass('hidden');
 
   debounceRefreshBlogs()
 })

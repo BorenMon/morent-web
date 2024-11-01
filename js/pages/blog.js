@@ -88,6 +88,9 @@ if (id) {
               }
             }
           }).mount();
+
+          $('.skeleton-loading').addClass('!hidden');
+          $('.loaded').removeClass('!hidden');
         });
       }
     })
