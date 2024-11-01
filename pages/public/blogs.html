@@ -12,12 +12,12 @@
       type="image/x-icon"
     />
 
-    <title>Home</title>
+    <title>Blogs</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/pages/home.css" />
+    <link rel="stylesheet" href="/css/pages/blogs.css" />
     <!-- JS -->
     <script src="/js/modules/tailwind.js"></script>
-    <script type="module" src="/js/pages/home.js"></script>
+    <script type="module" src="/js/pages/blogs.js"></script>
   </head>
   <body>
     <header>
@@ -56,15 +56,16 @@
           <a href="/pages/public/favorites.html" class="nav-icon">
             <img src="/assets/icons/heart.svg" alt="" class="icon" />
           </a>
-          <a
-            href="/pages/public/auth.html"
-            id="login"
-            class="font-semibold !hidden"
-          >
+          <a href="/pages/public/auth.html" id="login" class="font-semibold !hidden">
             Login&nbsp;<img src="/assets/icons/login.svg" alt="" class="icon" />
           </a>
           <div class="relative inline-block text-left !hidden" id="profile">
-            <img src="" alt="Profile" id="nav-profile" class="shadow-md" />
+            <img
+              src=""
+              alt="Profile"
+              id="nav-profile"
+              class="shadow-md"
+            />
             <div
               class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
               role="menu"
@@ -110,10 +111,10 @@
           </div>
         </div>
       </nav>
-
+    
       <div class="backdrop" id="nav-backdrop"></div>
       <!-- Mobile menu, show/hide based on menu open state. -->
-      <div id="mobile-menu" class="w-full bg-white px-6 py-6 sm:w-full">
+      <div id="mobile-menu" class="w-full bg-white px-6 py-6 sm:max-w-sm">
         <div class="flex items-center justify-between">
           <a href="/" id="logo-link">
             <img
@@ -133,9 +134,9 @@
         <div class="mt-6 flow-root" id="mobile-nav">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-              <a href="/" class="active">Home</a>
+              <a href="/">Home</a>
               <a href="/pages/public/category.html">Category</a>
-              <a href="/pages/public/blogs.html">Blogs</a>
+              <a href="/pages/public/blogs.html" class="active">Blogs</a>
               <a href="/pages/public/about.html">About Us</a>
               <a href="/pages/public/contact.html">Contact Us</a>
             </div>
@@ -143,64 +144,94 @@
               <a href="/pages/public/favorites.html">Favorites</a>
             </div>
             <div class="py-6">
-              <a href="/pages/public/auth.html">Login</a>
-            </div>
-            <div class="py-6">
-              <a href="/pages/public/profile.html">Profile settings</a>
-              <div>Logout</div>
+              <a href="/pages/public/auth.html">Log in</a>
             </div>
           </div>
         </div>
       </div>
       <ul id="nav" class="container-fluid space-x-[32px]">
-        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="/pages/public/category.html">Category</a></li>
-        <li><a href="/pages/public/blogs.html">Blogs</a></li>
+        <li class="active"><a href="/pages/public/blogs.html">Blogs</a></li>
         <li><a href="/pages/public/about.html">About Us</a></li>
         <li><a href="/pages/public/contact.html">Contact Us</a></li>
       </ul>
     </header>
 
     <div id="body-wrapper">
-      <div id="body" class="container-fluid">
+      <div id="body" class="container-fluid space-y-[32px]">
+        <div id="top-bar">
+          <h2 class="font-bold text-[18px]">All Blog Posts</h2>
+          <div class="flex py-3 px-3 text-gray-900 border border-gray-300 rounded-lg bg-gray-50" id="search-box">
+            <div class="flex items-center pe-3 pointer-events-none">
+              <img src="/assets/icons/search-normal.svg" alt="Search Icon" />
+            </div>
+            <input
+              id="search-blogs"
+              type="text"
+              id="simple-search"
+              class="text-[14px] border-0 focus:border-0 focus:outline-0 bg-transparent grow"
+              placeholder="Search blogs..."
+            />
+          </div>
+        </div>
+
         <div class="space-y-8" id="skeleton-loading">
           <div
-            class="space-y-8 animate-pulse md:space-y-0 md:space-x-8 md:flex md:items-center"
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[32px]"
           >
             <div
-              class="items-center justify-center w-full h-[360px] bg-gray-300 rounded hidden md:flex md:w-1/2"
+              class="w-full p-4 border border-gray-200 rounded shadow animate-pulse md:p-6"
             >
-              <svg
-                class="w-10 h-10 text-gray-200"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 18"
+              <div
+                class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded"
               >
-                <path
-                  d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"
-                />
-              </svg>
+                <svg
+                  class="w-10 h-10 text-gray-200"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 16 20"
+                >
+                  <path
+                    d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"
+                  />
+                  <path
+                    d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"
+                  />
+                </svg>
+              </div>
+              <div class="h-2.5 bg-gray-200 rounded-full w-48 mb-4"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full"></div>
             </div>
             <div
-              class="flex items-center justify-center w-full h-[360px] bg-gray-300 rounded md:w-1/2"
+              class="w-full p-4 border border-gray-200 rounded shadow animate-pulse md:p-6"
             >
-              <svg
-                class="w-10 h-10 text-gray-200"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 18"
+              <div
+                class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded"
               >
-                <path
-                  d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"
-                />
-              </svg>
+                <svg
+                  class="w-10 h-10 text-gray-200"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 16 20"
+                >
+                  <path
+                    d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"
+                  />
+                  <path
+                    d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"
+                  />
+                </svg>
+              </div>
+              <div class="h-2.5 bg-gray-200 rounded-full w-48 mb-4"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full"></div>
             </div>
-          </div>
-          <div
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-          >
             <div
               class="w-full p-4 border border-gray-200 rounded shadow animate-pulse md:p-6"
             >
@@ -307,96 +338,51 @@
             </div>
           </div>
         </div>
-        <div id="loaded" class="hidden">
-          <section id="slider" class="splide">
-            <div class="splide__track">
-              <ul class="splide__list" id="slide-wrapper">
-                <!-- Generate by JavaScript -->
-              </ul>
-            </div>
-          </section>
-          <div id="booking" class="space-x-[44px]">
-            <div class="booking-container">
-              <div>
-                <img src="/assets/icons/mark.svg" alt="" />
-                <h3>Pick - Up</h3>
-              </div>
-              <div>
-                <div>
-                  <h4>Location</h4>
-                  <div class="select">
-                    <select name="pickup-city" class="city"></select>
-                  </div>
-                </div>
-                <div>
-                  <h4>Date</h4>
-                  <input type="date" />
-                </div>
-                <div>
-                  <h4>Time</h4>
-                  <input type="time" />
-                </div>
-              </div>
-            </div>
-            <div id="swap-icon">
-              <img src="/assets/icons/swap.svg" alt="" class="icon" />
-            </div>
-            <div class="booking-container">
-              <div>
-                <img src="/assets/icons/mark.svg" alt="" />
-                <h3>Drop - Off</h3>
-              </div>
-              <div>
-                <div>
-                  <h4>Location</h4>
-                  <div class="select">
-                    <select name="pickup-city" class="city"></select>
-                  </div>
-                </div>
-                <div>
-                  <h4>Date</h4>
-                  <input type="date" />
-                </div>
-                <div>
-                  <h4>Time</h4>
-                  <input type="time" />
-                </div>
-              </div>
+
+        <div id="loaded" class="space-y-[32px] hidden">
+          <div id="posts-grid">
+            <div class="post-card">
+              <!-- Generated by JavaScript -->
             </div>
           </div>
-          <div
-            class="flex items-center justify-between mb-[20px] mt-[36px] h-[44px] px-[20px]"
-          >
-            <h5 class="font-semibold text-[#90A3BF]">Popular Car</h5>
-            <a
-              href="/pages/public/category.html"
-              class="text-[#3563E9] font-semibold"
-              >View All</a
+          <div class="flex items-center justify-between">
+            <div class="flex flex-1 justify-between sm:hidden">
+              <div
+                id="prev-button"
+                class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+              >
+                Previous
+              </div>
+              <div
+                id="next-button"
+                class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+              >
+                Next
+              </div>
+            </div>
+            <div
+              class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between"
+              id="pagination-container"
             >
-          </div>
-          <section id="popular" class="splide">
-            <div class="splide__track">
-              <ul class="splide__list" id="popular-wrapper">
-                <!-- Generate by JavaScript -->
-              </ul>
-            </div>
-          </section>
-          <div
-            class="flex items-center justify-between mb-[20px] mt-[36px] h-[44px] px-[20px]"
-          >
-            <h5 class="font-semibold text-[#90A3BF]">Recommendation Car</h5>
-          </div>
-          <div id="recommendation">
-            <!-- Generate by JavaScript -->
-          </div>
-          <div
-            class="my-[64px] flex ml-auto w-1/2 justify-between items-center"
-          >
-            <button class="-translate-x-1/2">
-              <a href="/pages/public/category.html">Show more car</a>
-            </button>
-            <div class="font-medium text-[#90A3BF]">
-              <span id="cars-count"></span> Car
+              <div>
+                <p class="text-sm text-gray-700">
+                  Showing
+                  <span class="font-medium" id="showing-from"></span>
+                  to
+                  <span class="font-medium" id="showing-to"></span>
+                  of
+                  <span class="font-medium" id="filter_count"></span>
+                  blogs
+                </p>
+              </div>
+              <div>
+                <nav
+                  class="isolate inline-flex -space-x-px rounded-md shadow-sm"
+                  aria-label="Pagination"
+                  id="pagination"
+                ></nav>
+              </div>
+              <p>No matched blog.</p>
             </div>
           </div>
         </div>
@@ -407,14 +393,9 @@
       <div id="footer" class="container-fluid">
         <div>
           <div class="space-y-[16px] mr-[48px] mt-[20px]">
-            <img
-              src="/assets/images/logo/morent-logo.svg"
-              alt="Logo"
-              class="logo-img"
-            />
+            <img src="/assets/images/logo/morent-logo.svg" alt="Logo" class="logo-img">
             <p>
-              Whether it's for business or leisure, we're dedicated to making
-              your ride comfortable, convenient, and affordable.
+              Whether it's for business or leisure, we're dedicated to making your ride comfortable, convenient, and affordable.
             </p>
           </div>
           <div>
@@ -444,7 +425,7 @@
             </div>
           </div>
         </div>
-        <hr />
+        <hr/>
         <div>
           <h6>©2024 MORENT. All rights reserved</h6>
           <div class="space-x-[28px]">

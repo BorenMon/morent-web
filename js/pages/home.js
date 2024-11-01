@@ -1,9 +1,18 @@
 import '../main.js'
 import '../modules/splide.min.js'
 import '../modules/select2.min.js'
-import { getAssetUrl, fetchCollection } from '../services/directusAPI.js';
+import { getAssetUrl, fetchCollection } from '../services/publicAPI.js';
 import { cities } from '../../config/locationMasterData.js'
-import { formatToTwoDecimals, refreshFavoriteEvent, checkIsFavorite } from '../../config/utils.js';
+import { formatToTwoDecimals } from '../services/utils.js';
+import { refreshFavoriteEvent, checkIsFavorite } from '../services/favorites.js';
+
+$('.city').select2({
+  width: '100%',
+  data: [
+    { id: '', text: 'Select your city', value: '' },
+    ...cities
+  ],
+});
 
 const displaySlides = async () => {
   const slides = (await fetchCollection('slides?filter[status][_eq]=published')).data;
@@ -30,32 +39,7 @@ const displaySlides = async () => {
   });
 }
 
-displaySlides().then(() => {
-  new Splide('#slider', {
-    type: 'loop',
-    autoplay: true,
-    interval: 5000,
-    perPage: 2,
-    arrows: false,
-    pagination: false,
-    gap: '32px',
-    breakpoints: {
-      1000: {
-        perPage: 1
-      }
-    }
-  }).mount();
-});
-
-$('.city').select2({
-  width: '100%',
-  data: [
-    { id: '', text: 'Select your city', value: '' },
-    ...cities
-  ],
-});
-
-const displayPopulalar = async () => {
+const displayPopular = async () => {
   const cars = (await fetchCollection('cars?filter[status][_eq]=published&filter[rent_times][_gte]=50&limit=8')).data;
 
   const popularWrapper = document.getElementById('popular-wrapper');
@@ -64,7 +48,7 @@ const displayPopulalar = async () => {
   cars.forEach((car) => {
     const li = document.createElement('li');
     li.className = 'splide__slide car-card';
-    const { id, model, category, card_image, gasoline, type, capacity, price, has_promotion, promotion_price } = car;
+    const { id, model, type, card_image, gasoline, steering, capacity, price, has_promotion, promotion_price } = car;
     li.setAttribute('data-id', id);
     const { iconPath } = checkIsFavorite(id);
     
@@ -72,11 +56,11 @@ const displayPopulalar = async () => {
       <div>
         <div class="-mt-[5px]">
           <div class="text-[20px] font-bold text-[#1A202C]">${model}</div>
-          <div class="text-[14px] font-bold text-[#90A3BF]">${category}</div>
+          <div class="text-[14px] font-bold text-[#90A3BF]">${type}</div>
         </div>
         <img src="${iconPath}" alt="" class="icon favorite">
       </div>
-      <img src="${getAssetUrl(card_image)}" alt="">
+      <a href="#"><img src="${getAssetUrl(card_image)}" alt=""></a>
       <div class="space-y-[24px]">
         <div>
           <div>
@@ -85,7 +69,7 @@ const displayPopulalar = async () => {
           </div>
           <div>
             <img src="./assets/icons/car.svg" alt="" class="icon">
-            <span>${type}</span>
+            <span>${steering}</span>
           </div>
           <div>
             <img src="./assets/icons/profile-2user.svg" alt="" class="icon">
@@ -110,18 +94,6 @@ const displayPopulalar = async () => {
   });
 }
 
-displayPopulalar().then(() => {
-  new Splide('#popular', {
-    arrows: false,
-    pagination: false,
-    gap: '32px',
-    autoWidth: true
-  }).mount();
-}).then(() => {
-  // Refresh favorite events only after Splide has mounted
-  refreshFavoriteEvent();
-});
-
 const displayRecommendation = async () => {
   const cars = (await fetchCollection('cars?filter[status][_eq]=published&filter[rating][_gte]=4&limit=8')).data;
 
@@ -131,7 +103,7 @@ const displayRecommendation = async () => {
   cars.forEach((car) => {
     const div = document.createElement('div');
     div.className = 'car-card';
-    const { id, model, category, card_image, gasoline, type, capacity, price, has_promotion, promotion_price } = car;
+    const { id, model, type, card_image, gasoline, steering, capacity, price, has_promotion, promotion_price } = car;
     div.setAttribute('data-id', id);
     const { iconPath } = checkIsFavorite(id);
     
@@ -139,11 +111,11 @@ const displayRecommendation = async () => {
       <div>
         <div class="-mt-[5px]">
           <div class="text-[20px] font-bold text-[#1A202C]">${model}</div>
-          <div class="text-[14px] font-bold text-[#90A3BF]">${category}</div>
+          <div class="text-[14px] font-bold text-[#90A3BF]">${type}</div>
         </div>
         <img src="${iconPath}" alt="" class="icon favorite">
       </div>
-      <img src="${getAssetUrl(card_image)}" alt="">
+      <a href="#"><img src="${getAssetUrl(card_image)}" alt=""></a>
       <div class="space-y-[24px]">
         <div>
           <div>
@@ -152,7 +124,7 @@ const displayRecommendation = async () => {
           </div>
           <div>
             <img src="./assets/icons/car.svg" alt="" class="icon">
-            <span>${type}</span>
+            <span>${steering}</span>
           </div>
           <div>
             <img src="./assets/icons/profile-2user.svg" alt="" class="icon">
@@ -177,12 +149,48 @@ const displayRecommendation = async () => {
   });
 }
 
-displayRecommendation().then(refreshFavoriteEvent);
-
 const getCarsCount = async () => {
   const carsCount = await fetchCollection('cars?filter[status][_eq]=published&meta=total_count&limit=0');
 
   $('#cars-count').text(carsCount.meta.total_count);
 }
 
-getCarsCount();
+Promise.all([
+  displaySlides().then(() => {
+    new Splide('#slider', {
+      type: 'loop',
+      autoplay: true,
+      interval: 5000,
+      perPage: 2,
+      arrows: false,
+      pagination: false,
+      gap: '32px',
+      breakpoints: {
+        1000: {
+          perPage: 1
+        }
+      }
+    }).mount();
+  }), 
+  displayPopular().then(() => {
+    new Splide('#popular', {
+      arrows: false,
+      pagination: false,
+      gap: '32px',
+      autoWidth: true
+    }).mount();
+  }).then(() => {
+    // Refresh favorite events only after Splide has mounted
+    refreshFavoriteEvent();
+  }),
+  displayRecommendation().then(refreshFavoriteEvent),
+  getCarsCount()
+]).then(() => {
+  $('#skeleton-loading').addClass('hidden');
+  $('#loaded').removeClass('hidden');
+});
+
+
+
+
+
