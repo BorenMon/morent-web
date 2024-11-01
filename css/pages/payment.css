@@ -1,8 +1,9 @@
+@import url('../main.css');
+
 .payment-main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "pay pic";
-  padding: 0 250px;
   background-color: whitesmoke;
   gap: 0px;
 }
@@ -14,9 +15,9 @@
     grid-template-areas:
       "pic"
       "pay";
-    padding: 0 20px;
   }
 }
+
 @media (max-width: 710px) {
   .payment-main {
     grid-template-columns: 1fr;
@@ -64,10 +65,6 @@
   background-color: white;
   padding: 15px;
   border-radius: 10px;
-}
-.pay,
-.pic {
-  margin: 20px;
 }
 
 form > div {
