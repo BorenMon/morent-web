@@ -1,5 +1,4 @@
 @import url('../main.css');
-@import url('../modules/select2.min.css');
 
 #body-wrapper {
   background: linear-gradient(to right, #FFFFFF 50%, #F6F7F9 50%);
