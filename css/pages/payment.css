@@ -1,0 +1,105 @@
+.payment-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "pay pic";
+  padding: 0 250px;
+  background-color: whitesmoke;
+  gap: 0px;
+}
+
+/* responsive */
+@media (max-width: 1650px) {
+  .payment-main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "pic"
+      "pay";
+    padding: 0 20px;
+  }
+}
+@media (max-width: 710px) {
+  .payment-main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "pic"
+      "pay";
+    padding: 0 0;
+  }
+  .pay,
+  .pic {
+    margin: 0 0 !important;
+  }
+  #car_pic {
+    /*  */
+  }
+  .billing-info {
+    /*  */
+  }
+  .bill_input {
+    display: grid !important;
+    gap: 10px;
+  }
+  .bill_input_div {
+  }
+  .pay_step {
+    display: grid !important;
+  }
+  .car_img {
+    display: grid !important;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .car_img > img {
+    width: 100% !important;
+  }
+}
+
+.bill_input_div {
+  display: grid;
+  width: 280px;
+  gap: 10px;
+}
+/* ============================== */
+#car_pic {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+.pay,
+.pic {
+  margin: 20px;
+}
+
+form > div {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+.bill_input {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+.pay_step {
+  display: flex;
+  justify-content: space-between;
+}
+.car_img {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+#pay-choice {
+  background-color: whitesmoke;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  gap: 20px;
+}
+#input_ {
+  padding: 15px;
+  outline: none;
+  background-color: white;
+  border-radius: 10px;
+}
