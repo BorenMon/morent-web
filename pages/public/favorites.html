@@ -2,8 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="MORENT - Your
-    Trusted Car Rental Partner in Cambodia">
+    <meta
+      name="description"
+      content="MORENT - Your
+    Trusted Car Rental Partner in Cambodia"
+    />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no"
@@ -58,16 +61,15 @@
           <a href="/pages/public/favorites.html" class="nav-icon">
             <img src="/assets/icons/like.svg" alt="" class="icon" />
           </a>
-          <a href="/pages/public/auth.html" id="login" class="font-semibold !hidden">
+          <a
+            href="/pages/public/auth.html"
+            id="login"
+            class="font-semibold !hidden"
+          >
             Login&nbsp;<img src="/assets/icons/login.svg" alt="" class="icon" />
           </a>
           <div class="relative inline-block text-left !hidden" id="profile">
-            <img
-              src=""
-              alt="Profile"
-              id="nav-profile"
-              class="shadow-md"
-            />
+            <img src="" alt="Profile" id="nav-profile" class="shadow-md" />
             <div
               class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
               role="menu"
@@ -85,10 +87,9 @@
                   >Profile settings</a
                 >
                 <div
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer logout"
                   role="menuitem"
                   tabindex="-1"
-                  id="logout"
                 >
                   Logout
                 </div>
@@ -113,7 +114,7 @@
           </div>
         </div>
       </nav>
-    
+
       <div class="backdrop" id="nav-backdrop"></div>
       <!-- Mobile menu, show/hide based on menu open state. -->
       <div id="mobile-menu" class="w-full bg-white px-6 py-6 sm:max-w-sm">
@@ -143,10 +144,16 @@
               <a href="/pages/public/contact.html">Contact Us</a>
             </div>
             <div class="space-y-2 py-6">
-              <a href="/pages/public/favorites.html">Favorites</a>
+              <a href="/pages/public/favorites.html" class="active"
+                >Favorites</a
+              >
             </div>
-            <div class="py-6">
-              <a href="/pages/public/auth.html">Log in</a>
+            <div class="py-6 !hidden" id="mobile-login">
+              <a href="/pages/public/auth.html">Login</a>
+            </div>
+            <div class="py-6 !hidden" id="mobile-profile">
+              <a href="/pages/public/profile.html">Profile settings</a>
+              <a class="logout">Logout</a>
             </div>
           </div>
         </div>
@@ -314,9 +321,14 @@
       <div id="footer" class="container-fluid">
         <div>
           <div class="space-y-[16px] mr-[48px] mt-[20px]">
-            <img src="/assets/images/logo/morent-logo.svg" alt="Logo" class="logo-img">
+            <img
+              src="/assets/images/logo/morent-logo.svg"
+              alt="Logo"
+              class="logo-img"
+            />
             <p>
-              Whether it's for business or leisure, we're dedicated to making your ride comfortable, convenient, and affordable.
+              Whether it's for business or leisure, we're dedicated to making
+              your ride comfortable, convenient, and affordable.
             </p>
           </div>
           <div>
@@ -346,7 +358,7 @@
             </div>
           </div>
         </div>
-        <hr/>
+        <hr />
         <div>
           <h6>©2024 MORENT. All rights reserved</h6>
           <div class="space-x-[28px]">
