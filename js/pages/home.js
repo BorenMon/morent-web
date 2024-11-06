@@ -32,7 +32,7 @@ const displaySlides = async () => {
         <p>${description}</p>
         <button class="bg-[${button_color}] slide-button" text-[${button_text_color}]><a href="${link_url}">${button_text}</a></button>
       </div>
-      <img src="${getAssetUrl(popup_image)}" alt="" class="pl-[${index == 0 ? '24px' : '56px'}]">
+      <img src="${getAssetUrl(popup_image)}" loading="lazy" alt="" class="pl-[${index == 0 ? '24px' : '56px'}]">
     `
 
     slideWrapper.appendChild(li);
@@ -60,7 +60,7 @@ const displayPopular = async () => {
         </div>
         <img src="${iconPath}" alt="" class="icon favorite">
       </div>
-      <a href="#"><img src="${getAssetUrl(card_image)}" alt=""></a>
+      <a href="/pages/public/detail.html" aria-label="See more about car"><img src="${getAssetUrl(card_image)}" loading="lazy" alt=""></a>
       <div class="space-y-[24px]">
         <div>
           <div>
@@ -115,7 +115,7 @@ const displayRecommendation = async () => {
         </div>
         <img src="${iconPath}" alt="" class="icon favorite">
       </div>
-      <a href="#"><img src="${getAssetUrl(card_image)}" alt=""></a>
+      <a href="/pages/public/detail.html" aria-label="See more about car"><img src="${getAssetUrl(card_image)}" loading="lazy" alt=""></a>
       <div class="space-y-[24px]">
         <div>
           <div>

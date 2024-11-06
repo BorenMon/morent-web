@@ -2,15 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="MORENT - Your
+    Trusted Car Rental Partner in Cambodia">
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
     <link
       rel="shortcut icon"
       href="/assets/icons/favicon.svg"
       type="image/x-icon"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <title>Home</title>
     <!-- CSS -->
@@ -82,10 +86,9 @@
                   >Profile settings</a
                 >
                 <div
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer logout"
                   role="menuitem"
                   tabindex="-1"
-                  id="logout"
                 >
                   Logout
                 </div>
@@ -142,12 +145,12 @@
             <div class="space-y-2 py-6">
               <a href="/pages/public/favorites.html">Favorites</a>
             </div>
-            <div class="py-6">
+            <div class="py-6 !hidden" id="mobile-login">
               <a href="/pages/public/auth.html">Login</a>
             </div>
-            <div class="py-6">
+            <div class="py-6 !hidden" id="mobile-profile">
               <a href="/pages/public/profile.html">Profile settings</a>
-              <div>Logout</div>
+              <a class="logout">Logout</a>
             </div>
           </div>
         </div>
@@ -323,7 +326,7 @@
               </div>
               <div>
                 <div>
-                  <h4>Location</h4>
+                  <h4>label</h4>
                   <div class="select">
                     <select name="pickup-city" class="city"></select>
                   </div>

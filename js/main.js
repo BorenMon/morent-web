@@ -4,7 +4,7 @@ import { fetchProfile } from './services/client.js'
 import { getAssetUrl } from './services/publicAPI.js'
 import { toast } from './services/sweetalert2.js'
 import { logout } from './services/auth.js'
-import { fetchFavorites, syncFavorites } from './services/favorites.js';
+import sweetalert2 from '/js/modules/sweetalert2.all.min.js'
 
 // Function to open mobile menu
 $('#menu-icon').on('click', () => {
@@ -88,29 +88,54 @@ document.addEventListener('click', function (event) {
   }
 })
 
-const profile = await fetchProfile();
+const profile = await fetchProfile()
 
 const toggleProfile = (isHidden) => {
   if (!isHidden) {
-    $('#login').addClass('!hidden');
-    $('#profile').removeClass('!hidden');
+    $('#login').addClass('!hidden')
+    $('#mobile-login').addClass('!hidden')
+    $('#profile').removeClass('!hidden')
+    $('#mobile-profile').removeClass('!hidden')
   } else {
-    $('#login').removeClass('!hidden');
-    $('#profile').addClass('!hidden');
+    $('#login').removeClass('!hidden')
+    $('#mobile-login').removeClass('!hidden')
+    $('#profile').addClass('!hidden')
+    $('#mobile-profile').addClass('!hidden')
   }
 }
 
 if (profile) {
-  toggleProfile(false);
-  $('#nav-profile').attr('src', profile.avatar ? getAssetUrl(profile.avatar) : '/assets/images/sample-profile.png');
+  toggleProfile(false)
+  $('#nav-profile').attr(
+    'src',
+    profile.avatar
+      ? getAssetUrl(profile.avatar)
+      : '/assets/images/sample-profile.png'
+  )
 } else {
-  toggleProfile(true);
+  toggleProfile(true)
 }
 
-$('#logout').on('click', () => {
-  logout();
-  toast('Logged out.', 'success', 'top');
-  setTimeout(() => {
-    window.location.reload();
-  }, 1000);
-});
+$('.logout').on('click', (e) => {
+  e.preventDefault()
+  sweetalert2
+    .fire({
+      title: 'Are you sure to logout?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3563E9',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+    })
+    .then((result) => {
+      if (result.isConfirmed) {
+        logout()
+        toast('Logged out.', 'success', 'top')
+        setTimeout(() => {
+          window.location.reload()
+        }, 1000)
+      }
+    })
+})
