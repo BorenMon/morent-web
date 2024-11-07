@@ -11,12 +11,17 @@ export const register = async (email, password) => {
       body: JSON.stringify({ email, password }),
     })
 
+    const data = await response.json()
+
     if (response.ok) {
       toast('User registered successfully.', 'success', 'top')
       return true
     } else {
-      console.error('Registration failed:', response.data.errors)
-      toast('Failed to register. Please try again.', 'error')
+      const errors = data.errors
+      errors.forEach(e => {
+        toast(e.message, 'error')
+      })
+      console.error('Registration failed:', errors)
       return false
     }
   } catch (error) {
@@ -44,8 +49,11 @@ export async function login(email, password) {
       toast('Login successful.', 'success', 'top')
       return true
     } else {
+      const errors = data.errors
+      errors.forEach(e => {
+        toast(e.message, 'error')
+      })
       console.error('Login failed:', data.errors)
-      toast('Login failed.', 'error')
       return false
     }
   } catch (error) {

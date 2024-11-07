@@ -76,7 +76,7 @@ export const toggleFavorite = (e) => {
   localStorage.setItem('savedFavorites', JSON.stringify(savedFavorites))
   localStorage.setItem('removedFavorites', JSON.stringify(removedFavorites))
 
-  syncFavorites(savedFavorites, removedFavorites);
+  if (localStorage.getItem('profile')) syncFavorites(savedFavorites, removedFavorites);
 }
 
 // Helper function: Fetch user favorites from the database
