@@ -59,6 +59,7 @@ document.getElementById('register').addEventListener('submit', async (e) => {
   if (await register(email, password)) {
     e.target.reset()
     container.classList.remove('active')
+    window.location.hash = '#login';
   }
 })
 
