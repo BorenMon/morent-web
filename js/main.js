@@ -110,7 +110,7 @@ if (profile) {
     'src',
     profile.avatar
       ? getAssetUrl(profile.avatar)
-      : '/assets/images/sample-profile.png'
+      : '/assets/images/sample-profile.jpg'
   )
 } else {
   toggleProfile(true)
