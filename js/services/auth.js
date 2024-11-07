@@ -11,12 +11,11 @@ export const register = async (email, password) => {
       body: JSON.stringify({ email, password }),
     })
 
-    const data = await response.json()
-
     if (response.ok) {
       toast('User registered successfully.', 'success', 'top')
       return true
     } else {
+      const data = await response.json()
       const errors = data.errors
       errors.forEach(e => {
         toast(e.message, 'error')
