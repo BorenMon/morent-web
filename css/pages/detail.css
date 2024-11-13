@@ -1,0 +1,539 @@
+@import url('../main.css');
+@import url('../modules/splide/splide-core.min.css');
+@import url('../modules/splide/splide.min.css');
+@import url('../modules/select2.min.css');
+
+#slide-wrapper li {
+  width: 640px;
+  height: 360px;
+  background-color: white;
+  border-radius: 10px;
+  background-size: cover;
+  padding: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+#slide-wrapper li div:nth-of-type(1) {
+  width: 284px;
+}
+
+#slide-wrapper li div:nth-of-type(1) h2 {
+  width: 284px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+#slide-wrapper li div:nth-of-type(1) p {
+  font-size: 16px;
+}
+
+#slide-wrapper li div:nth-of-type(1) button {
+  border-radius: 4px;
+  height: 44px; 
+  padding: 0 20px;
+}
+
+#slide-wrapper li div:nth-of-type(1) a {
+  font-size: 16px;
+}
+
+#slide-wrapper li img {
+  height: 116px; 
+  position: absolute;
+  right: 8%; 
+  object-fit: contain;
+  object-position: right center;
+  bottom: 24px;
+}
+
+/* Change the border of the Select2 container */
+.select .select2-container .select2-selection--single {
+  border: none; /* Change border color */
+  border-radius: 0; /* Round the corners */
+  height: 40px; /* Set height */
+  outline: none; /* Remove outline */
+}
+
+/* Change the color of the selected item text */
+.select .select2-container .select2-selection--single .select2-selection__rendered {
+  color: #90A3BF; /* Text color */
+  line-height: 38px; /* Center text vertically */
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Change the placeholder color */
+.select .select2-container .select2-selection--single .select2-selection__placeholder {
+  color: #90A3BF; /* Placeholder text color */
+}
+
+/* Change the style of dropdown items */
+.select .select2-container .select2-results__option {
+  color: #212529; /* Item text color */
+  padding: 8px 12px; /* Padding for items */
+}
+
+/* Change the hover effect for dropdown items */
+.select .select2-container .select2-results__option--highlighted[aria-selected] {
+  background-color: #3563E9; /* Background color when highlighted */
+  color: white; /* Text color when highlighted */
+}
+
+/* Optional: Add focus styles */
+.select .select2-container .select2-selection--single:focus {
+  border: none; /* Border color when focused */
+  outline: none; /* Remove default outline */
+}
+
+/* Optional: Add transition effects */
+.select .select2-container .select2-selection--single {
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field:focus {
+  outline: none;
+}
+
+.select .select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 8px;
+}
+
+#booking {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+}
+
+#swap-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #3563E9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-container {
+  flex-grow: 1;
+  padding: 24px 48px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.booking-container > div:nth-of-type(1) {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px
+}
+
+.booking-container > div:nth-of-type(1) img {
+  width: 16px;
+  height: 16px;
+}
+
+.booking-container > div:nth-of-type(1) h3 {
+  margin-left: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.booking-container > div:nth-of-type(2) {
+  display: flex;
+}
+
+.booking-container > div:nth-of-type(2) > div {
+  flex-grow: 1;
+  padding-top: 4px;
+}
+
+.booking-container > div:nth-of-type(2) > div > input {
+  width: 100%;
+  color: #90A3BF;
+  height: 38px;
+}
+
+.booking-container > div:nth-of-type(2) > div > input:focus {
+  outline: none;
+}
+
+.booking-container > div:nth-of-type(2) > div > h4 {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.booking-container > div:nth-of-type(2) > div:nth-of-type(1) {
+  padding-right: 24px;
+}
+
+.booking-container > div:nth-of-type(2) > div:nth-of-type(2) {
+  padding-right: 24px;
+  padding-left: 24px;
+  border-left: #C3D4E9 1px solid;
+  border-right: #C3D4E9 1px solid;
+}
+
+.booking-container > div:nth-of-type(2) > div:nth-of-type(3) {
+  padding-left: 24px;
+}
+
+@media (max-width: 1420px) {
+  #booking {
+    flex-direction: column;
+  }
+
+  #booking > div:nth-of-type(2), #booking > div:nth-of-type(3) {
+    margin: 0;
+  }
+
+  #booking > div:nth-of-type(2) {
+    margin-top: -12px;
+    margin-bottom: -12px;
+    z-index: 8;
+  }
+
+  #booking > div:nth-of-type(1), #booking > div:nth-of-type(3) {
+    width: 100%;
+    overflow-x: auto
+  }
+}
+
+.car-card {
+  width: 304px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 388px;
+}
+
+.car-card > div:nth-of-type(1) {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.car-card > a > img {
+  width: 232px;
+  object-fit: contain;
+}
+
+.car-card > div:nth-of-type(2) {
+  width: 100%;
+}
+
+.car-card > div:nth-of-type(2) > div:nth-of-type(1) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.car-card > div:nth-of-type(2) > div:nth-of-type(1) > div {
+  display: flex;
+  align-items: center;
+}
+
+.car-card > div:nth-of-type(2) > div:nth-of-type(1) > div > img {
+  margin-right: 6px;
+}
+
+.car-card > div:nth-of-type(2) > div:nth-of-type(1) > div > span {
+  font-weight: 500;
+  font-size: 14px;
+  color: #90A3BF;
+}
+
+.car-card > div:nth-of-type(2) > div:nth-of-type(2) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#recommendation {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+}
+
+#recommendation .car-card {
+  width: 100%;
+}
+
+@media (max-width: 1440px) {
+  #recommendation {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  #recommendation {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 770px) {
+  #recommendation {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.favorite {
+  cursor: pointer;
+}
+
+.favorite:active {
+  transform: scale(0.8);
+}
+
+img {
+    max-width: 100%;
+  }
+  
+  .container {
+    max-width: 100%x;
+    margin-inline: auto;
+    padding-inline: 0.75rem;
+  }
+  
+  .grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  .details__container {
+    grid-template-columns: 5.5fr 6.5fr;
+  }
+  
+  .details__img {
+    margin-bottom: 0.5rem;
+  }
+  
+  .details__small-images {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 0.625rem;
+  }
+  
+  .details__small-img {
+    cursor: pointer;
+  }
+
+  /*  */
+
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width:100%;
+    position: relative;
+    
+}
+
+.heart-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #f44336;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+}
+
+.stars {
+    color: #fbc02d;
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.stars span {
+    margin-left: 5px;
+    color: #8992a3;
+}
+
+p {
+    color: #8992a3;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: #8992a3;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.details div {
+    flex: 1 1 45%;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.old-price {
+    font-size: 14px;
+    color: #8992a3;
+    text-decoration: line-through;
+}
+
+.rent-btn {
+    background-color: #3b75f5;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/*  */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.details__img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.details__small-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.details__small-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+.card .stars {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card .details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.card .price {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.rent-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #3b75f5;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.heart-icon {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .details__small-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .details__small-images {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .card h2 {
+    font-size: 20px;
+  }
+
+  .card .stars {
+    font-size: 16px;
+  }
+
+  .card .price {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .details__img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+  }
+
+  .heart-icon {
+    font-size: 18px;
+  }
+
+  .card .details {
+    grid-template-columns: 1fr;
+  }
+}
