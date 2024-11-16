@@ -77,7 +77,7 @@ const displayFavorites = async (addOnQuery) => {
             <img src="${iconPath}" alt="" class="icon favorite" />
           </div>
           <div class="info">
-            <a href="#">
+            <a href="/pages/public/detail.html?id=${id}">
               <img src="${getAssetUrl(card_image)}" alt="" />
             </a>
             <div class="space-y-[48px] details">
@@ -118,7 +118,7 @@ const displayFavorites = async (addOnQuery) => {
                       : ''
                   }
                 </div>
-                <button>Rent Now</button>
+                <button><a href="/pages/public/payment.html?id=${id}">Rent Now</a></button>
               </div>
             </div>
           </div>
