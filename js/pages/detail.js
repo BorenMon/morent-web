@@ -62,7 +62,6 @@ if (carId) {
     id,
     model,
     type,
-    card_image,
     gasoline,
     steering,
     capacity,
