@@ -60,7 +60,7 @@ const displayPopular = async () => {
         </div>
         <img src="${iconPath}" alt="" class="icon favorite">
       </div>
-      <a href="/pages/public/detail.html" aria-label="See more about car"><img src="${getAssetUrl(card_image)}" loading="lazy" alt=""></a>
+      <a href="/pages/public/detail.html?id=${id}" aria-label="See more about car"><img src="${getAssetUrl(card_image)}" loading="lazy" alt=""></a>
       <div class="space-y-[24px]">
         <div>
           <div>
@@ -83,9 +83,7 @@ const displayPopular = async () => {
             </div>
             ${has_promotion ? '<s class="text-[14px] text-[#90A3BF]">$' + formatToTwoDecimals(price) + '</s>' : ''}
           </div>
-          <button>
-            Rent Now
-          </button>
+          <button><a href="/pages/public/payment.html?id=${id}">Rent Now</a></button>
         </div>
       </div>
     `
@@ -115,7 +113,7 @@ const displayRecommendation = async () => {
         </div>
         <img src="${iconPath}" alt="" class="icon favorite">
       </div>
-      <a href="/pages/public/detail.html" aria-label="See more about car"><img src="${getAssetUrl(card_image)}" loading="lazy" alt=""></a>
+      <a href="/pages/public/detail.html?id=${id}" aria-label="See more about car"><img src="${getAssetUrl(card_image)}" loading="lazy" alt=""></a>
       <div class="space-y-[24px]">
         <div>
           <div>
@@ -138,9 +136,7 @@ const displayRecommendation = async () => {
             </div>
             ${has_promotion ? '<s class="text-[14px] text-[#90A3BF]">$' + formatToTwoDecimals(price) + '</s>' : ''}
           </div>
-          <button>
-            Rent Now
-          </button>
+          <button><a href="/pages/public/payment.html?id=${id}">Rent Now</a></button>
         </div>
       </div>
     `
