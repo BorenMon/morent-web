@@ -1,39 +1,38 @@
 @import url('../main.css');
 
 /* General Profile Container */
-#profile {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
+#info-profile {
+  width: 100%;
+  margin: 24px 0;
 }
 
 /* Profile Header */
-#profile img {
+#info-profile img {
   border-radius: 9999px;
   width: 4rem;
   height: 4rem;
 }
 
-#profile h2 {
+#info-profile h2 {
   font-size: 1.25rem;
   font-weight: 700;
 }
 
-#profile p {
+#info-profile p {
   color: #6b7280; /* Tailwind's gray-500 */
 }
 
-#profile .edit-btn {
+#info-profile .edit-btn {
   color: #3b82f6; /* Tailwind's blue-500 */
   cursor: pointer;
 }
 
-#profile .edit-btn:hover {
+#info-profile .edit-btn:hover {
   text-decoration: underline;
 }
 
 /* Sections Styling */
-#profile .section {
+#info-profile .section {
   background-color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06); /* Tailwind shadow-md */
   border-radius: 0.5rem; /* Tailwind rounded-lg */
@@ -42,46 +41,46 @@
 }
 
 /* Grid Layout for Personal Info and Address */
-#profile .info-grid {
+#info-profile .info-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
 @media (min-width: 768px) {
-  #profile .info-grid {
+  #info-profile .info-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* Section Titles */
-#profile h3 {
+#info-profile h3 {
   font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
-#profile p {
+#info-profile p {
   margin: 0.25rem 0;
 }
 
-#profile .info-label {
+#info-profile .info-label {
   font-size: 0.875rem;
   color: #9ca3af; /* Tailwind's gray-400 */
 }
 
-#profile .info-value {
+#info-profile .info-value {
   font-size: 1rem;
   font-weight: 500;
 }
 
 /* Address Specific Styles */
-#profile .address {
+#info-profile .address {
   margin-top: 2rem;
 }
 
 /* Button Styling */
-#profile button {
+#info-profile button {
   color: #3b82f6;
   cursor: pointer;
   background: none;
@@ -89,13 +88,13 @@
   font-size: 0.875rem;
 }
 
-#profile button:hover {
+#info-profile button:hover {
   text-decoration: underline;
 }
 
 /* Media Query for mobile */
 @media (min-width: 768px) {
-  #profile .section {
+  #info-profile .section {
     padding: 2rem;
   }
 }
