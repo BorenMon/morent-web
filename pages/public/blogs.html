@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="MORENT - Your
+    Trusted Car Rental Partner in Cambodia"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <link
+      rel="shortcut icon"
+      href="/assets/icons/favicon.svg"
+      type="image/x-icon"
+    />
+
+    <title>Blogs</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/pages/blogs.css" />
+    <!-- JS -->
+    <script src="/js/modules/tailwind.js"></script>
+    <script type="module" src="/js/pages/blogs.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="container-fluid">
+        <div class="lg:flex" id="logo">
+          <a href="/" id="logo-link">
+            <img
+              class="logo-img"
+              src="/assets/images/logo/morent-logo.svg"
+              alt="Logo Image"
+            />
+          </a>
+        </div>
+        <div id="menu-icon-wrapper">
+          <button
+            type="button"
+            class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            id="menu-icon"
+          >
+            <img src="/assets/icons/menu.svg" alt="" />
+          </button>
+        </div>
+        <div id="search-box-1" class="rounded-full">
+          <img
+            src="/assets/icons/search-normal.svg"
+            alt=""
+            class="icon ml-[18px] search-icon"
+          />
+          <input
+            type="text"
+            class="placeholder:text-gray-400 search-input"
+            placeholder="Search something here"
+          />
+        </div>
+        <div id="icons-wrapper" class="space-x-[20px]">
+          <a href="/pages/public/favorites.html" class="nav-icon">
+            <img src="/assets/icons/heart.svg" alt="" class="icon" />
+          </a>
+          <a
+            href="/pages/public/auth.html"
+            id="login"
+            class="font-semibold !hidden"
+          >
+            Login&nbsp;<img src="/assets/icons/login.svg" alt="" class="icon" />
+          </a>
+          <div class="relative inline-block text-left !hidden" id="profile">
+            <img src="" alt="Profile" id="nav-profile" class="shadow-md" />
+            <div
+              class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="menu-button"
+              tabindex="-1"
+            >
+              <div class="py-1" role="none">
+                <a
+                  href="/pages/public/profile.html"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  role="menuitem"
+                  tabindex="-1"
+                  id="menu-item-0"
+                  >Profile settings</a
+                >
+                <div
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer logout"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  Logout
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <nav class="container-fluid">
+        <div class="space-x-[16px] w-[492px] flex">
+          <div id="search-box-2">
+            <img
+              src="/assets/icons/search-normal.svg"
+              alt=""
+              class="icon ml-[18px] search-icon"
+            />
+            <input
+              type="text"
+              class="placeholder:text-gray-400 search-input"
+              placeholder="Search something here"
+            />
+          </div>
+        </div>
+      </nav>
+
+      <div class="backdrop" id="nav-backdrop"></div>
+      <!-- Mobile menu, show/hide based on menu open state. -->
+      <div id="mobile-menu" class="w-full bg-white px-6 py-6 sm:max-w-sm">
+        <div class="flex items-center justify-between">
+          <a href="/" id="logo-link">
+            <img
+              class="logo-img"
+              src="/assets/images/logo/morent-logo.svg"
+              alt="Logo Image"
+            />
+          </a>
+          <button
+            type="button"
+            class="-m-2.5 rounded-md p-2.5 text-gray-700"
+            id="close-icon"
+          >
+            <img src="/assets/icons/close.svg" alt="" />
+          </button>
+        </div>
+        <div class="mt-6 flow-root" id="mobile-nav">
+          <div class="-my-6 divide-y divide-gray-500/10">
+            <div class="space-y-2 py-6">
+              <a href="/">Home</a>
+              <a href="/pages/public/category.html">Category</a>
+              <a href="/pages/public/blogs.html" class="active">Blogs</a>
+              <a href="/pages/public/about.html">About Us</a>
+              <a href="/pages/public/contact.html">Contact Us</a>
+            </div>
+            <div class="space-y-2 py-6">
+              <a href="/pages/public/favorites.html">Favorites</a>
+            </div>
+            <div class="py-6 !hidden" id="mobile-login">
+              <a href="/pages/public/auth.html">Login</a>
+            </div>
+            <div class="py-6 !hidden" id="mobile-profile">
+              <a href="/pages/public/profile.html">Profile settings</a>
+              <a class="logout">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul id="nav" class="container-fluid space-x-[32px]">
+        <li><a href="/">Home</a></li>
+        <li><a href="/pages/public/category.html">Category</a></li>
+        <li class="active"><a href="/pages/public/blogs.html">Blogs</a></li>
+        <li><a href="/pages/public/about.html">About Us</a></li>
+        <li><a href="/pages/public/contact.html">Contact Us</a></li>
+      </ul>
+    </header>
+
+    <div id="body-wrapper">
+      <div id="body" class="container-fluid space-y-[32px]">
+        <div id="top-bar">
+          <h2 class="font-bold text-[18px]">All Blog Posts</h2>
+          <div
+            class="flex py-3 px-3 text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
+            id="search-box"
+          >
+            <div class="flex items-center pe-3 pointer-events-none">
+              <img src="/assets/icons/search-normal.svg" alt="Search Icon" />
+            </div>
+            <input
+              id="search-blogs"
+              type="text"
+              id="simple-search"
+              class="text-[14px] border-0 focus:border-0 focus:outline-0 bg-transparent grow"
+              placeholder="Search blogs..."
+            />
+          </div>
+        </div>
+
+        <div class="space-y-8" id="skeleton-loading">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[32px]"
+          >
+            <div
+              class="w-full p-4 border border-gray-200 rounded shadow animate-pulse md:p-6"
+            >
+              <div
+                class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded"
+              >
+                <svg
+                  class="w-10 h-10 text-gray-200"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 16 20"
+                >
+                  <path
+                    d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"
+                  />
+                  <path
+                    d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"
+                  />
+                </svg>
+              </div>
+              <div class="h-2.5 bg-gray-200 rounded-full w-48 mb-4"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full"></div>
+            </div>
+            <div
+              class="w-full p-4 border border-gray-200 rounded shadow animate-pulse md:p-6"
+            >
+              <div
+                class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded"
+              >
+                <svg
+                  class="w-10 h-10 text-gray-200"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 16 20"
+                >
+                  <path
+                    d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"
+                  />
+                  <path
+                    d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"
+                  />
+                </svg>
+              </div>
+              <div class="h-2.5 bg-gray-200 rounded-full w-48 mb-4"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full"></div>
+            </div>
+            <div
+              class="w-full p-4 border border-gray-200 rounded shadow animate-pulse md:p-6"
+            >
+              <div
+                class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded"
+              >
+                <svg
+                  class="w-10 h-10 text-gray-200"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 16 20"
+                >
+                  <path
+                    d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"
+                  />
+                  <path
+                    d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"
+                  />
+                </svg>
+              </div>
+              <div class="h-2.5 bg-gray-200 rounded-full w-48 mb-4"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full"></div>
+            </div>
+            <div
+              class="w-full p-4 border border-gray-200 rounded shadow animate-pulse md:p-6"
+            >
+              <div
+                class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded"
+              >
+                <svg
+                  class="w-10 h-10 text-gray-200"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 16 20"
+                >
+                  <path
+                    d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"
+                  />
+                  <path
+                    d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"
+                  />
+                </svg>
+              </div>
+              <div class="h-2.5 bg-gray-200 rounded-full w-48 mb-4"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full"></div>
+            </div>
+            <div
+              class="w-full p-4 border border-gray-200 rounded shadow animate-pulse md:p-6"
+            >
+              <div
+                class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded"
+              >
+                <svg
+                  class="w-10 h-10 text-gray-200"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 16 20"
+                >
+                  <path
+                    d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"
+                  />
+                  <path
+                    d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"
+                  />
+                </svg>
+              </div>
+              <div class="h-2.5 bg-gray-200 rounded-full w-48 mb-4"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full"></div>
+            </div>
+            <div
+              class="w-full p-4 border border-gray-200 rounded shadow animate-pulse md:p-6"
+            >
+              <div
+                class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded"
+              >
+                <svg
+                  class="w-10 h-10 text-gray-200"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 16 20"
+                >
+                  <path
+                    d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"
+                  />
+                  <path
+                    d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"
+                  />
+                </svg>
+              </div>
+              <div class="h-2.5 bg-gray-200 rounded-full w-48 mb-4"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-200 rounded-full"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="loaded" class="space-y-[32px] hidden">
+          <div id="posts-grid">
+            <div class="post-card">
+              <!-- Generated by JavaScript -->
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex flex-1 justify-between sm:hidden">
+              <div
+                id="prev-button"
+                class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+              >
+                Previous
+              </div>
+              <div
+                id="next-button"
+                class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+              >
+                Next
+              </div>
+            </div>
+            <div
+              class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between"
+              id="pagination-container"
+            >
+              <div>
+                <p class="text-sm text-gray-700">
+                  Showing
+                  <span class="font-medium" id="showing-from"></span>
+                  to
+                  <span class="font-medium" id="showing-to"></span>
+                  of
+                  <span class="font-medium" id="filter_count"></span>
+                  blogs
+                </p>
+              </div>
+              <div>
+                <nav
+                  class="isolate inline-flex -space-x-px rounded-md shadow-sm"
+                  aria-label="Pagination"
+                  id="pagination"
+                ></nav>
+              </div>
+              <p>No matched blog.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div id="footer" class="container-fluid">
+        <div>
+          <div class="space-y-[16px] mr-[48px] mt-[20px]">
+            <img
+              src="/assets/images/logo/morent-logo.svg"
+              alt="Logo"
+              class="logo-img"
+            />
+            <p>
+              Whether it's for business or leisure, we're dedicated to making
+              your ride comfortable, convenient, and affordable.
+            </p>
+          </div>
+          <div>
+            <div class="mr-[60px] mt-[20px]">
+              <h6>About</h6>
+              <ul class="space-y-[20px]">
+                <li><a href="#">How it works</a></li>
+                <li><a href="/pages/public/about.html#lower">Features</a></li>
+                <li><a href="#">Partnership</a></li>
+                <li><a href="#">Bussiness Relation</a></li>
+              </ul>
+            </div>
+            <div class="mr-[60px] mt-[20px]">
+              <h6>Community</h6>
+              <ul class="space-y-[20px]">
+                <li><a href="/pages/public/blogs.html">Blogs</a></li>
+              </ul>
+            </div>
+            <div class="mt-[20px]">
+              <h6>Socials</h6>
+              <ul class="space-y-[20px]">
+                <li><a href="#">Tik Tok</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Facebook</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <h6>©2024 MORENT. All rights reserved</h6>
+          <div class="space-x-[28px]">
+            <a href="#">Privacy & Policy</a>
+            <a href="#">Terms & Condition</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
