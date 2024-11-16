@@ -86,8 +86,11 @@
   }
 
   .bill_input {
-    display: grid !important;
-    gap: 10px;
+    flex-direction: column;
+  }
+  .bill_input > div:nth-of-type(2) {
+    margin-left: 0 !important;
+    margin-top: 24px;
   }
   .pay_step {
     display: grid !important;
@@ -124,6 +127,9 @@ form > div {
   display: flex;
   margin-top: 24px;
   justify-content: space-between;
+}
+.bill_input > div:nth-of-type(2) {
+  margin-left: 24px;
 }
 .pay_step {
   display: flex;
