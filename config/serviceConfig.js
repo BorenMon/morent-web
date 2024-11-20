@@ -1,5 +1,5 @@
 const serviceConfig = {
-  baseURL: 'https://boren-do-v1.online/morent-service'
+  baseURL: 'https://morent-service.boren-do-v1.online'
 }
 
 export default serviceConfig;
