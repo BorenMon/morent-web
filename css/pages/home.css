@@ -39,7 +39,9 @@
 }
 
 #slide-wrapper li img {
-  height: 116px; 
+  /* height: 116px;  */
+  max-width: 400px;
+  width: 100%;
   position: absolute;
   right: 8%; 
   object-fit: contain;
