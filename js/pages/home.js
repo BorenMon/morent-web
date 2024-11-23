@@ -39,8 +39,11 @@ const displaySlides = async () => {
   });
 }
 
+let popularCarIds = [];
 const displayPopular = async () => {
   const cars = (await fetchCollection('cars?filter[status][_eq]=published&filter[rent_times][_gte]=50&limit=8')).data;
+
+  popularCarIds = cars.map(car => car.id);
 
   const popularWrapper = document.getElementById('popular-wrapper');
   popularWrapper.innerHTML = ''; // Clear previous content
@@ -93,7 +96,7 @@ const displayPopular = async () => {
 }
 
 const displayRecommendation = async () => {
-  const cars = (await fetchCollection('cars?filter[status][_eq]=published&filter[rating][_gte]=4&limit=8')).data;
+  const cars = (await fetchCollection(`cars?filter[status][_eq]=published&filter[rating][_gte]=4&limit=8&filter[id][_nin]=${popularCarIds.join(',')}`)).data;
 
   const recommendation = document.getElementById('recommendation');
   recommendation.innerHTML = ''; // Clear previous content
@@ -178,8 +181,8 @@ Promise.all([
   }).then(() => {
     // Refresh favorite events only after Splide has mounted
     refreshFavoriteEvent();
+    displayRecommendation().then(refreshFavoriteEvent)
   }),
-  displayRecommendation().then(refreshFavoriteEvent),
   getCarsCount()
 ]).then(() => {
   $('#skeleton-loading').addClass('hidden');
