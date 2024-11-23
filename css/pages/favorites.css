@@ -180,105 +180,6 @@ input[type="range"] {
   top: 8px;
 }
 
-#booking {
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-}
-
-#swap-icon {
-  width: 60px;
-  height: 60px;
-  background-color: #3563E9;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.booking-container {
-  flex-grow: 1;
-  padding: 24px 48px;
-  border-radius: 10px;
-  background-color: white;
-}
-
-.booking-container > div:nth-of-type(1) {
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px
-}
-
-.booking-container > div:nth-of-type(1) img {
-  width: 16px;
-  height: 16px;
-}
-
-.booking-container > div:nth-of-type(1) h3 {
-  margin-left: 8px;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.booking-container > div:nth-of-type(2) {
-  display: flex;
-}
-
-.booking-container > div:nth-of-type(2) > div {
-  flex-grow: 1;
-  padding-top: 4px;
-}
-
-.booking-container > div:nth-of-type(2) > div > input {
-  width: 100%;
-  color: #90A3BF;
-  height: 38px;
-}
-
-.booking-container > div:nth-of-type(2) > div > input:focus {
-  outline: none;
-}
-
-.booking-container > div:nth-of-type(2) > div > h4 {
-  font-weight: 700;
-  font-size: 16px;
-}
-
-.booking-container > div:nth-of-type(2) > div:nth-of-type(1) {
-  padding-right: 24px;
-}
-
-.booking-container > div:nth-of-type(2) > div:nth-of-type(2) {
-  padding-right: 24px;
-  padding-left: 24px;
-  border-left: #C3D4E9 1px solid;
-  border-right: #C3D4E9 1px solid;
-}
-
-.booking-container > div:nth-of-type(2) > div:nth-of-type(3) {
-  padding-left: 24px;
-}
-
-#booking {
-  flex-direction: column;
-}
-
-#booking > div:nth-of-type(2), #booking > div:nth-of-type(3) {
-  margin: 0;
-}
-
-#booking > div:nth-of-type(2) {
-  margin-top: -12px;
-  margin-bottom: -12px;
-  z-index: 8;
-}
-
-#booking > div:nth-of-type(1), #booking > div:nth-of-type(3) {
-  width: 100%;
-  overflow-x: auto;
-}
-
 .car-card {
   width: 100%;
   background-color: white;
@@ -299,18 +200,16 @@ input[type="range"] {
 }
 
 .car-card .info {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 1;
 }
 
 .car-card .info > a {
-  flex-grow: 1;
-  max-width: 450px;
   display: block;
   margin: 0 32px;
-  min-width: 330px;
+  min-width: 300px;
 }
 
 .car-card .info > a > img {
@@ -319,7 +218,8 @@ input[type="range"] {
 }
 
 .car-card .details {
-  width: 350px;
+  width: 300px;
+  flex-shrink: 0;
 }
 
 .car-card .details > div > div > span {
@@ -361,8 +261,6 @@ input[type="range"] {
 
   .car-card .details {
     margin-top: 32px;
-    max-width: 100%;
-    min-width: 300px;
   }
 }
 
