@@ -12,6 +12,9 @@ import { getAssetUrl } from '../services/publicAPI.js'
 import api from '../services/authAPI.js'
 import { areObjectsEqual } from '../services/utils.js'
 import directusConfig from '../../config/directusConfig.js'
+import { forbiddenPage } from '../services/auth.js'
+
+if (forbiddenPage()) window.location.href = '/'
 
 let profile = await fetchProfile(true)
 
@@ -397,7 +400,6 @@ let generalInfo = {
 const requiredGeneralInfo = [
   "first_name",
   "last_name",
-  "email",
   "phone",
   "address"
 ]
@@ -427,9 +429,9 @@ checkGeneralInfo()
 saveGeneralInfo.on('click', async e => {
   if (!isGeneralInfoNotPassed()) {
     try {
-      await api.patch('/users/' + profile.id, newGeneralInfo);
+      const { email, ...updateData} = newGeneralInfo
+      await api.patch('/users/' + profile.id, updateData);
       generalInfo = { ...newGeneralInfo }
-      profile = await fetchProfile(true)
       checkGeneralInfo()
       toast('General information updated successfully','success');
     } catch(e) {

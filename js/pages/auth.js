@@ -2,6 +2,9 @@ import { toast } from '../services/sweetalert2.js'
 import { register, login } from '../services/auth.js'
 import { syncFavorites } from '../services/favorites.js'
 import { fetchProfile } from '../services/client.js'
+import { forbiddenPage } from '../services/auth.js'
+
+if (!forbiddenPage()) window.location.href = '/'
 
 const container = document.querySelector('.container')
 const registerBtn = document.querySelector('.register-btn')
