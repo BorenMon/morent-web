@@ -10,3 +10,5 @@ export const toast = (title, icon = 'success', position = 'top-end') => {
     timer: 3000,
   });
 }
+
+export const sweetalert = sweetalert2;
