@@ -35,3 +35,17 @@
   opacity: 0.5;
   user-select: none;
 }
+
+@media (prefers-color-scheme: dark) {
+  .tab.dark\:text-blue-500 {
+    color: #3563E9 !important;
+  }
+
+  .tab.dark\:border-blue-500 {
+    border-color: #3563E9 !important;
+  }
+}
+
+.tab.border-b-2 {
+  border-bottom-width: 3px !important;
+}

@@ -2,12 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <link rel="shortcut icon" href="../../assets/icons/favicon.svg" type="image/x-icon">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../assets/icons/favicon.svg"
+      type="image/x-icon"
+    />
 
     <title>Detail</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="../../css/pages/detail.css">
+    <link rel="stylesheet" href="../../css/pages/detail.css" />
     <!-- JS -->
     <script src="../../js/modules/tailwind.js"></script>
     <script type="module" src="/js/pages/detail.js"></script>
@@ -42,6 +49,7 @@
           <input
             type="text"
             class="placeholder:text-gray-400 search-input"
+            name="search"
             placeholder="Search something here"
           />
         </div>
@@ -68,14 +76,14 @@
               <div class="py-1" role="none">
                 <a
                   href="/pages/public/profile.html"
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-0"
-                  >Profile settings</a
+                  >Profile Settings</a
                 >
                 <div
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer logout"
+                  class="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer logout"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -97,6 +105,7 @@
             <input
               type="text"
               class="placeholder:text-gray-400 search-input"
+              name="search"
               placeholder="Search something here"
             />
           </div>
@@ -138,7 +147,7 @@
               <a href="/pages/public/auth.html">Login</a>
             </div>
             <div class="py-6 !hidden" id="mobile-profile">
-              <a href="/pages/public/profile.html">Profile settings</a>
+              <a href="/pages/public/profile.html">Profile Settings</a>
               <a class="logout">Logout</a>
             </div>
           </div>
@@ -158,7 +167,7 @@
         <div id="details">
           <div id="images">
             <div id="big-image">
-              <img src="#">
+              <img src="#" />
             </div>
             <section id="images-carousel" class="splide">
               <div class="splide__track">
@@ -175,32 +184,53 @@
         <div id="reviews">
           <div class="flex mb-[24px]">
             <h2 class="text-[20px] font-semibold me-[16px]">Reviews</h2>
-            <div class="h-[30px] bg-[#3563E9] w-[44px] flex items-center justify-center rounded-[4px] text-white font-semibold">168</div>
+            <div
+              class="h-[30px] bg-[#3563E9] w-[44px] flex items-center justify-center rounded-[4px] text-white font-semibold"
+            >
+              168
+            </div>
           </div>
           <div class="space-y-[32px]">
             <div class="review">
               <div class="me-[16px] shrink-0">
-                <img src="/assets/images/sample-profile.jpg" class="rounded-full object-cover" width="56px", height="56px">
+                <img
+                  src="/assets/images/sample-profile.jpg"
+                  class="rounded-full object-cover"
+                  width="56px"
+                  ,
+                  height="56px"
+                />
               </div>
               <div class="flex flex-col">
                 <div class="flex justify-between mb-[12px]">
                   <div class="space-y-[8px]">
                     <div class="text-[20px]">Alex Stanton</div>
-                    <div class="text-[#90A3BF] text-[14px]">CEO at Bukalapak</div>
+                    <div class="text-[#90A3BF] text-[14px]">
+                      CEO at Bukalapak
+                    </div>
                   </div>
                   <div class="flex flex-col items-end space-y-[8px]">
                     <div class="text-[#90A3BF] text-[14px]">21 July 2022</div>
-                    <div class="Stars me-[-5px]" style="--rating: 4;"></div>
+                    <div class="Stars me-[-5px]" style="--rating: 4"></div>
                   </div>
                 </div>
                 <p class="text-[#596780]">
-                  We are very happy with the service from the MORENT App. Morent has a low price and also a large variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.
+                  We are very happy with the service from the MORENT App. Morent
+                  has a low price and also a large variety of cars with good and
+                  comfortable facilities. In addition, the service provided by
+                  the officers is also very friendly and very polite.
                 </p>
               </div>
             </div>
             <div class="review">
               <div class="me-[16px] shrink-0">
-                <img src="/assets/images/sample-profile.jpg" class="rounded-full object-cover" width="56px", height="56px">
+                <img
+                  src="/assets/images/sample-profile.jpg"
+                  class="rounded-full object-cover"
+                  width="56px"
+                  ,
+                  height="56px"
+                />
               </div>
               <div class="flex flex-col">
                 <div class="flex justify-between mb-[12px]">
@@ -210,39 +240,45 @@
                   </div>
                   <div class="flex flex-col items-end space-y-[8px]">
                     <div class="text-[#90A3BF] text-[14px]">20 July 2022</div>
-                    <div class="Stars me-[-5px]" style="--rating: 5;"></div>
+                    <div class="Stars me-[-5px]" style="--rating: 5"></div>
                   </div>
                 </div>
                 <p class="text-[#596780]">
-                  We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.
+                  We are greatly helped by the services of the MORENT
+                  Application. Morent has low prices and also a wide variety of
+                  cars with good and comfortable facilities. In addition, the
+                  service provided by the officers is also very friendly and
+                  very polite.
                 </p>
               </div>
             </div>
           </div>
-          <div class="flex justify-center mt-[40px] text-[16px] font-semibold text-[#90A3BF] cursor-pointer">
-            Show All &nbsp;&nbsp; <img src="/assets/icons/arrow-down.svg">
+          <div
+            class="flex justify-center mt-[40px] text-[16px] font-semibold text-[#90A3BF] cursor-pointer"
+          >
+            Show All &nbsp;&nbsp; <img src="/assets/icons/arrow-down.svg" />
           </div>
         </div>
         <div
-            class="flex items-center justify-between mb-[20px] mt-[32px] h-[44px] px-[20px]"
+          class="flex items-center justify-between mb-[20px] mt-[32px] h-[44px] px-[20px]"
+        >
+          <h5 class="font-semibold text-[#90A3BF]">Popular Cars</h5>
+          <a
+            href="/pages/public/category.html"
+            class="text-[#3563E9] font-semibold"
+            >View All</a
           >
-            <h5 class="font-semibold text-[#90A3BF]">Popular Cars</h5>
-            <a
-              href="/pages/public/category.html"
-              class="text-[#3563E9] font-semibold"
-              >View All</a
-            >
+        </div>
+        <section id="popular" class="splide">
+          <div class="splide__track">
+            <ul class="splide__list" id="popular-wrapper">
+              <!-- Generate by JavaScript -->
+            </ul>
           </div>
-          <section id="popular" class="splide">
-            <div class="splide__track">
-              <ul class="splide__list" id="popular-wrapper">
-                <!-- Generate by JavaScript -->
-              </ul>
-            </div>
-          </section>
+        </section>
       </div>
     </div>
-    
+
     <footer>
       <div id="footer" class="container-fluid">
         <div>
