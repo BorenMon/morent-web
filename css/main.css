@@ -15,7 +15,7 @@ body {
   overflow-y: auto;
 }
 
-button {
+button:not(.filepond--file-action-button) {
   height: 44px;
   border-radius: 4px;
   padding: 0 20px !important;
@@ -23,7 +23,11 @@ button {
   font-size: 16px !important;
 }
 
-button:not(.slide-button, .swal2-styled) {
+button:active {
+  transform: scale(0.98);
+}
+
+button:not(.slide-button, .swal2-styled, .filepond--file-action-button) {
   background-color: #3563E9 !important;
   color: white !important;
 }

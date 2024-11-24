@@ -23,3 +23,22 @@ export function debounce(func, delay) {
     timeout = setTimeout(() => func.apply(this, args), delay)
   }
 }
+
+export function areObjectsEqual(obj1, obj2) {
+  // Check if both are objects
+  if (typeof obj1 !== "object" || typeof obj2 !== "object" || obj1 === null || obj2 === null) {
+      return false; // Either not objects or one is null
+  }
+
+  // Get keys of both objects
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  // Check if number of keys is the same
+  if (keys1.length !== keys2.length) {
+      return false;
+  }
+
+  // Check if all keys and their values are equal
+  return keys1.every(key => obj2.hasOwnProperty(key) && obj1[key] === obj2[key]);
+}
