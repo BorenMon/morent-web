@@ -1,6 +1,6 @@
 # MORENT Web Client
 
-This repository contains the frontend of MORENT, a Car Rental Web App. It is built using HTML, CSS, and Vanilla JavaScript, providing a clean and responsive user interface for browsing and renting cars.
+This repository contains the frontend of MORENT, a Car Rental Web App. It is built using HTML, CSS, and JavaScript, providing a clean and responsive user interface for browsing and renting cars.
 
 ## Demo
 
@@ -13,14 +13,13 @@ You can access the live demo of the MORENT Web App here:
 - Dynamic content integration using APIs from:
   - **Directus** for content management.
   - **NestJS Service** for additional backend functionalities.
-- Interactive user interface built with Vanilla JavaScript.
-- Interactive user interface built with Vanilla JavaScript.
+- Interactive user interface built with External JavaScript Libraries.
 
 ## Tech Stack
 
 - **HTML5** for structuring the app.
 - **CSS3** for styling and responsive design.
-- **Vanilla JavaScript** for dynamic and interactive functionalities.
+- **JavaScript** for dynamic and interactive functionalities.
 - **Directus API** for fetching and managing content.
 - **NestJS API** for handling custom backend logic.
 
