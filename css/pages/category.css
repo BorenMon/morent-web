@@ -193,6 +193,10 @@ input[type="range"] {
   cursor: pointer;
 }
 
+#swap-icon:active {
+  transform: scale(0.98);
+}
+
 .booking-container {
   flex-grow: 1;
   padding: 24px 48px;

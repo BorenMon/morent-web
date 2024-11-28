@@ -11,8 +11,47 @@ $('.city').select2({
   data: [
     { id: '', text: 'Select your city', value: '' },
     ...cities
-  ],
+  ]
 });
+
+[
+  {
+    key: 'city',
+    type: 'number'
+  },
+  {
+    key: 'date',
+    type: 'string'
+  },
+  {
+    key: 'time',
+    type: 'string'
+  }
+].forEach(el => {
+  $(`.${el.key}`).on('change', function () {
+    let value;
+    if (el.type === 'number') value = +$(this).val();
+    else value = $(this).val();
+    saveBookingInputs(el.key, value, this);
+  });
+})
+
+const saveBookingInputs = (key, value, el) => {
+  let type = $(el).closest('.booking-container').attr('id');
+
+  if (type === 'pick-up') type = 'pickUpInputs';
+  else type = 'dropOffInputs';
+
+  const savedInputs = JSON.parse(localStorage.getItem(type)) || {
+    city: null,
+    date: null,
+    time: null
+  }; 
+  
+  savedInputs[key] = value;
+
+  localStorage.setItem(type, JSON.stringify(savedInputs));
+}
 
 const displaySlides = async () => {
   const slides = (await fetchCollection('slides?filter[status][_eq]=published')).data;
@@ -188,8 +227,3 @@ Promise.all([
   $('#skeleton-loading').addClass('hidden');
   $('#loaded').removeClass('hidden');
 });
-
-
-
-
-
