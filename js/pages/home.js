@@ -2,7 +2,7 @@ import '../main.js'
 import '../modules/splide.min.js'
 import '../modules/select2.min.js'
 import { getAssetUrl, fetchCollection } from '../services/publicAPI.js';
-import { cities } from '../../config/location.master-data.js'
+import { cities } from './config/location.master-data.js'
 import { formatToTwoDecimals } from '../services/utils.js';
 import { refreshFavoriteEvent, checkIsFavorite } from '../services/favorites.js';
 

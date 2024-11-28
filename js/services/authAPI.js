@@ -1,5 +1,5 @@
 import axios from '../modules/axios.min.js';
-import directusConfig from '../../config/directus.config.js';
+import directusConfig from './config/directus.config.js';
 import { logout } from './auth.js';
 
 const api = axios.create({

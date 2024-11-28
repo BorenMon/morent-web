@@ -1,5 +1,5 @@
 import '/js/main.js'
-import serviceConfig from '../../config/service.config.js'
+import serviceConfig from './config/service.config.js'
 import { toast } from '../services/sweetalert2.js'
 
 $('#contactForm').on('submit', (e) => {

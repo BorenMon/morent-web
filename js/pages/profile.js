@@ -11,7 +11,7 @@ import { urlToFilePondObject } from '../services/filepond.js'
 import { getAssetUrl } from '../services/publicAPI.js'
 import api from '../services/authAPI.js'
 import { areObjectsEqual } from '../services/utils.js'
-import directusConfig from '../../config/directus.config.js'
+import directusConfig from './config/directus.config.js'
 import { forbiddenPage } from '../services/auth.js'
 
 if (forbiddenPage()) window.location.href = '/'
