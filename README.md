@@ -2,6 +2,11 @@
 
 This repository contains the frontend of MORENT, a Car Rental Web App. It is built using HTML, CSS, and Vanilla JavaScript, providing a clean and responsive user interface for browsing and renting cars.
 
+## Demo
+
+You can access the live demo of the MORENT Web App here:  
+[MORENT Live Demo](https://morent-kh.netlify.app)
+
 ## Features
 
 - Responsive design for seamless usage across devices.
@@ -40,8 +45,6 @@ To run this project locally, you need:
 
 ## API Integration
 
-## API Integration
-
 This app interacts with the following APIs:
 
 1. **MORENT CMS (Directus)**  
@@ -69,6 +72,9 @@ const serviceConfig = {
 
 export default serviceConfig;
 ```
+
+## Credits
+The UI design of the MORENT Web Client was inspired by a public Figma design by [Vishnu . v](https://www.figma.com/@vishnuv). We deeply appreciate his creative work and acknowledge his contribution to the visual inspiration of this project.
 
 ## Development
 
