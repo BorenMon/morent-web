@@ -1,4 +1,4 @@
-import directusConfig from '../../config/directus.config.js'
+import directusConfig from './config/directus.config.js'
 import { toast } from '../services/sweetalert2.js'
 
 export const register = async (email, password) => {

@@ -1,6 +1,6 @@
 import '../main.js';
 import '../modules/select2.min.js'
-import { cities } from '../../config/location.master-data.js'
+import { cities } from './config/location.master-data.js'
 import { getAssetUrl, fetchItemById } from '../services/publicAPI.js'
 import { formatToTwoDecimals } from '../services/utils.js'
 
