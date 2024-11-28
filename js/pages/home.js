@@ -9,49 +9,10 @@ import { refreshFavoriteEvent, checkIsFavorite } from '../services/favorites.js'
 $('.city').select2({
   width: '100%',
   data: [
-    { id: '', text: 'Select your city', value: '' },
+    { id: '0', text: 'Select your city', value: '' },
     ...cities
   ]
 });
-
-[
-  {
-    key: 'city',
-    type: 'number'
-  },
-  {
-    key: 'date',
-    type: 'string'
-  },
-  {
-    key: 'time',
-    type: 'string'
-  }
-].forEach(el => {
-  $(`.${el.key}`).on('change', function () {
-    let value;
-    if (el.type === 'number') value = +$(this).val();
-    else value = $(this).val();
-    saveBookingInputs(el.key, value, this);
-  });
-})
-
-const saveBookingInputs = (key, value, el) => {
-  let type = $(el).closest('.booking-container').attr('id');
-
-  if (type === 'pick-up') type = 'pickUpInputs';
-  else type = 'dropOffInputs';
-
-  const savedInputs = JSON.parse(localStorage.getItem(type)) || {
-    city: null,
-    date: null,
-    time: null
-  }; 
-  
-  savedInputs[key] = value;
-
-  localStorage.setItem(type, JSON.stringify(savedInputs));
-}
 
 const displaySlides = async () => {
   const slides = (await fetchCollection('slides?filter[status][_eq]=published')).data;
@@ -188,9 +149,9 @@ const displayRecommendation = async () => {
 }
 
 const getCarsCount = async () => {
-  const carsCount = await fetchCollection('cars?filter[status][_eq]=published&meta=total_count&limit=0');
+  const carsCount = await fetchCollection('cars?filter[status][_eq]=published&meta=filter_count&limit=0');
 
-  $('#cars-count').text(carsCount.meta.total_count);
+  $('#cars-count').text(carsCount.meta.filter_count);
 }
 
 Promise.all([
@@ -227,3 +188,81 @@ Promise.all([
   $('#skeleton-loading').addClass('hidden');
   $('#loaded').removeClass('hidden');
 });
+
+const bookingEls = [
+  {
+    key: 'city',
+    type: 'number'
+  },
+  {
+    key: 'date',
+    type: 'string'
+  },
+  {
+    key: 'time',
+    type: 'string'
+  }
+]
+
+const loadBookingInputs = () => {
+  const pickUpInputs = JSON.parse(localStorage.getItem('pickUpInputs')) || {
+    city: null,
+    date: null,
+    time: null
+  };
+
+  const dropOffInputs = JSON.parse(localStorage.getItem('dropOffInputs')) || {
+    city: null,
+    date: null,
+    time: null
+  };
+
+  ["pick-up", "drop-off"].forEach(id => {
+    bookingEls.forEach(el => {
+      let value
+      if (id == "pick-up") value = pickUpInputs[el.key]
+      else value = dropOffInputs[el.key]
+      $(`#${id} .${el.key}`).val(value).trigger('change')
+    })
+  })
+}
+
+loadBookingInputs()
+
+bookingEls.forEach(el => {
+  $(`.${el.key}`).on('change', function () {
+    let value;
+    if (el.type === 'number') value = +$(this).val();
+    else value = $(this).val();
+    saveBookingInputs(el.key, value, this);
+  });
+})
+
+const saveBookingInputs = (key, value, el) => {
+  let type = $(el).closest('.booking-container').attr('id');
+
+  if (type === 'pick-up') type = 'pickUpInputs';
+  else type = 'dropOffInputs';
+
+  const savedInputs = JSON.parse(localStorage.getItem(type)) || {
+    city: null,
+    date: null,
+    time: null
+  }; 
+  
+  savedInputs[key] = value;
+
+  localStorage.setItem(type, JSON.stringify(savedInputs));
+}
+
+$('#swap-icon').on('click', () => {
+  const pickUp = JSON.parse(localStorage.getItem('pickUpInputs'));
+  const dropOff = JSON.parse(localStorage.getItem('dropOffInputs'));
+
+  if (pickUp && dropOff) {
+    localStorage.setItem('pickUpInputs', JSON.stringify(dropOff));
+    localStorage.setItem('dropOffInputs', JSON.stringify(pickUp));
+  }
+
+  loadBookingInputs()
+})

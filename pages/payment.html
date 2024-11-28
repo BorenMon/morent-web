@@ -210,7 +210,7 @@
                 </div>
                 <div class="bill_input">
                   <div class="bill_input_div">
-                    <label style="font-weight: bold">Time</label>
+                    <label style="font-weight: bold">Address</label>
                     <input
                       type="text"
                       style="
@@ -238,7 +238,6 @@
                   </div>
                 </div>
               </div>
-              <!-- rental info -->
               <div>
                 <p style="font-weight: bold; font-size: large">Rental Info</p>
                 <div class="pay_step">
@@ -257,52 +256,51 @@
                 >
                   Pick-Up
                 </p>
-                <!-- input -->
-                <div class="bill_input">
-                  <div class="bill_input_div">
-                    <label style="font-weight: bold">Location</label>
-                    <div
-                      style="
-                        padding: 16px;
-                        outline: none;
-                        background-color: whitesmoke;
-                        border-radius: 10px;
-                      "
-                    >
-                      <select class="city"></select>
+                <div class="booking-container" id="pick-up">
+                  <div class="bill_input">
+                    <div class="bill_input_div">
+                      <label style="font-weight: bold">Location</label>
+                      <div
+                        style="
+                          padding: 16px;
+                          outline: none;
+                          background-color: whitesmoke;
+                          border-radius: 10px;
+                        "
+                      >
+                        <select class="city"></select>
+                      </div>
+                    </div>
+                    <div class="bill_input_div">
+                      <label style="font-weight: bold">Date</label>
+                      <input
+                        type="date"
+                        style="
+                          padding: 16px;
+                          outline: none;
+                          background-color: whitesmoke;
+                          border-radius: 10px;
+                        "
+                        class="date"
+                      />
                     </div>
                   </div>
-                  <!--  -->
-                  <div class="bill_input_div">
-                    <label style="font-weight: bold">Date</label>
-                    <input
-                      type="date"
-                      style="
-                        padding: 16px;
-                        outline: none;
-                        background-color: whitesmoke;
-                        border-radius: 10px;
-                      "
-                    />
+                  <div class="bill_input">
+                    <div class="bill_input_div">
+                      <label style="font-weight: bold">Time</label>
+                      <input
+                        type="time"
+                        style="
+                          padding: 16px;
+                          outline: none;
+                          background-color: whitesmoke;
+                          border-radius: 10px;
+                        "
+                        class="time"
+                      />
+                    </div>
                   </div>
                 </div>
-                <!--  -->
-                <div class="bill_input">
-                  <div class="bill_input_div">
-                    <label style="font-weight: bold">Address</label>
-                    <input
-                      type="time"
-                      style="
-                        padding: 16px;
-                        outline: none;
-                        background-color: whitesmoke;
-                        border-radius: 10px;
-                      "
-                      placeholder="Time"
-                    />
-                  </div>
-                </div>
-                <!-- Drop off -->
                 <p
                   style="
                     font-weight: bold;
@@ -313,53 +311,55 @@
                 >
                   Drop-Off
                 </p>
-                <!-- input -->
-                <div class="bill_input">
-                  <div style="display: grid; width: 100%; gap: 10px">
-                    <label style="font-weight: bold">Location</label>
-                    <div
-                      style="
-                        padding: 16px;
-                        outline: none;
-                        background-color: whitesmoke;
-                        border-radius: 10px;
-                      "
-                    >
-                      <select name="dropoff-city" class="city"></select>
+                <div class="booking-container" id="drop-off">
+                  <div class="bill_input">
+                    <div style="display: grid; width: 100%; gap: 10px">
+                      <label style="font-weight: bold">Location</label>
+                      <div
+                        style="
+                          padding: 16px;
+                          outline: none;
+                          background-color: whitesmoke;
+                          border-radius: 10px;
+                        "
+                      >
+                        <select name="dropoff-city" class="city"></select>
+                      </div>
+                    </div>
+                    <div style="display: grid; width: 100%; gap: 10px">
+                      <label style="font-weight: bold">Date</label>
+                      <input
+                        type="date"
+                        style="
+                          padding: 16px;
+                          outline: none;
+                          background-color: whitesmoke;
+                          border-radius: 10px;
+                        "
+                        class="date"
+                      />
                     </div>
                   </div>
-                  <div style="display: grid; width: 100%; gap: 10px">
-                    <label style="font-weight: bold">Date</label>
-                    <input
-                      type="date"
-                      style="
-                        padding: 16px;
-                        outline: none;
-                        background-color: whitesmoke;
-                        border-radius: 10px;
-                      "
-                    />
-                  </div>
-                </div>
-                <div
-                  style="
-                    display: flex;
-                    margin-top: 24px;
-                    justify-content: space-between;
-                  "
-                >
-                  <div style="display: grid; width: 100%; gap: 10px">
-                    <label style="font-weight: bold">Time</label>
-                    <input
-                      type="time"
-                      style="
-                        padding: 16px;
-                        outline: none;
-                        background-color: whitesmoke;
-                        border-radius: 10px;
-                      "
-                      placeholder="Time"
-                    />
+                  <div
+                    style="
+                      display: flex;
+                      margin-top: 24px;
+                      justify-content: space-between;
+                    "
+                  >
+                    <div style="display: grid; width: 100%; gap: 10px">
+                      <label style="font-weight: bold">Time</label>
+                      <input
+                        type="time"
+                        style="
+                          padding: 16px;
+                          outline: none;
+                          background-color: whitesmoke;
+                          border-radius: 10px;
+                        "
+                        class="time"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

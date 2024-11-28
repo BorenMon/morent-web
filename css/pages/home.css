@@ -308,3 +308,7 @@
     background-color: white;
   }
 }
+
+button.\-translate-x-1\/2:active {
+  transform: translateX(-50%) scale(0.98) !important;
+}
