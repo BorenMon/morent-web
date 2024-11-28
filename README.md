@@ -19,7 +19,7 @@ You can access the live demo of the MORENT Web App here:
 
 - **HTML5** for structuring the app.
 - **CSS3** for styling and responsive design.
-- **JavaScript** for dynamic and interactive functionalities.
+- **JavaScript ES6+** for dynamic and interactive functionalities.
 - **Directus API** for fetching and managing content.
 - **NestJS API** for handling custom backend logic.
 
