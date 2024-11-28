@@ -29,7 +29,7 @@ const displayBlogs = async (queryString) => {
     } = blog
 
     const $div = $('<div></div>').addClass('post-card').html(`
-        <a href="/pages/public/blog.html?id=${id}">
+        <a href="/pages/blog.html?id=${id}">
           <img
             src="${getAssetUrl(thumbnail)}"
             alt="thumbnail"
@@ -37,7 +37,7 @@ const displayBlogs = async (queryString) => {
         </a>
         <div class="post-content">
           <a class="author">${formatISODate(date_created)}</a>
-          <a href="/pages/public/blog.html?id=${id}" class="post-title">${title}</a>
+          <a href="/pages/blog.html?id=${id}" class="post-title">${title}</a>
           <p>${description}</p>
         </div>
       `)

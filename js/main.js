@@ -40,7 +40,7 @@ mediaQuery.addEventListener('change', handleResize)
 const inputs = document.querySelectorAll('.search-input')
 const searchButtons = document.querySelectorAll('.search-icon')
 
-if (!window.location.pathname.includes('/pages/public/category')) {
+if (!window.location.pathname.includes('/pages/category')) {
   inputs.forEach((input) => {
     input.addEventListener('keypress', function (event) {
       // Check if the pressed key is Enter

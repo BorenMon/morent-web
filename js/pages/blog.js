@@ -53,7 +53,7 @@ if (id) {
             } = related;
             
             li.innerHTML = `
-              <a href="/pages/public/blog.html?id=${id}">
+              <a href="/pages/blog.html?id=${id}">
                 <img
                   src="${getAssetUrl(thumbnail)}"
                   alt="thumbnail"
@@ -61,7 +61,7 @@ if (id) {
               </a>
               <div class="post-content">
                 <a class="author">${formatISODate(date_created)}</a>
-                <a href="/pages/public/blog.html?id=${id}" class="post-title">${title}</a>
+                <a href="/pages/blog.html?id=${id}" class="post-title">${title}</a>
                 <p>${description}</p>
               </div>
             `
@@ -103,5 +103,5 @@ if (id) {
       console.error('Error fetching blog:', error);
     });
 } else {
-  window.location.href = '/pages/public/blogs.html';
+  window.location.href = '/pages/blogs.html';
 }
