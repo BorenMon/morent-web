@@ -13,7 +13,7 @@ export const redirectSearch = (keyword) => {
   
   // If on localhost, include `.html`, otherwise omit it for Netlify's pretty URLs
   const extension = isLocalhost ? '.html' : '';
-  window.location.href = `/pages/public/category${extension}?keyword=${keyword}`;
+  window.location.href = `/pages/category${extension}?keyword=${keyword}`;
 }
 
 export function debounce(func, delay) {

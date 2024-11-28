@@ -37,5 +37,5 @@ if (carId) {
   $('#tax').text(`$${formatToTwoDecimals(tax)}`);
   $('#total').text(`$${formatToTwoDecimals(subTotal + tax)}`);
 } else {
-  window.location.href = '/pages/public/category.html';
+  window.location.href = '/pages/category.html';
 }

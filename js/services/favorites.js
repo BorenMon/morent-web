@@ -25,7 +25,7 @@ export const refreshFavoriteEvent = () => {
 
   // Attach the click event once
   $('.favorite').on('click', (e) => {
-    if (window.location.pathname.includes('/pages/public/favorites')) {
+    if (window.location.pathname.includes('/pages/favorites')) {
       sweetalert2
         .fire({
           title: 'Are you sure?',
