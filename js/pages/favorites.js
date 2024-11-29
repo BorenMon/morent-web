@@ -118,7 +118,7 @@ const displayFavorites = async (addOnQuery) => {
                       : ''
                   }
                 </div>
-                <button><a href="/pages/payment.html?id=${id}">Rent Now</a></button>
+                <button><a href="/pages/payment.html?id=${id}">Book Now</a></button>
               </div>
             </div>
           </div>

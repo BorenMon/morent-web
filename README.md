@@ -59,8 +59,6 @@ Make sure both Directus and NestJS services are running and accessible. Configur
 const directusConfig = {
   baseURL: 'https://your-directus-instance-url'
 };
-
-export default directusConfig;
 ```
 
 **For NestJS** (`/js/config/service.config.js`):
@@ -68,20 +66,11 @@ export default directusConfig;
 const serviceConfig = {
   baseURL: 'https://your-nestjs-instance-url'
 }
-
-export default serviceConfig;
 ```
 
 ## Credits
+
 The UI design of the MORENT Web Client was inspired by a public Figma design by [Vishnu . v](https://www.figma.com/@vishnuv). We deeply appreciate his creative work and acknowledge his contribution to the visual inspiration of this project.
-
-## Development
-
-Feel free to modify the code to fit your requirements. For CSS and JavaScript, ensure proper structuring for scalability.
-
-## Contributing
-
-We welcome contributions! Submit a pull request with your enhancements or bug fixes.
 
 ## License
 
