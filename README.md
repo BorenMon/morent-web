@@ -69,6 +69,7 @@ const serviceConfig = {
 ```
 
 ## Credits
+
 The UI design of the MORENT Web Client was inspired by a public Figma design by [Vishnu . v](https://www.figma.com/@vishnuv). We deeply appreciate his creative work and acknowledge his contribution to the visual inspiration of this project.
 
 ## License

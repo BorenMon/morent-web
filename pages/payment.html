@@ -168,7 +168,7 @@
         <main class="payment-main">
           <!-- Billing -->
           <div class="pay" style="grid-area: pay">
-            <form style="display: grid; gap: 25px">
+            <div id="form" style="display: grid; gap: 25px">
               <!-- billing info -->
               <div class="billing-info">
                 <p style="font-weight: bold; font-size: large">Billing Info</p>
@@ -181,7 +181,7 @@
                 <!-- input -->
                 <div class="bill_input">
                   <div class="bill_input_div">
-                    <label style="font-weight: bold">Name</label>
+                    <label style="font-weight: bold">Name <span class="text-red-500">*</span></label>
                     <input
                       type="text"
                       style="
@@ -191,11 +191,12 @@
                         border-radius: 10px;
                       "
                       placeholder="Your name"
+                      id="name-input"
                     />
                   </div>
                   <!--  -->
                   <div class="bill_input_div">
-                    <label style="font-weight: bold">Phone Number</label>
+                    <label style="font-weight: bold">Phone Number <span class="text-red-500">*</span></label>
                     <input
                       type="tel"
                       style="
@@ -205,12 +206,13 @@
                         border-radius: 10px;
                       "
                       placeholder="Phone number"
+                      id="phone-input"
                     />
                   </div>
                 </div>
                 <div class="bill_input">
                   <div class="bill_input_div">
-                    <label style="font-weight: bold">Address</label>
+                    <label style="font-weight: bold">Address <span class="text-red-500">*</span></label>
                     <input
                       type="text"
                       style="
@@ -220,20 +222,7 @@
                         border-radius: 10px;
                       "
                       placeholder="Address"
-                    />
-                  </div>
-                  <!--  -->
-                  <div class="bill_input_div">
-                    <label style="font-weight: bold">Town/City</label>
-                    <input
-                      type="text"
-                      style="
-                        padding: 16px;
-                        outline: none;
-                        background-color: whitesmoke;
-                        border-radius: 10px;
-                      "
-                      placeholder="Town or City"
+                      id="address-input"
                     />
                   </div>
                 </div>
@@ -259,7 +248,7 @@
                 <div class="booking-container" id="pick-up">
                   <div class="bill_input">
                     <div class="bill_input_div">
-                      <label style="font-weight: bold">Location</label>
+                      <label style="font-weight: bold">Location <span class="text-red-500">*</span></label>
                       <div
                         style="
                           padding: 16px;
@@ -272,7 +261,7 @@
                       </div>
                     </div>
                     <div class="bill_input_div">
-                      <label style="font-weight: bold">Date</label>
+                      <label style="font-weight: bold">Date <span class="text-red-500">*</span></label>
                       <input
                         type="date"
                         style="
@@ -287,7 +276,7 @@
                   </div>
                   <div class="bill_input">
                     <div class="bill_input_div">
-                      <label style="font-weight: bold">Time</label>
+                      <label style="font-weight: bold">Time <span class="text-red-500">*</span></label>
                       <input
                         type="time"
                         style="
@@ -314,7 +303,7 @@
                 <div class="booking-container" id="drop-off">
                   <div class="bill_input">
                     <div style="display: grid; width: 100%; gap: 10px">
-                      <label style="font-weight: bold">Location</label>
+                      <label style="font-weight: bold">Location <span class="text-red-500">*</span></label>
                       <div
                         style="
                           padding: 16px;
@@ -327,7 +316,7 @@
                       </div>
                     </div>
                     <div style="display: grid; width: 100%; gap: 10px">
-                      <label style="font-weight: bold">Date</label>
+                      <label style="font-weight: bold">Date <span class="text-red-500">*</span></label>
                       <input
                         type="date"
                         style="
@@ -348,7 +337,7 @@
                     "
                   >
                     <div style="display: grid; width: 100%; gap: 10px">
-                      <label style="font-weight: bold">Time</label>
+                      <label style="font-weight: bold">Time <span class="text-red-500">*</span></label>
                       <input
                         type="time"
                         style="
@@ -409,7 +398,7 @@
                     </div>
                     <div style="display: grid; width: 100%; gap: 10px">
                       <label style="font-weight: bold">Expiration Date</label>
-                      <input type="date" id="input_" />
+                      <input type="month" id="input_" />
                     </div>
                   </div>
                   <div class="bill_input">
@@ -432,9 +421,6 @@
                   <div id="pay-choice">
                     <input
                       type="radio"
-                      id="option1"
-                      name="choice"
-                      value="Paypal"
                       style="cursor: pointer"
                     />
                     <div
@@ -452,9 +438,6 @@
                   <div id="pay-choice">
                     <input
                       type="radio"
-                      id="option2"
-                      name="choice"
-                      value="Bitcoin"
                       style="cursor: pointer"
                     />
                     <div
@@ -490,7 +473,7 @@
                   <input
                     type="checkbox"
                     id="option2"
-                    name="choice1"
+                    name="marketing"
                     value="Bitcoin"
                     style="cursor: pointer"
                     class="shrink-0"
@@ -504,8 +487,7 @@
                   <input
                     type="checkbox"
                     id="option2"
-                    name="choice2"
-                    value="Bitcoin"
+                    name="terms"
                     style="cursor: pointer"
                     class="shrink-0"
                   />
@@ -514,8 +496,8 @@
                     policy.</label
                   >
                 </div>
-                <button style="margin: 32px 0; border-radius: 10px">
-                  Rent Now
+                <button style="margin: 32px 0; border-radius: 10px;" class="disabled-button" id="book-button">
+                  Book Now
                 </button>
                 <img
                   src="/assets/icons/safe-icon.svg"
@@ -532,7 +514,7 @@
                   </p>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
           <!-- car pic -->
           <div class="pic" style="grid-area: pic">
@@ -604,6 +586,9 @@
           </div>
         </main>
       </div>
+    </div>
+    <div class="backdrop items-center justify-center" id="loading-backdrop">
+      <img src="/assets/images/loading.svg">
     </div>
 
     <footer>
