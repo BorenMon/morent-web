@@ -1,5 +1,5 @@
 const directusConfig = {
-  baseURL: 'https://morent-cms.boren-do-v1.online'
+  baseURL: 'https://morent-cms.borenmon.dev'
 };
 
 export default directusConfig;
