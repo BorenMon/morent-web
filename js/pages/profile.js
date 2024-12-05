@@ -415,6 +415,9 @@ Object.keys(generalInfo).forEach(key => {
   })
 })
 
+$('#skeleton-loading').addClass('hidden');
+$('#loaded').removeClass('hidden');
+
 const saveGeneralInfo = $('#save-general-info')
 
 const isGeneralInfoNotPassed = () => areObjectsEqual(generalInfo, newGeneralInfo) || requiredGeneralInfo.some(key => newGeneralInfo[key] === "")

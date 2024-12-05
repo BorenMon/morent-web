@@ -212,6 +212,9 @@ if (carId) {
   }).mount();
 
   refreshFavoriteEvent();
+
+  $('#skeleton-loading').addClass('hidden');
+  $('#loaded').removeClass('hidden');
 } else {
   window.location.href = '/pages/category.html';
 }

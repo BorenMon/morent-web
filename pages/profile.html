@@ -1,234 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
-    />
-    <link
-      rel="shortcut icon"
-      href="/assets/icons/favicon.svg"
-      type="image/x-icon"
-    />
 
-    <title>Profile</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/pages/profile.css" />
-    <!-- JS -->
-    <script src="/js/modules/tailwind.js"></script>
-    <script type="module" src="/js/pages/profile.js"></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <link rel="shortcut icon" href="/assets/icons/favicon.svg" type="image/x-icon" />
 
-  <body>
-    <header>
-      <nav class="container-fluid">
-        <div class="lg:flex" id="logo">
-          <a href="/" id="logo-link">
-            <img
-              class="logo-img"
-              src="/assets/images/logo/morent-logo.svg"
-              alt="Logo Image"
-            />
-          </a>
-        </div>
-        <div id="menu-icon-wrapper">
-          <button
-            class="inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            id="menu-icon"
-          >
-            <img src="/assets/icons/menu.svg" alt="" />
-          </button>
-        </div>
-        <div id="search-box-1" class="rounded-full">
-          <img
-            src="/assets/icons/search-normal.svg"
-            alt=""
-            class="icon ml-[18px] search-icon"
-          />
-          <input
-            type="text"
-            class="placeholder:text-gray-400 search-input"
-            name="search"
-            placeholder="Search something here"
-          />
-        </div>
-        <div id="icons-wrapper" class="space-x-[20px]">
-          <a href="/pages/favorites.html" class="nav-icon">
-            <img src="/assets/icons/heart.svg" alt="" class="icon" />
-          </a>
-          <a
-            href="/pages/auth.html"
-            id="login"
-            class="font-semibold !hidden"
-          >
-            Login&nbsp;<img src="/assets/icons/login.svg" alt="" class="icon" />
-          </a>
-          <div class="relative inline-block text-left !hidden" id="profile">
-            <img src="" alt="Profile" id="nav-profile" class="shadow-md" />
-            <div
-              class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
-              role="menu"
-              aria-orientation="vertical"
-              aria-labelledby="menu-button"
-              tabindex="-1"
-            >
-              <div class="py-1" role="none">
-                <a
-                  href="/pages/profile.html"
-                  class="block px-4 py-2 text-gray-700"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-0"
-                  >Profile Settings</a
-                >
-                <div
-                  class="block px-4 py-2 text-gray-700 cursor-pointer logout"
-                  role="menuitem"
-                  tabindex="-1"
-                >
-                  Logout
-                </div>
+  <title>Profile</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/pages/profile.css" />
+  <!-- JS -->
+  <script src="/js/modules/tailwind.js"></script>
+  <script type="module" src="/js/pages/profile.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="container-fluid">
+      <div class="lg:flex" id="logo">
+        <a href="/" id="logo-link">
+          <img class="logo-img" src="/assets/images/logo/morent-logo.svg" alt="Logo Image" />
+        </a>
+      </div>
+      <div id="menu-icon-wrapper">
+        <button class="inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" id="menu-icon">
+          <img src="/assets/icons/menu.svg" alt="" />
+        </button>
+      </div>
+      <div id="search-box-1" class="rounded-full">
+        <img src="/assets/icons/search-normal.svg" alt="" class="icon ml-[18px] search-icon" />
+        <input type="text" class="placeholder:text-gray-400 search-input" name="search"
+          placeholder="Search something here" />
+      </div>
+      <div id="icons-wrapper" class="space-x-[20px]">
+        <a href="/pages/favorites.html" class="nav-icon">
+          <img src="/assets/icons/heart.svg" alt="" class="icon" />
+        </a>
+        <a href="/pages/auth.html" id="login" class="font-semibold !hidden">
+          Login&nbsp;<img src="/assets/icons/login.svg" alt="" class="icon" />
+        </a>
+        <div class="relative inline-block text-left !hidden" id="profile">
+          <img src="" alt="Profile" id="nav-profile" class="shadow-md" />
+          <div
+            class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+            role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+            <div class="py-1" role="none">
+              <a href="/pages/profile.html" class="block px-4 py-2 text-gray-700" role="menuitem" tabindex="-1"
+                id="menu-item-0">Profile Settings</a>
+              <div class="block px-4 py-2 text-gray-700 cursor-pointer logout" role="menuitem" tabindex="-1">
+                Logout
               </div>
             </div>
           </div>
         </div>
-      </nav>
-      <nav class="container-fluid">
-        <div class="space-x-[16px] w-[492px] flex">
-          <div id="search-box-2">
-            <img
-              src="/assets/icons/search-normal.svg"
-              alt=""
-              class="icon ml-[18px] search-icon"
-            />
-            <input
-              type="text"
-              class="placeholder:text-gray-400 search-input"
-              name="search"
-              placeholder="Search something here"
-            />
-          </div>
+      </div>
+    </nav>
+    <nav class="container-fluid">
+      <div class="space-x-[16px] w-[492px] flex">
+        <div id="search-box-2">
+          <img src="/assets/icons/search-normal.svg" alt="" class="icon ml-[18px] search-icon" />
+          <input type="text" class="placeholder:text-gray-400 search-input" name="search"
+            placeholder="Search something here" />
         </div>
-      </nav>
+      </div>
+    </nav>
 
-      <div class="backdrop" id="nav-backdrop"></div>
-      <!-- Mobile menu, show/hide based on menu open state. -->
-      <div id="mobile-menu" class="w-full bg-white px-6 py-6 sm:w-full">
-        <div class="flex items-center justify-between">
-          <a href="/" id="logo-link">
-            <img
-              class="logo-img"
-              src="/assets/images/logo/morent-logo.svg"
-              alt="Logo Image"
-            />
-          </a>
-          <button class="rounded-md p-2.5 text-gray-700" id="close-icon">
-            <img src="/assets/icons/close.svg" alt="" />
-          </button>
-        </div>
-        <div class="mt-6 flow-root" id="mobile-nav">
-          <div class="-my-6 divide-y divide-gray-500/10">
-            <div class="space-y-2 py-6">
-              <a href="/">Home</a>
-              <a href="/pages/category.html">Category</a>
-              <a href="/pages/blogs.html">Blogs</a>
-              <a href="/pages/about.html">About Us</a>
-              <a href="/pages/contact.html">Contact Us</a>
-            </div>
-            <div class="space-y-2 py-6">
-              <a href="/pages/favorites.html">Favorites</a>
-            </div>
-            <div class="py-6 !hidden" id="mobile-login">
-              <a href="/pages/auth.html">Login</a>
-            </div>
-            <div class="py-6 !hidden" id="mobile-profile">
-              <a href="/pages/profile.html" class="active"
-                >Profile Settings</a
-              >
-              <a class="logout">Logout</a>
-            </div>
+    <div class="backdrop" id="nav-backdrop"></div>
+    <!-- Mobile menu, show/hide based on menu open state. -->
+    <div id="mobile-menu" class="w-full bg-white px-6 py-6 sm:w-full">
+      <div class="flex items-center justify-between">
+        <a href="/" id="logo-link">
+          <img class="logo-img" src="/assets/images/logo/morent-logo.svg" alt="Logo Image" />
+        </a>
+        <button class="rounded-md p-2.5 text-gray-700" id="close-icon">
+          <img src="/assets/icons/close.svg" alt="" />
+        </button>
+      </div>
+      <div class="mt-6 flow-root" id="mobile-nav">
+        <div class="-my-6 divide-y divide-gray-500/10">
+          <div class="space-y-2 py-6">
+            <a href="/">Home</a>
+            <a href="/pages/category.html">Category</a>
+            <a href="/pages/blogs.html">Blogs</a>
+            <a href="/pages/about.html">About Us</a>
+            <a href="/pages/contact.html">Contact Us</a>
+          </div>
+          <div class="space-y-2 py-6">
+            <a href="/pages/favorites.html">Favorites</a>
+          </div>
+          <div class="py-6 !hidden" id="mobile-login">
+            <a href="/pages/auth.html">Login</a>
+          </div>
+          <div class="py-6 !hidden" id="mobile-profile">
+            <a href="/pages/profile.html" class="active">Profile Settings</a>
+            <a class="logout">Logout</a>
           </div>
         </div>
       </div>
-      <ul id="nav" class="container-fluid space-x-[32px]">
-        <li><a href="/">Home</a></li>
-        <li><a href="/pages/category.html">Category</a></li>
-        <li><a href="/pages/blogs.html">Blogs</a></li>
-        <li><a href="/pages/about.html">About Us</a></li>
-        <li><a href="/pages/contact.html">Contact Us</a></li>
-      </ul>
-    </header>
+    </div>
+    <ul id="nav" class="container-fluid space-x-[32px]">
+      <li><a href="/">Home</a></li>
+      <li><a href="/pages/category.html">Category</a></li>
+      <li><a href="/pages/blogs.html">Blogs</a></li>
+      <li><a href="/pages/about.html">About Us</a></li>
+      <li><a href="/pages/contact.html">Contact Us</a></li>
+    </ul>
+  </header>
 
-    <div id="body-wrapper">
-      <div id="body" class="container-fluid">
+  <div id="body-wrapper">
+    <div id="body" class="container-fluid">
+      <div id="skeleton-loading">
+        <div role="status"
+          class="space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center">
+          <div class="flex items-center justify-center w-full h-48 bg-gray-300 rounded sm:w-96">
+            <svg class="w-10 h-10 text-gray-200" aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+              <path
+                d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
+            </svg>
+          </div>
+          <div class="w-full">
+            <div class="h-2.5 bg-gray-200 rounded-full w-48 mb-4"></div>
+            <div class="h-2 bg-gray-200 rounded-full max-w-[480px] mb-2.5"></div>
+            <div class="h-2 bg-gray-200 rounded-full mb-2.5"></div>
+            <div class="h-2 bg-gray-200 rounded-full max-w-[440px] mb-2.5"></div>
+            <div class="h-2 bg-gray-200 rounded-full max-w-[460px] mb-2.5"></div>
+            <div class="h-2 bg-gray-200 rounded-full max-w-[360px]"></div>
+          </div>
+        </div>
+      </div>
+      <div id="loaded" class="hidden">
         <div class="mb-8 dark:border-gray-700">
-          <ul
-            class="flex flex-wrap -mb-px text-sm font-medium text-center"
-            id="default-tab"
-            data-tabs-toggle="#default-tab-content"
-            role="tablist"
-          >
+          <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab"
+            data-tabs-toggle="#default-tab-content" role="tablist">
             <li class="me-2" role="presentation">
               <div
                 class="inline-block py-4 pe-8 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
-                id="tab-1"
-                data-tabs-target="#dashboard"
-                role="tab"
-                aria-controls="dashboard"
-                aria-selected="false"
-              >
+                id="tab-1" data-tabs-target="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false">
                 Profile Settings
               </div>
             </li>
             <li class="me-2" role="presentation">
               <div
                 class="inline-block py-4 pe-8 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
-                id="settings-tab"
-                data-tabs-target="#settings"
-                role="tab"
-                aria-controls="settings"
-                aria-selected="false"
-              >
+                id="settings-tab" data-tabs-target="#settings" role="tab" aria-controls="settings"
+                aria-selected="false">
                 Bookings
               </div>
             </li>
             <li role="presentation">
               <div
                 class="inline-block py-4 pe-8 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
-                id="contacts-tab"
-                data-tabs-target="#contacts"
-                role="tab"
-                aria-controls="contacts"
-                aria-selected="false"
-              >
+                id="contacts-tab" data-tabs-target="#contacts" role="tab" aria-controls="contacts"
+                aria-selected="false">
                 Rentings
               </div>
             </li>
           </ul>
         </div>
         <div id="default-tab-content">
-          <div
-            class="hidden"
-            id="dashboard"
-            role="tabpanel"
-            aria-labelledby="tab-1"
-          >
+          <div class="hidden" id="dashboard" role="tabpanel" aria-labelledby="tab-1">
             <div class="grid grid-cols-1 xl:grid-cols-3 xl:gap-4">
               <div class="col-span-full xl:col-auto">
-                <div
-                  class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 relative"
-                >
+                <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 relative">
                   <div id="status"></div>
-                  <div
-                    class="items-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4"
-                  >
-                    <img
-                      class="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0"
-                      src="/assets/images/sample-profile.jpg"
-                      alt="Profile picture"
-                      id="profile-pic"
-                    />
+                  <div class="items-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
+                    <img class="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0"
+                      src="/assets/images/sample-profile.jpg" alt="Profile picture" id="profile-pic" />
                     <div>
                       <h3 class="mb-1 text-xl font-bold text-gray-900">
                         Profile Picture
@@ -237,244 +175,122 @@
                         JPG, GIF or PNG. Max size of 3 MB
                       </div>
                       <div class="flex items-center space-x-4">
-                        <button
-                          class="flex items-center"
-                          id="upload-save-profile"
-                        >
+                        <button class="flex items-center" id="upload-save-profile">
                           Change
                         </button>
-                        <input
-                          type="file"
-                          id="upload-profile"
-                          class="hidden"
-                          accept="image/*"
-                        />
-                        <button
-                          id="remove-cancel-profile"
-                          style="background-color: #ccc !important"
-                        >
+                        <input type="file" id="upload-profile" class="hidden" accept="image/*" />
+                        <button id="remove-cancel-profile" style="background-color: #ccc !important">
                           Remove
                         </button>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div
-                  class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2"
-                >
+                <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2">
                   <h3 class="mb-4 text-xl font-semibold">Documents</h3>
 
-                  <div
-                    id="accordion-flush"
-                    data-accordion="collapse"
-                    data-active-classes="bg-white text-gray-900"
-                    data-inactive-classes="text-gray-500"
-                  >
+                  <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white text-gray-900"
+                    data-inactive-classes="text-gray-500">
                     <h2 id="accordion-flush-heading-1">
                       <div
                         class="flex items-center justify-between w-full font-medium rtl:text-right text-gray-500 border-b border-gray-200 gap-3 select-none"
-                        data-accordion-target="#accordion-flush-body-1"
-                        aria-expanded="false"
-                        aria-controls="accordion-flush-body-1"
-                      >
-                        <div
-                          class="flex items-center justify-between gap-2 w-full"
-                        >
+                        data-accordion-target="#accordion-flush-body-1" aria-expanded="false"
+                        aria-controls="accordion-flush-body-1">
+                        <div class="flex items-center justify-between gap-2 w-full">
                           <div class="flex items-center gap-2">
-                            <img
-                              src="/assets/images/id-card.png"
-                              alt=""
-                              width="55"
-                              class="me-[8px]"
-                            />
+                            <img src="/assets/images/id-card.png" alt="" width="55" class="me-[8px]" />
                             <div class="grid gap-1">
                               <h4 class="text-gray-900 font-semibold">
                                 Identity Card
                               </h4>
-                              <h5
-                                class="text-gray-400 text-xs font-normal leading-[18px]"
-                              >
+                              <h5 class="text-gray-400 text-xs font-normal leading-[18px]">
                                 Front and Back Photos of Identity Card
                               </h5>
                             </div>
                           </div>
                         </div>
-                        <svg
-                          data-accordion-icon
-                          class="w-3 h-3 rotate-180 shrink-0"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 10 6"
-                        >
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5 5 1 1 5"
-                          />
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5 5 1 1 5" />
                         </svg>
                       </div>
                     </h2>
-                    <div
-                      id="accordion-flush-body-1"
-                      class="hidden"
-                      aria-labelledby="accordion-flush-heading-1"
-                    >
-                      <input
-                        type="file"
-                        class="filepond"
-                        name="id-card"
-                        multiple
-                        data-max-file-size="3MB"
-                        data-max-files="2"
-                      />
+                    <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
+                      <input type="file" class="filepond" name="id-card" multiple data-max-file-size="3MB"
+                        data-max-files="2" />
                     </div>
                     <h2 id="accordion-flush-heading-2">
                       <div
                         class="flex items-center justify-between w-full font-medium rtl:text-right text-gray-500 border-b border-gray-200 gap-3 select-none"
-                        data-accordion-target="#accordion-flush-body-2"
-                        aria-expanded="false"
-                        aria-controls="accordion-flush-body-2"
-                      >
-                        <div
-                          class="flex items-center justify-between gap-2 w-full"
-                        >
+                        data-accordion-target="#accordion-flush-body-2" aria-expanded="false"
+                        aria-controls="accordion-flush-body-2">
+                        <div class="flex items-center justify-between gap-2 w-full">
                           <div class="flex items-center gap-2">
-                            <img
-                              src="/assets/images/driver-license.png"
-                              alt=""
-                              width="55"
-                              class="me-[8px]"
-                            />
+                            <img src="/assets/images/driver-license.png" alt="" width="55" class="me-[8px]" />
                             <div class="grid gap-1">
                               <h4 class="text-gray-900 font-semibold">
                                 Driver License
                               </h4>
-                              <h5
-                                class="text-gray-400 text-xs font-normal leading-[18px]"
-                              >
+                              <h5 class="text-gray-400 text-xs font-normal leading-[18px]">
                                 Front and Back Photos of Driver License
                               </h5>
                             </div>
                           </div>
                         </div>
-                        <svg
-                          data-accordion-icon
-                          class="w-3 h-3 rotate-180 shrink-0"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 10 6"
-                        >
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5 5 1 1 5"
-                          />
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5 5 1 1 5" />
                         </svg>
                       </div>
                     </h2>
-                    <div
-                      id="accordion-flush-body-2"
-                      class="hidden"
-                      aria-labelledby="accordion-flush-heading-2"
-                    >
-                      <input
-                        type="file"
-                        class="filepond"
-                        name="driver-license"
-                        multiple
-                        data-max-file-size="3MB"
-                        data-max-files="2"
-                      />
+                    <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
+                      <input type="file" class="filepond" name="driver-license" multiple data-max-file-size="3MB"
+                        data-max-files="2" />
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col-span-2">
-                <div
-                  class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 sm:p-6"
-                >
+                <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 sm:p-6">
                   <h3 class="mb-4 text-xl font-semibold">
                     General Information
                   </h3>
                   <div>
                     <div class="grid grid-cols-6 gap-6">
                       <div class="col-span-6 sm:col-span-3">
-                        <label
-                          for="first-name"
-                          class="block mb-2 font-medium text-gray-900"
-                          >First Name </label
-                        >
-                        <input
-                          type="text"
-                          name="first_name"
-                          id="first-name"
+                        <label for="first-name" class="block mb-2 font-medium text-gray-900">First Name </label>
+                        <input type="text" name="first_name" id="first-name"
                           class="shadow-sm bg-gray-50 text-gray-900 rounded-lg block w-full p-2.5 focus:outline-0"
-                          autocomplete="on"
-                        />
+                          autocomplete="on" />
                       </div>
                       <div class="col-span-6 sm:col-span-3">
-                        <label
-                          for="last-name"
-                          class="block mb-2 font-medium text-gray-900"
-                          >Last Name <span class="text-red-500">*</span></label
-                        >
-                        <input
-                          type="text"
-                          name="last_name"
-                          id="last-name"
+                        <label for="last-name" class="block mb-2 font-medium text-gray-900">Last Name <span
+                            class="text-red-500">*</span></label>
+                        <input type="text" name="last_name" id="last-name"
                           class="shadow-sm bg-gray-50 text-gray-900 rounded-lg block w-full p-2.5 focus:outline-0"
-                          autocomplete="on"
-                        />
+                          autocomplete="on" />
                       </div>
                       <div class="col-span-6 sm:col-span-3">
-                        <label
-                          for="address"
-                          class="block mb-2 font-medium text-gray-900"
-                          >Address <span class="text-red-500">*</span></label
-                        >
-                        <input
-                          type="text"
-                          name="address"
-                          id="address"
+                        <label for="address" class="block mb-2 font-medium text-gray-900">Address <span
+                            class="text-red-500">*</span></label>
+                        <input type="text" name="address" id="address"
                           class="shadow-sm bg-gray-50 text-gray-900 rounded-lg block w-full p-2.5 focus:outline-0"
-                          autocomplete="on"
-                        />
+                          autocomplete="on" />
                       </div>
                       <div class="col-span-6 sm:col-span-3">
-                        <label
-                          for="email"
-                          class="block mb-2 font-medium text-gray-900"
-                          >Email</label
-                        >
-                        <input
-                          type="email"
-                          name="email"
-                          id="email"
+                        <label for="email" class="block mb-2 font-medium text-gray-900">Email</label>
+                        <input type="email" name="email" id="email"
                           class="shadow-sm bg-gray-50 text-gray-900 rounded-lg block w-full p-2.5 focus:outline-0 select-none"
-                          disabled
-                          autocomplete="off"
-                        />
+                          disabled autocomplete="off" />
                       </div>
                       <div class="col-span-6 sm:col-span-3">
-                        <label
-                          for="phone-number"
-                          class="block mb-2 font-medium text-gray-900"
-                          >Phone Number
-                          <span class="text-red-500">*</span></label
-                        >
-                        <input
-                          type="text"
-                          name="phone"
-                          id="phone-number"
+                        <label for="phone-number" class="block mb-2 font-medium text-gray-900">Phone Number
+                          <span class="text-red-500">*</span></label>
+                        <input type="text" name="phone" id="phone-number"
                           class="shadow-sm bg-gray-50 text-gray-900 rounded-lg block w-full p-2.5 focus:outline-0"
-                          autocomplete="on"
-                        />
+                          autocomplete="on" />
                       </div>
                       <div class="col-span-6 sm:col-full">
                         <button id="save-general-info" class="disabled-button">
@@ -484,60 +300,31 @@
                     </div>
                   </div>
                 </div>
-                <div
-                  class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 sm:p-6"
-                >
+                <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 sm:p-6">
                   <h3 class="mb-4 text-xl font-semibold">Change Password</h3>
                   <div>
                     <div class="grid grid-cols-6 gap-6">
                       <div class="col-span-6 sm:col-span-3">
-                        <label
-                          for="current-password"
-                          class="block mb-2 font-medium text-gray-900"
-                          >Current password
-                          <span class="text-red-500">*</span></label
-                        >
-                        <input
-                          type="password"
-                          name="current_password"
-                          id="current-password"
+                        <label for="current-password" class="block mb-2 font-medium text-gray-900">Current password
+                          <span class="text-red-500">*</span></label>
+                        <input type="password" name="current_password" id="current-password"
                           class="shadow-sm bg-gray-50 text-gray-900 rounded-lg block w-full p-2.5 focus:outline-0"
-                          placeholder="••••••••"
-                          required
-                        />
+                          placeholder="••••••••" required />
                       </div>
                       <div class="col-span-6 sm:col-span-3"></div>
                       <div class="col-span-6 sm:col-span-3">
-                        <label
-                          for="password"
-                          class="block mb-2 font-medium text-gray-900"
-                          >New password
-                          <span class="text-red-500">*</span></label
-                        >
-                        <input
-                          type="password"
-                          id="password"
-                          name="new_password"
+                        <label for="password" class="block mb-2 font-medium text-gray-900">New password
+                          <span class="text-red-500">*</span></label>
+                        <input type="password" id="password" name="new_password"
                           class="bg-gray-50 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                          placeholder="••••••••"
-                          required
-                        />
+                          placeholder="••••••••" required />
                       </div>
                       <div class="col-span-6 sm:col-span-3">
-                        <label
-                          for="confirm-password"
-                          class="block mb-2 font-medium text-gray-900"
-                          >Confirm password
-                          <span class="text-red-500">*</span></label
-                        >
-                        <input
-                          type="password"
-                          name="confirm_password"
-                          id="confirm-password"
+                        <label for="confirm-password" class="block mb-2 font-medium text-gray-900">Confirm password
+                          <span class="text-red-500">*</span></label>
+                        <input type="password" name="confirm_password" id="confirm-password"
                           class="shadow-sm bg-gray-50 text-gray-900 rounded-lg block w-full p-2.5 focus:outline-0"
-                          placeholder="••••••••"
-                          required
-                        />
+                          placeholder="••••••••" required />
                       </div>
                       <div class="col-span-6 sm:col-full">
                         <button id="change-password" class="disabled-button">
@@ -550,72 +337,62 @@
               </div>
             </div>
           </div>
-          <div
-            class="hidden p-4 rounded-lg bg-gray-50"
-            id="settings"
-            role="tabpanel"
-            aria-labelledby="settings-tab"
-          ></div>
-          <div
-            class="hidden p-4 rounded-lg bg-gray-50"
-            id="contacts"
-            role="tabpanel"
-            aria-labelledby="contacts-tab"
-          ></div>
+          <div class="hidden p-4 rounded-lg bg-gray-50" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+          </div>
+          <div class="hidden p-4 rounded-lg bg-gray-50" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <footer>
-      <div id="footer" class="container-fluid">
-        <div>
-          <div class="space-y-[16px] mr-[48px] mt-[20px]">
-            <img
-              src="/assets/images/logo/morent-logo.svg"
-              alt="Logo"
-              class="logo-img"
-            />
-            <p>
-              Whether it's for business or leisure, we're dedicated to making
-              your ride comfortable, convenient, and affordable.
-            </p>
-          </div>
-          <div>
-            <div class="mr-[60px] mt-[20px]">
-              <h6>About</h6>
-              <ul class="space-y-[20px]">
-                <li><a href="#">How it works</a></li>
-                <li><a href="/pages/about.html#lower">Features</a></li>
-                <li><a href="#">Partnership</a></li>
-                <li><a href="#">Bussiness Relation</a></li>
-              </ul>
-            </div>
-            <div class="mr-[60px] mt-[20px]">
-              <h6>Community</h6>
-              <ul class="space-y-[20px]">
-                <li><a href="/pages/blogs.html">Blogs</a></li>
-              </ul>
-            </div>
-            <div class="mt-[20px]">
-              <h6>Socials</h6>
-              <ul class="space-y-[20px]">
-                <li><a href="#">Tik Tok</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Facebook</a></li>
-              </ul>
-            </div>
-          </div>
+  <footer>
+    <div id="footer" class="container-fluid">
+      <div>
+        <div class="space-y-[16px] mr-[48px] mt-[20px]">
+          <img src="/assets/images/logo/morent-logo.svg" alt="Logo" class="logo-img" />
+          <p>
+            Whether it's for business or leisure, we're dedicated to making
+            your ride comfortable, convenient, and affordable.
+          </p>
         </div>
-        <hr />
         <div>
-          <h6>©2024 MORENT. All rights reserved</h6>
-          <div class="space-x-[28px]">
-            <a href="#">Privacy & Policy</a>
-            <a href="#">Terms & Condition</a>
+          <div class="mr-[60px] mt-[20px]">
+            <h6>About</h6>
+            <ul class="space-y-[20px]">
+              <li><a href="#">How it works</a></li>
+              <li><a href="/pages/about.html#lower">Features</a></li>
+              <li><a href="#">Partnership</a></li>
+              <li><a href="#">Bussiness Relation</a></li>
+            </ul>
+          </div>
+          <div class="mr-[60px] mt-[20px]">
+            <h6>Community</h6>
+            <ul class="space-y-[20px]">
+              <li><a href="/pages/blogs.html">Blogs</a></li>
+            </ul>
+          </div>
+          <div class="mt-[20px]">
+            <h6>Socials</h6>
+            <ul class="space-y-[20px]">
+              <li><a href="#">Tik Tok</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+            </ul>
           </div>
         </div>
       </div>
-    </footer>
-  </body>
+      <hr />
+      <div>
+        <h6>©2024 MORENT. All rights reserved</h6>
+        <div class="space-x-[28px]">
+          <a href="#">Privacy & Policy</a>
+          <a href="#">Terms & Condition</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>
