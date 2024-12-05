@@ -1,16 +1,17 @@
 import axios from '../modules/axios.min.js';
-import directusConfig from '../config/directus.config.js';
+import serviceConfig from '../config/service.config.js';
 import { logout } from './auth.js';
+import api from './authAPI.js'
 
-const api = axios.create({
-  baseURL: directusConfig.baseURL,
+const serviceApi = axios.create({
+  baseURL: serviceConfig.baseURL,
   headers: {
       'Content-Type': 'application/json',
   },
 });
 
 // Request interceptor to add the token to each request
-api.interceptors.request.use(
+serviceApi.interceptors.request.use(
   config => {
       const token = localStorage.getItem("access_token");
       if (token) {
@@ -22,7 +23,7 @@ api.interceptors.request.use(
 );
 
 // Response interceptor to handle 401/403 errors
-api.interceptors.response.use(
+serviceApi.interceptors.response.use(
   response => response,
   async error => {
       const originalRequest = error.config;
@@ -57,4 +58,4 @@ api.interceptors.response.use(
   }
 );
 
-export default api;
+export default serviceApi;
