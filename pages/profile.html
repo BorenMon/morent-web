@@ -46,7 +46,7 @@
             role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
             <div class="py-1" role="none">
               <a href="/pages/profile.html" class="block px-4 py-2 text-gray-700" role="menuitem" tabindex="-1"
-                id="menu-item-0">Profile Settings</a>
+                id="menu-item-0">Profile Setting</a>
               <div class="block px-4 py-2 text-gray-700 cursor-pointer logout" role="menuitem" tabindex="-1">
                 Logout
               </div>
@@ -91,8 +91,8 @@
           <div class="py-6 !hidden" id="mobile-login">
             <a href="/pages/auth.html">Login</a>
           </div>
-          <div class="py-6 !hidden" id="mobile-profile">
-            <a href="/pages/profile.html" class="active">Profile Settings</a>
+          <div class="space-y-2 py-6 !hidden" id="mobile-profile">
+            <a href="/pages/profile.html" class="active">Profile Setting</a>
             <a class="logout">Logout</a>
           </div>
         </div>
@@ -131,19 +131,19 @@
       </div>
       <div id="loaded" class="hidden">
         <div class="mb-8 dark:border-gray-700">
-          <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab"
+          <ul class="flex flex-wrap -mb-px text-sm font-medium text-center space-x-[24px]" id="default-tab"
             data-tabs-toggle="#default-tab-content" role="tablist">
-            <li class="me-2" role="presentation">
+            <li role="presentation">
               <div
-                class="inline-block py-4 pe-8 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
+                class="inline-block py-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
                 id="profile-settings-tab" data-tabs-target="#profile-settings" role="tab"
                 aria-controls="profile-settings" aria-selected="false">
                 Profile Setting
               </div>
             </li>
-            <li class="me-2" role="presentation">
+            <li role="presentation">
               <div
-                class="inline-block py-4 pe-8 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
+                class="inline-block py-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
                 id="bookings-tab" data-tabs-target="#bookings" role="tab" aria-controls="bookings"
                 aria-selected="false">
                 Booking
@@ -151,7 +151,7 @@
             </li>
             <li role="presentation">
               <div
-                class="inline-block py-4 pe-8 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
+                class="inline-block py-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
                 id="rentings-tab" data-tabs-target="#rentings" role="tab" aria-controls="rentings"
                 aria-selected="false">
                 Renting
@@ -159,7 +159,7 @@
             </li>
             <li role="presentation">
               <div
-                class="inline-block py-4 pe-8 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
+                class="inline-block py-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
                 id="history-tab" data-tabs-target="#history" role="tab" aria-controls="history" aria-selected="false">
                 History
               </div>
