@@ -113,8 +113,8 @@
         <div role="status"
           class="space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center">
           <div class="flex items-center justify-center w-full h-48 bg-gray-300 rounded sm:w-96">
-            <svg class="w-10 h-10 text-gray-200" aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+            <svg class="w-10 h-10 text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor" viewBox="0 0 20 18">
               <path
                 d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
             </svg>
@@ -136,30 +136,38 @@
             <li class="me-2" role="presentation">
               <div
                 class="inline-block py-4 pe-8 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
-                id="tab-1" data-tabs-target="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false">
-                Profile Settings
+                id="profile-settings-tab" data-tabs-target="#profile-settings" role="tab"
+                aria-controls="profile-settings" aria-selected="false">
+                Profile Setting
               </div>
             </li>
             <li class="me-2" role="presentation">
               <div
                 class="inline-block py-4 pe-8 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
-                id="settings-tab" data-tabs-target="#settings" role="tab" aria-controls="settings"
+                id="bookings-tab" data-tabs-target="#bookings" role="tab" aria-controls="bookings"
                 aria-selected="false">
-                Bookings
+                Booking
               </div>
             </li>
             <li role="presentation">
               <div
                 class="inline-block py-4 pe-8 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
-                id="contacts-tab" data-tabs-target="#contacts" role="tab" aria-controls="contacts"
+                id="rentings-tab" data-tabs-target="#rentings" role="tab" aria-controls="rentings"
                 aria-selected="false">
-                Rentings
+                Renting
+              </div>
+            </li>
+            <li role="presentation">
+              <div
+                class="inline-block py-4 pe-8 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer font-semibold tab"
+                id="history-tab" data-tabs-target="#history" role="tab" aria-controls="history" aria-selected="false">
+                History
               </div>
             </li>
           </ul>
         </div>
         <div id="default-tab-content">
-          <div class="hidden" id="dashboard" role="tabpanel" aria-labelledby="tab-1">
+          <div class="hidden" id="profile-settings" role="tabpanel" aria-labelledby="profile-settings-tab">
             <div class="grid grid-cols-1 xl:grid-cols-3 xl:gap-4">
               <div class="col-span-full xl:col-auto">
                 <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 relative">
@@ -337,9 +345,89 @@
               </div>
             </div>
           </div>
-          <div class="hidden p-4 rounded-lg bg-gray-50" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+          <div class="hidden p-[24px] rounded-lg bg-white border border-gray-200 shadow-sm" id="bookings"
+            role="tabpanel" aria-labelledby="bookings-tab">
+            <div class="flex justify-between items-center mb-[32px]">
+              <h2 class="text-lg font-semibold">Recent Bookings</h2>
+              <a href="" class="text-sm text-blue-500">View All</a>
+            </div>
+            <ul class="grid grid-cols-1 gap-[32px] min-[1000px]:grid-cols-2">
+              <li class="cursor-pointer py-[12px] flex border-b">
+                <img src="https://morent-cms.borenmon.dev/assets/1d37b3ae-b18f-4cc5-a618-1735ef2446a3"
+                  class="w-[155px] me-[24px]">
+                <div class="flex justify-between w-full">
+                  <div class="flex flex-col">
+                    <h3 class="text-xl font-medium">Nissan GT - R</h3>
+                    <p class="text-[#90A3BF] mb-[6px]">Sport Car</p>
+                    <button type="button"
+                      style="font-size: 0.875rem !important; height: 24px; padding: 0 12px !important; width: 88px !important; border-radius: 1000px !important; background-color: rgb(255, 40, 40) !important;">Cancel</button>
+                  </div>
+                  <div class="h-full flex flex-col justify-between items-end">
+                    <p class="text-[#90A3BF]">12/31/2022</p>
+                    <h3 class="font-bold text-2xl">$80.00</h3>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
-          <div class="hidden p-4 rounded-lg bg-gray-50" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
+          <div class="hidden p-[24px] rounded-lg bg-white border border-gray-200 shadow-sm" id="rentings"
+            role="tabpanel" aria-labelledby="rentings-tab">
+            <div class="flex justify-between items-center mb-[32px]">
+              <h2 class="text-lg font-semibold">Rentings</h2>
+            </div>
+            <div class="cursor-pointer py-[12px] flex">
+              <img src="https://morent-cms.borenmon.dev/assets/1d37b3ae-b18f-4cc5-a618-1735ef2446a3"
+                class="w-[155px] me-[24px]">
+              <div class="flex justify-between w-full">
+                <div class="flex flex-col">
+                  <h3 class="text-xl font-medium">Nissan GT - R</h3>
+                  <p class="text-[#90A3BF]">Sport Car</p>
+                </div>
+                <div class="h-full flex flex-col justify-between items-end">
+                  <p class="text-[#90A3BF]">12/31/2022</p>
+                  <h3 class="font-bold text-2xl">$80.00</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hidden p-[24px] rounded-lg bg-white border border-gray-200 shadow-sm" id="history" role="tabpanel"
+            aria-labelledby="history-tab">
+            <div class="flex justify-between items-center mb-[32px]">
+              <h2 class="text-lg font-semibold">History</h2>
+              <a href="" class="text-sm text-blue-500">View All</a>
+            </div>
+            <ul class="grid grid-cols-1 gap-[32px] min-[1000px]:grid-cols-2">
+              <li class="cursor-pointer py-[12px] border-b flex">
+                <img src="https://morent-cms.borenmon.dev/assets/1d37b3ae-b18f-4cc5-a618-1735ef2446a3"
+                  class="w-[155px] me-[24px]">
+                <div class="flex justify-between w-full">
+                  <div class="flex flex-col">
+                    <h3 class="text-xl font-medium">Nissan GT - R</h3>
+                    <p class="text-[#90A3BF]">Sport Car</p>
+                  </div>
+                  <div class="h-full flex flex-col justify-between items-end">
+                    <p class="text-[#90A3BF]">12/31/2022</p>
+                    <span
+                      class="bg-green-100 text-green-800 text-sm font-medium ms-2 px-2.5 py-0.5 rounded">Completed</span>
+                  </div>
+                </div>
+              </li>
+              <li class="cursor-pointer py-[12px] border-b flex">
+                <img src="https://morent-cms.borenmon.dev/assets/1d37b3ae-b18f-4cc5-a618-1735ef2446a3"
+                  class="w-[155px] me-[24px]">
+                <div class="flex justify-between w-full">
+                  <div class="flex flex-col">
+                    <h3 class="text-xl font-medium">Nissan GT - R</h3>
+                    <p class="text-[#90A3BF]">Sport Car</p>
+                  </div>
+                  <div class="h-full flex flex-col justify-between items-end">
+                    <p class="text-[#90A3BF]">12/31/2022</p>
+                    <span
+                      class="bg-red-100 text-red-800 text-sm font-medium ms-2 px-2.5 py-0.5 rounded">Cancelled</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

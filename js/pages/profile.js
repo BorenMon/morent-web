@@ -495,3 +495,13 @@ $('#change-password').on('click', async () => {
     }
   }
 })
+
+$('div[role="tab"]').on('click', function () {
+  window.location.hash = $(this).attr('id')
+})
+
+for (let i = 0; i < $('div[role="tab"]').length; i++) {
+  if (window.location.hash === '#' + $('div[role="tab"]').eq(i).attr('id')) {
+    $('div[role="tab"]').eq(i).click()
+  }
+}
