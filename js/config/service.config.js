@@ -1,5 +1,5 @@
 const serviceConfig = {
-  baseURL: 'http://localhost:4000'
+  baseURL: 'https://morent-service.borenmon.dev'
 }
 
 export default serviceConfig;
