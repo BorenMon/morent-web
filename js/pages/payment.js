@@ -5,7 +5,7 @@ import { getAssetUrl, fetchItemById } from '../services/publicAPI.js'
 import { formatToTwoDecimals } from '../services/utils.js'
 import { fetchProfile } from '../services/client.js'
 import serviceApi from '../services/authServiceAPI.js'
-import { sweetalert } from '../services/sweetalert2.js'
+import { sweetalert, toast } from '../services/sweetalert2.js'
 import { forbiddenPage } from '../services/auth.js'
 
 if (forbiddenPage()) window.location.href = '/pages/auth.html#login'
@@ -15,6 +15,8 @@ const urlParams = new URLSearchParams(window.location.search)
 
 // Get the value of the 'id' parameter
 const carId = urlParams.get('id')
+
+let total_amount;
 
 if (carId) {
   $('.city').select2({
@@ -33,7 +35,8 @@ if (carId) {
   $('#image').attr('src', getAssetUrl(card_image))
   $('#sub-total').text(`$${formatToTwoDecimals(subTotal)}`)
   $('#tax').text(`$${formatToTwoDecimals(tax)}`)
-  $('#total').text(`$${formatToTwoDecimals(subTotal + tax)}`)
+  total_amount = subTotal + tax
+  $('#total').text(`$${formatToTwoDecimals(total_amount)}`)
 } else {
   window.location.href = '/pages/category.html'
 }
@@ -210,11 +213,12 @@ $('#book-button').on('click', async function () {
 
     const response = await serviceApi.post('/renting/book', {
       car_id: +carId,
+      total_amount,
       ...requiredPayload,
     })
 
-    $('#loading-backdrop').css('display', 'none')
-    sweetalert
+    if (response.status == 201) {
+      sweetalert
       .fire({
         title: 'Paid',
         icon: 'success',
@@ -222,8 +226,13 @@ $('#book-button').on('click', async function () {
         confirmButtonText: 'OK',
       })
       .then(() => {
-        window.location.href = '/pages/profile.html'
+        $('#loading-backdrop').css('display', 'none')
+        window.location.href = '/pages/profile.html#bookings-tab'
       })
+    } else {
+      $('#loading-backdrop').css('display', 'none')
+      toast('Something went wrong', 'error')
+    }
   }
 })
 
