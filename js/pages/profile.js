@@ -10,9 +10,10 @@ import '../modules/filepond.min.js'
 import { urlToFilePondObject } from '../services/filepond.js'
 import { getAssetUrl } from '../services/publicAPI.js'
 import api from '../services/authAPI.js'
-import { areObjectsEqual } from '../services/utils.js'
+import { areObjectsEqual, formatISODate, formatToTwoDecimals, snakeToCapitalizedWithSpaces } from '../services/utils.js'
 import directusConfig from '../config/directus.config.js'
 import { forbiddenPage } from '../services/auth.js'
+import serviceApi from '../services/authServiceAPI.js'
 
 if (forbiddenPage()) window.location.href = '/'
 
@@ -166,7 +167,7 @@ const pond1 = FilePond.create(document.querySelector('input[name="id-card"]'), {
   onaddfile: async (error, file) => {
     if (error) {
       toast(`${error.main}, ${error.sub}`, 'error')
-        pond1.removeFile(file)
+      pond1.removeFile(file)
       return
     }
 
@@ -228,37 +229,37 @@ const pond1 = FilePond.create(document.querySelector('input[name="id-card"]'), {
     if (file.getMetadata().id) {
       processingFile = file
 
-    // Prompt to confirm if the user wants to remove the file
-    sweetalert
-      .fire({
-        title: 'Are you sure you want to remove this file?',
-        text: 'Whenever file is removed, your status will be unverified until our staff rechecks it.',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3563E9',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes',
-        cancelButtonText: 'No',
-      })
-      .then(async (result) => {
-        if (result.isConfirmed) {
-          // Proceed with file removal if confirmed
-          try {
-            await api.delete(
-              'items/junction_directus_users_files/' + file.getMetadata().id
-            )
-          } catch (removeError) {
-            console.error('File removal failed:', removeError)
+      // Prompt to confirm if the user wants to remove the file
+      sweetalert
+        .fire({
+          title: 'Are you sure you want to remove this file?',
+          text: 'Whenever file is removed, your status will be unverified until our staff rechecks it.',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3563E9',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes',
+          cancelButtonText: 'No',
+        })
+        .then(async (result) => {
+          if (result.isConfirmed) {
+            // Proceed with file removal if confirmed
+            try {
+              await api.delete(
+                'items/junction_directus_users_files/' + file.getMetadata().id
+              )
+            } catch (removeError) {
+              console.error('File removal failed:', removeError)
+            }
+          } else {
+            pond1.addFile(processingFile.file, {
+              metadata: {
+                id: processingFile.getMetadata().id,
+                reverted: true,
+              },
+            }) // Re-add the file if removal is canceled
           }
-        } else {
-          pond1.addFile(processingFile.file, {
-            metadata: {
-              id: processingFile.getMetadata().id,
-              reverted: true,
-            },
-          }) // Re-add the file if removal is canceled
-        }
-      })
+        })
     }
   },
 })
@@ -370,7 +371,7 @@ const pond2 = FilePond.create(
               try {
                 await api.delete(
                   'items/junction_directus_users_files_1/' +
-                    file.getMetadata().id
+                  file.getMetadata().id
                 )
               } catch (removeError) {
                 console.error('File removal failed:', removeError)
@@ -432,12 +433,12 @@ checkGeneralInfo()
 saveGeneralInfo.on('click', async e => {
   if (!isGeneralInfoNotPassed()) {
     try {
-      const { email, ...updateData} = newGeneralInfo
+      const { email, ...updateData } = newGeneralInfo
       await api.patch('/users/' + profile.id, updateData);
       generalInfo = { ...newGeneralInfo }
       checkGeneralInfo()
-      toast('General information updated successfully','success');
-    } catch(e) {
+      toast('General information updated successfully', 'success');
+    } catch (e) {
       toast(e.response.data.errors.map(e => e.message).join('\n'), 'error');
     }
   }
@@ -462,7 +463,7 @@ checkPassword()
 $('#change-password').on('click', async () => {
   if (changePasswordFields.every(field => $(`input[name="${field}"]`).val().trim())) {
     if ($('input[name="new_password"]').val().trim() !== $('input[name="confirm_password"]').val().trim()) {
-      toast('New password and confirmation password do not match','error');
+      toast('New password and confirmation password do not match', 'error');
     } else {
       try {
         const response = await fetch(`${directusConfig.baseURL}/auth/login`, {
@@ -474,7 +475,7 @@ $('#change-password').on('click', async () => {
         })
 
         const data = await response.json()
-    
+
         if (response.ok) {
           localStorage.setItem('access_token', data.data.access_token)
           localStorage.setItem('refresh_token', data.data.refresh_token)
@@ -496,12 +497,127 @@ $('#change-password').on('click', async () => {
   }
 })
 
+const refreshBookings = async () => {
+  const response = await serviceApi.get('/renting/bookings')
+  const bookingsList = $('#bookings ul')
+  bookingsList.empty()
+
+  response.data.data.forEach(booking => {
+    const { id, car_id: { card_image, model, type }, date_created, total_amount } = booking
+
+    bookingsList.append(`
+      <li class="cursor-pointer py-[12px] flex border-e-2 pe-8 border-[#3563E9]">
+        <img src="${getAssetUrl(card_image)}"
+          class="w-[155px] me-[24px]">
+        <div class="flex justify-between w-full">
+          <div class="flex flex-col">
+            <h3 class="text-xl font-medium">${model}</h3>
+            <p class="text-[#90A3BF] mb-[6px]">${type}</p>
+            <button type="button" data-id="${id}" class="cancel-booking"
+              style="font-size: 0.875rem !important; height: 24px; padding: 0 12px !important; width: 88px !important; border-radius: 1000px !important; background-color: rgb(255, 40, 40) !important;">Cancel</button>
+          </div>
+          <div class="h-full flex flex-col justify-between items-end">
+            <p class="text-[#90A3BF]">${formatISODate(date_created)}</p>
+            <h3 class="font-bold text-2xl">$${formatToTwoDecimals(total_amount)}</h3>
+          </div>
+        </div>
+      </li>
+    `)
+  })
+
+  $('.cancel-booking').on('click', async e => {
+    sweetalert
+      .fire({
+        title: 'Are you sure to cancel this booking?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3563E9',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No',
+      })
+      .then(async (result) => {
+        if (result.isConfirmed) {
+          const response = await serviceApi.delete('/renting/' + e.target.dataset.id)
+
+          if (response.status == 200) {
+            toast('Booking cancelled successfully','success')
+            refreshBookings()
+          }
+        }
+      })
+  })
+}
+$('#bookings-tab').on('click', () => {
+  refreshBookings()
+})
+
+const refreshRenting = async () => {
+  const response = await serviceApi.get('/renting')
+  const rentingList = $('#renting-car')
+  rentingList.empty()
+
+  if (response.data.data.length > 0) {
+    const { car_id: { card_image, model, type }, date_created, total_amount } = response.data.data[0]
+
+    rentingList.html(`
+        <img src="${getAssetUrl(card_image)}"
+          class="w-[155px] me-[24px]">
+        <div class="flex justify-between w-full">
+          <div class="flex flex-col">
+            <h3 class="text-xl font-medium">${model}</h3>
+            <p class="text-[#90A3BF]">${type}</p>
+          </div>
+          <div class="h-full flex flex-col justify-between items-end">
+            <p class="text-[#90A3BF]">${formatISODate(date_created)}</p>
+            <h3 class="font-bold text-2xl">$${formatToTwoDecimals(total_amount)}</h3>
+          </div>
+        </div>
+    `)
+  }
+}
+$('#rentings-tab').on('click', () => {
+  refreshRenting()
+})
+
+const refreshHistory = async () => {
+  const response = await serviceApi.get('/renting/history')
+  const historyList = $('#history ul')
+  historyList.empty()
+
+  response.data.data.forEach(booking => {
+    const { id, car_id: { card_image, model, type }, date_created, progress_status } = booking
+
+    historyList.append(`
+      <li class="cursor-pointer py-[12px] border-e-2 flex border-[#3563E9] pe-8">
+        <img src="${getAssetUrl(card_image)}"
+          class="w-[155px] me-[24px]">
+        <div class="flex justify-between w-full">
+          <div class="flex flex-col">
+            <h3 class="text-xl font-medium">${model}</h3>
+            <p class="text-[#90A3BF]">${type}</p>
+          </div>
+          <div class="h-full flex flex-col justify-between items-end">
+            <p class="text-[#90A3BF]">${formatISODate(date_created)}</p>
+            <span
+              class="${progress_status == 'cancelled' ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'} text-sm font-medium ms-2 px-2.5 py-0.5 rounded">${snakeToCapitalizedWithSpaces(progress_status)}</span>
+          </div>
+        </div>
+      </li>
+    `)
+  })
+}
+$('#history-tab').on('click', () => {
+  refreshHistory()
+})
+
 $('div[role="tab"]').on('click', function () {
   window.location.hash = $(this).attr('id')
 })
 
 for (let i = 0; i < $('div[role="tab"]').length; i++) {
   if (window.location.hash === '#' + $('div[role="tab"]').eq(i).attr('id')) {
-    $('div[role="tab"]').eq(i).click()
+    $('div[role="tab"]').eq(i).trigger('click')
   }
 }

@@ -21,7 +21,7 @@ api.interceptors.request.use(
   error => Promise.reject(error)
 );
 
-// Response interceptor to handle 401/403 errors
+// Response interceptor to handle 401 error
 api.interceptors.response.use(
   response => response,
   async error => {

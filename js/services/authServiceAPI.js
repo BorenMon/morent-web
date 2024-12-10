@@ -22,7 +22,7 @@ serviceApi.interceptors.request.use(
   error => Promise.reject(error)
 );
 
-// Response interceptor to handle 401/403 errors
+// Response interceptor to handle 401 error
 serviceApi.interceptors.response.use(
   response => response,
   async error => {
@@ -32,8 +32,7 @@ serviceApi.interceptors.response.use(
           // Attempt to refresh the token if we have a refresh token
           const refreshToken = localStorage.getItem("refresh_token");
 
-          if (refreshToken && !originalRequest._retry) {
-              originalRequest._retry = true;
+          if (refreshToken) {
               try {
                   const { data } = await axios.post(`${api.defaults.baseURL}/auth/refresh`, {
                       refresh_token: refreshToken,
@@ -43,8 +42,9 @@ serviceApi.interceptors.response.use(
                   localStorage.setItem("access_token", data.data.access_token);
                   localStorage.setItem("refresh_token", data.data.refresh_token);
                   originalRequest.headers['Authorization'] = `Bearer ${data.data.access_token}`;
+                  originalRequest._retry = true; // Prevent infinite retry loop
 
-                  return api(originalRequest);
+                  return serviceApi(originalRequest);
               } catch (refreshError) {
                   console.error("Token refresh failed:", refreshError);
                   logout(); // If refresh fails, logout the user

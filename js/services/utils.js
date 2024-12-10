@@ -42,3 +42,16 @@ export function areObjectsEqual(obj1, obj2) {
   // Check if all keys and their values are equal
   return keys1.every(key => obj2.hasOwnProperty(key) && obj1[key] === obj2[key]);
 }
+
+/**
+ * Converts a snake_case string to Capitalized Case with spaces replacing underscores.
+ * 
+ * @param {string} snakeCaseStr - The snake_case string to be converted.
+ * @returns {string} - The string converted to Capitalized Case with spaces.
+ */
+export function snakeToCapitalizedWithSpaces(snakeCaseStr) {
+  return snakeCaseStr
+      .split('_') // Split the string by underscores
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize each word
+      .join(' '); // Join the words with spaces
+}
