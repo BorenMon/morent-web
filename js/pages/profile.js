@@ -498,8 +498,11 @@ $('#change-password').on('click', async () => {
 })
 
 const refreshBookings = async () => {
-  const response = await serviceApi.get('/renting/bookings')
   const bookingsList = $('#bookings ul')
+  const bookingsLoading = $('#bookings img')
+  bookingsLoading.removeClass('hidden')
+  bookingsList.addClass('hidden')
+  const response = await serviceApi.get('/renting/bookings')
   bookingsList.empty()
 
   response.data.data.forEach(booking => {
@@ -508,7 +511,7 @@ const refreshBookings = async () => {
     bookingsList.append(`
       <li class="cursor-pointer py-[12px] flex border-e-2 pe-8 border-[#3563E9]">
         <img src="${getAssetUrl(card_image)}"
-          class="w-[155px] me-[24px]">
+          class="w-[155px] me-[24px] object-contain">
         <div class="flex justify-between w-full">
           <div class="flex flex-col">
             <h3 class="text-xl font-medium">${model}</h3>
@@ -525,6 +528,9 @@ const refreshBookings = async () => {
     `)
   })
 
+  bookingsLoading.addClass('hidden')
+  bookingsList.removeClass('hidden')
+
   $('.cancel-booking').on('click', async e => {
     sweetalert
       .fire({
@@ -539,6 +545,8 @@ const refreshBookings = async () => {
       })
       .then(async (result) => {
         if (result.isConfirmed) {
+          bookingsLoading.removeClass('hidden')
+          bookingsList.addClass('hidden')
           const response = await serviceApi.delete('/renting/' + e.target.dataset.id)
 
           if (response.status == 200) {
@@ -554,8 +562,11 @@ $('#bookings-tab').on('click', () => {
 })
 
 const refreshRenting = async () => {
-  const response = await serviceApi.get('/renting')
   const rentingList = $('#renting-car')
+  const rentingLoading = $('#rentings img')
+  rentingLoading.removeClass('hidden')
+  rentingList.addClass('hidden')
+  const response = await serviceApi.get('/renting')
   rentingList.empty()
 
   if (response.data.data.length > 0) {
@@ -563,7 +574,7 @@ const refreshRenting = async () => {
 
     rentingList.html(`
         <img src="${getAssetUrl(card_image)}"
-          class="w-[155px] me-[24px]">
+          class="w-[155px] me-[24px] object-contain">
         <div class="flex justify-between w-full">
           <div class="flex flex-col">
             <h3 class="text-xl font-medium">${model}</h3>
@@ -576,14 +587,20 @@ const refreshRenting = async () => {
         </div>
     `)
   }
+
+  rentingLoading.addClass('hidden')
+  rentingList.removeClass('hidden')
 }
 $('#rentings-tab').on('click', () => {
   refreshRenting()
 })
 
 const refreshHistory = async () => {
-  const response = await serviceApi.get('/renting/history')
   const historyList = $('#history ul')
+  const historyLoading = $('#history img')
+  historyLoading.removeClass('hidden')
+  historyList.addClass('hidden')
+  const response = await serviceApi.get('/renting/history')
   historyList.empty()
 
   response.data.data.forEach(booking => {
@@ -592,7 +609,7 @@ const refreshHistory = async () => {
     historyList.append(`
       <li class="cursor-pointer py-[12px] border-e-2 flex border-[#3563E9] pe-8">
         <img src="${getAssetUrl(card_image)}"
-          class="w-[155px] me-[24px]">
+          class="w-[155px] me-[24px] object-contain">
         <div class="flex justify-between w-full">
           <div class="flex flex-col">
             <h3 class="text-xl font-medium">${model}</h3>
@@ -607,6 +624,9 @@ const refreshHistory = async () => {
       </li>
     `)
   })
+
+  historyLoading.addClass('hidden')
+  historyList.removeClass('hidden')
 }
 $('#history-tab').on('click', () => {
   refreshHistory()
